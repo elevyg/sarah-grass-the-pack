@@ -8,7 +8,7 @@
     "start": "strapi start",
     "build": "strapi build",
     "strapi": "strapi",
-    "poststart": "sh generate_types.sh"
+    "postinstall": "sh generate_types.sh"
   },
   "dependencies": {
     "@strapi/plugin-i18n": "4.23.1",
