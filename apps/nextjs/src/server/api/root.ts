@@ -5,7 +5,7 @@ import {
   publicProcedure,
 } from "~/server/api/trpc";
 
-import type {} from "strapi-types/types";
+import type { LandingPage } from "strapi-types/types/api/landing-page";
 /**
  * This is the primary router for your server.
  *
@@ -14,8 +14,8 @@ import type {} from "strapi-types/types";
 export const appRouter = createTRPCRouter({
   post: postRouter,
   getLanding: publicProcedure.query(async ({ ctx }) => {
-    const res = await ctx.strapi.get<>("landing-page");
-    return res;
+    const res = await ctx.strapi.get<{ data: LandingPage }>("landing-page");
+    return res.data.data;
   }),
 });
 
