@@ -7,8 +7,7 @@
     "dev": "railway run strapi develop",
     "start": "strapi start",
     "build": "strapi build",
-    "strapi": "strapi",
-    "postinstall": "sh generate_types.sh"
+    "strapi": "strapi"
   },
   "dependencies": {
     "@strapi/plugin-i18n": "4.23.1",
