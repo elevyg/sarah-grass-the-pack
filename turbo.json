@@ -4,6 +4,9 @@
     "build": {
       "outputs": [".next/**", "!.next/cache/**"]
     },
+    "dev": {
+      "cache": false
+    },
     "type-check": {}
   }
 }
