@@ -6,7 +6,6 @@
   "license": "MIT",
   "private": true,
   "scripts": {
-    "postinstall": "sh generate_types.sh"
   },
   "dependencies": {
     "strapi-plugin-schemas-to-ts": "^1.3.2"
