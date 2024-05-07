@@ -1,5 +1,5 @@
 {
-  "private": "true",
+  "private": true,
   "name": "sarah-grass-the-pack",
   "version": "1.0.0",
   "license": "MIT",
