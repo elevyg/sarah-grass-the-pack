@@ -27,7 +27,6 @@ import { env } from "~/env";
 
 const strapi = axios.create({
   baseURL: `${env.STRAPI_URL}/api/`,
-  timeout: 1000,
   headers: { Authorization: `Bearer ${env.STRAPI_TOKEN}` },
 });
 
