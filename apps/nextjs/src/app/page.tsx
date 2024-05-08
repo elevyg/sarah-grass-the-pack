@@ -3,6 +3,8 @@ import { api } from "~/trpc/server";
 
 export default async function Home() {
   const data = await api.getLanding();
+  const offerings = await api.getOfferings();
+
   return (
     <main className="flex min-h-screen flex-col bg-eggWhite">
       <div className="flex flex-1 items-center justify-center">
@@ -22,7 +24,13 @@ export default async function Home() {
               {data.attributes.offering_header}
             </h2>
           </div>
-          <div id="offering-content-container" className="h-80"></div>
+          <div id="offering-content-container" className="h-80">
+            {offerings.map((offering) => (
+              <div key={offering.id}>
+                <h3>{offering.attributes.title}</h3>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
       <h2>{data.attributes.journal_header}</h2>
