@@ -883,6 +883,7 @@ export interface ApiOfferingOffering extends Schema.CollectionType {
     singularName: 'offering';
     pluralName: 'offerings';
     displayName: 'Offering';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -897,11 +898,14 @@ export interface ApiOfferingOffering extends Schema.CollectionType {
       Attribute.SetMinMaxLength<{
         minLength: 50;
       }>;
-    starting_date: Attribute.DateTime;
+    starting_date: Attribute.Date;
     slug: Attribute.UID<'api::offering.offering', 'title'>;
     status: Attribute.Enumeration<['active', 'suspended', 'finished']>;
     event_info: Attribute.Text;
     squared_image: Attribute.Media & Attribute.Required;
+    ending_date: Attribute.Date;
+    starting_time: Attribute.Time;
+    ending_time: Attribute.Time;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

@@ -4,7 +4,8 @@
   "info": {
     "singularName": "offering",
     "pluralName": "offerings",
-    "displayName": "Offering"
+    "displayName": "Offering",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -26,7 +27,7 @@
       "minLength": 50
     },
     "starting_date": {
-      "type": "datetime"
+      "type": "date"
     },
     "slug": {
       "type": "uid",
@@ -44,15 +45,24 @@
       "type": "text"
     },
     "squared_image": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
       "allowedTypes": [
         "images",
         "files",
         "videos",
         "audios"
-      ],
-      "type": "media",
-      "multiple": false,
-      "required": true
+      ]
+    },
+    "ending_date": {
+      "type": "date"
+    },
+    "starting_time": {
+      "type": "time"
+    },
+    "ending_time": {
+      "type": "time"
     }
   }
 }
