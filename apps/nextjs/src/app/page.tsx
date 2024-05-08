@@ -5,7 +5,7 @@ export default async function Home() {
   const data = await api.getLanding();
   return (
     <main className="flex min-h-screen flex-col bg-eggWhite">
-      <div className="bg-gray-400 flex flex-1 items-center justify-center">
+      <div className="flex flex-1 items-center justify-center">
         <GeometricFigures />
       </div>
       <h2>{data.attributes.offering_header}</h2>
