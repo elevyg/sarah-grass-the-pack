@@ -8,6 +8,7 @@ export default {
       colors: {
         eggWhite: "#FFFCF4",
         matteBlack: "#232323",
+        mint: "#B4DDCB",
       },
       fontFamily: {
         sans: ["var(--font-sans)", ...fontFamily.sans],
