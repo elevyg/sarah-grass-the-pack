@@ -899,7 +899,7 @@ export interface ApiOfferingOffering extends Schema.CollectionType {
         minLength: 50;
       }>;
     starting_date: Attribute.Date;
-    slug: Attribute.UID<'api::offering.offering', 'title'>;
+    slug: Attribute.UID<'api::offering.offering', 'title'> & Attribute.Required;
     status: Attribute.Enumeration<['active', 'suspended', 'finished']>;
     event_info: Attribute.Text;
     squared_image: Attribute.Media & Attribute.Required;

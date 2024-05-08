@@ -16,7 +16,7 @@ export interface Offering {
     instructor: string;
     description: string;
     starting_date?: Date;
-    slug?: string;
+    slug: string;
     status?: Status;
     event_info?: string;
     squared_image: { data: Media };
@@ -31,7 +31,7 @@ export interface Offering_Plain {
   instructor: string;
   description: string;
   starting_date?: Date;
-  slug?: string;
+  slug: string;
   status?: Status;
   event_info?: string;
   squared_image: Media_Plain;
@@ -46,7 +46,7 @@ export interface Offering_NoRelations {
   instructor: string;
   description: string;
   starting_date?: Date;
-  slug?: string;
+  slug: string;
   status?: Status;
   event_info?: string;
   squared_image: number;
@@ -61,7 +61,7 @@ export interface Offering_AdminPanelLifeCycle {
   instructor: string;
   description: string;
   starting_date?: Date;
-  slug?: string;
+  slug: string;
   status?: Status;
   event_info?: string;
   squared_image: AdminPanelRelationPropertyModification<Media_Plain>;
