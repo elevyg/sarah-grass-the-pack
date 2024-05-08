@@ -24,7 +24,7 @@ export const appRouter = createTRPCRouter({
     const query = qs.stringify({
       populate: {
         squared_image: {
-          fields: ["url"],
+          fields: ["url", "formats"],
         },
       },
       fields: [
@@ -43,7 +43,7 @@ export const appRouter = createTRPCRouter({
       status: "active",
       locale: ["en"],
     });
-    console.log(query);
+
     const res = await ctx.strapi.get<{ data: Offering[] }>(
       "offerings?" + query,
     );
