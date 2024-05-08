@@ -877,6 +877,49 @@ export interface ApiLandingPageLandingPage extends Schema.SingleType {
   };
 }
 
+export interface ApiOfferingOffering extends Schema.CollectionType {
+  collectionName: 'offerings';
+  info: {
+    singularName: 'offering';
+    pluralName: 'offerings';
+    displayName: 'Offering';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    title: Attribute.String & Attribute.Required;
+    instructor: Attribute.String &
+      Attribute.Required &
+      Attribute.DefaultTo<'Sarah Grass'>;
+    description: Attribute.Text &
+      Attribute.Required &
+      Attribute.SetMinMaxLength<{
+        minLength: 50;
+      }>;
+    starting_date: Attribute.DateTime;
+    slug: Attribute.UID<'api::offering.offering', 'title'>;
+    status: Attribute.Enumeration<['active', 'suspended', 'finished']>;
+    event_info: Attribute.Text;
+    squared_image: Attribute.Media & Attribute.Required;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::offering.offering',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::offering.offering',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 declare module '@strapi/types' {
   export module Shared {
     export interface ContentTypes {
@@ -897,6 +940,7 @@ declare module '@strapi/types' {
       'plugin::i18n.locale': PluginI18NLocale;
       'api::course.course': ApiCourseCourse;
       'api::landing-page.landing-page': ApiLandingPageLandingPage;
+      'api::offering.offering': ApiOfferingOffering;
     }
   }
 }

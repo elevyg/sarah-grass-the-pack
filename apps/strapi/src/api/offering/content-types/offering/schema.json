@@ -1,0 +1,58 @@
+{
+  "kind": "collectionType",
+  "collectionName": "offerings",
+  "info": {
+    "singularName": "offering",
+    "pluralName": "offerings",
+    "displayName": "Offering"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "instructor": {
+      "type": "string",
+      "required": true,
+      "default": "Sarah Grass"
+    },
+    "description": {
+      "type": "text",
+      "required": true,
+      "minLength": 50
+    },
+    "starting_date": {
+      "type": "datetime"
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "title"
+    },
+    "status": {
+      "type": "enumeration",
+      "enum": [
+        "active",
+        "suspended",
+        "finished"
+      ]
+    },
+    "event_info": {
+      "type": "text"
+    },
+    "squared_image": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false,
+      "required": true
+    }
+  }
+}
