@@ -65,6 +65,9 @@
       "relation": "manyToMany",
       "target": "api::instructor.instructor",
       "inversedBy": "offerings"
+    },
+    "days": {
+      "type": "string"
     }
   }
 }

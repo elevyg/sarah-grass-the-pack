@@ -946,6 +946,7 @@ export interface ApiOfferingOffering extends Schema.CollectionType {
       'manyToMany',
       'api::instructor.instructor'
     >;
+    days: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

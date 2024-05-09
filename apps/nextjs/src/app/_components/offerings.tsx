@@ -47,7 +47,7 @@ const Offerings = async ({ title }: Props) => {
                   {i.attributes.full_name}
                 </p>
               ))}
-              <p>{offering.attributes.description}</p>
+              <p className="mb-4">{offering.attributes.description}</p>
             </div>
           </div>
         ))}

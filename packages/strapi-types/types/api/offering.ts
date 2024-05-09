@@ -25,6 +25,7 @@ export interface Offering {
     starting_time?: Date;
     ending_time?: Date;
     instructors?: { data: Instructor[] };
+    days?: string;
   };
 }
 export interface Offering_Plain {
@@ -40,6 +41,7 @@ export interface Offering_Plain {
   starting_time?: Date;
   ending_time?: Date;
   instructors?: Instructor_Plain[];
+  days?: string;
 }
 
 export interface Offering_NoRelations {
@@ -55,6 +57,7 @@ export interface Offering_NoRelations {
   starting_time?: Date;
   ending_time?: Date;
   instructors?: number[];
+  days?: string;
 }
 
 export interface Offering_AdminPanelLifeCycle {
@@ -70,4 +73,5 @@ export interface Offering_AdminPanelLifeCycle {
   starting_time?: Date;
   ending_time?: Date;
   instructors?: AdminPanelRelationPropertyModification<Instructor_Plain>;
+  days?: string;
 }
