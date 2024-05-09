@@ -72,9 +72,9 @@ const Offerings = ({ title, offerings }: Props) => {
       </div>
       <div
         id="offering-content-container"
-        className="relative grid grid-cols-2 items-start justify-between pb-5"
+        className="relative grid grid-cols-1 items-start justify-between pb-5 md:grid-cols-2"
       >
-        <div className="absolute bottom-0 left-1/2 top-0 h-full w-0.5 bg-matteBlack" />
+        <div className=" absolute bottom-0 left-1/2 top-0 hidden h-full w-0.5 bg-matteBlack md:block" />
         {offerings.map((offering) => (
           <motion.div
             key={offering.id}
