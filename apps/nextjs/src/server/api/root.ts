@@ -37,6 +37,7 @@ export const appRouter = createTRPCRouter({
         "ending_date",
         "starting_time",
         "ending_time",
+        "days",
       ],
       pagination: {
         pageSize: 10,
