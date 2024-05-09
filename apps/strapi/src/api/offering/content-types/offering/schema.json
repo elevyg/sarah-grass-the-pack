@@ -16,11 +16,6 @@
       "type": "string",
       "required": true
     },
-    "instructor": {
-      "type": "string",
-      "required": true,
-      "default": "Sarah Grass"
-    },
     "description": {
       "type": "text",
       "required": true,
@@ -64,6 +59,12 @@
     },
     "ending_time": {
       "type": "time"
+    },
+    "instructors": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::instructor.instructor",
+      "inversedBy": "offerings"
     }
   }
 }

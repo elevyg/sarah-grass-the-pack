@@ -819,6 +819,44 @@ export interface ApiCourseCourse extends Schema.CollectionType {
   };
 }
 
+export interface ApiInstructorInstructor extends Schema.CollectionType {
+  collectionName: 'instructors';
+  info: {
+    singularName: 'instructor';
+    pluralName: 'instructors';
+    displayName: 'Instructor';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    full_name: Attribute.String & Attribute.Required;
+    description: Attribute.Text;
+    slug: Attribute.UID<'api::instructor.instructor', 'full_name'>;
+    offerings: Attribute.Relation<
+      'api::instructor.instructor',
+      'manyToMany',
+      'api::offering.offering'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::instructor.instructor',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::instructor.instructor',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiLandingPageLandingPage extends Schema.SingleType {
   collectionName: 'landing_pages';
   info: {
@@ -890,9 +928,6 @@ export interface ApiOfferingOffering extends Schema.CollectionType {
   };
   attributes: {
     title: Attribute.String & Attribute.Required;
-    instructor: Attribute.String &
-      Attribute.Required &
-      Attribute.DefaultTo<'Sarah Grass'>;
     description: Attribute.Text &
       Attribute.Required &
       Attribute.SetMinMaxLength<{
@@ -906,6 +941,11 @@ export interface ApiOfferingOffering extends Schema.CollectionType {
     ending_date: Attribute.Date;
     starting_time: Attribute.Time;
     ending_time: Attribute.Time;
+    instructors: Attribute.Relation<
+      'api::offering.offering',
+      'manyToMany',
+      'api::instructor.instructor'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -943,6 +983,7 @@ declare module '@strapi/types' {
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
       'plugin::i18n.locale': PluginI18NLocale;
       'api::course.course': ApiCourseCourse;
+      'api::instructor.instructor': ApiInstructorInstructor;
       'api::landing-page.landing-page': ApiLandingPageLandingPage;
       'api::offering.offering': ApiOfferingOffering;
     }

@@ -26,6 +26,9 @@ export const appRouter = createTRPCRouter({
         squared_image: {
           fields: ["url", "formats"],
         },
+        instructors: {
+          fields: ["full_name"],
+        },
       },
       fields: [
         "title",
@@ -34,7 +37,6 @@ export const appRouter = createTRPCRouter({
         "ending_date",
         "starting_time",
         "ending_time",
-        "instructor",
       ],
       pagination: {
         pageSize: 10,

@@ -40,7 +40,9 @@ const Offerings = async ({ title }: Props) => {
             </div>
             <div className="flex flex-col gap-3">
               <h3 className="text-2xl">{offering.attributes.title}</h3>
-              <p>{offering.attributes.instructor}</p>
+              {offering.attributes.instructors?.data.map((i) => (
+                <p key={i.id}>{i.attributes.full_name}</p>
+              ))}
               <p>{offering.attributes.description}</p>
             </div>
           </div>
