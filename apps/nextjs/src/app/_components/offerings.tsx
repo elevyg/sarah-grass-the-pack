@@ -25,23 +25,27 @@ const Offerings = async ({ title }: Props) => {
         {offerings.map((offering) => (
           <div
             key={offering.id}
-            className={`flex w-auto flex-col  items-center border-b-2 border-matteBlack p-10`}
+            className={`flex flex-col items-center border-b-2 border-matteBlack p-10`}
           >
-            <div className="mb-5 inline-block overflow-hidden rounded-[0.5em]">
+            <div className="z-100 relative mb-5 aspect-square w-full overflow-hidden rounded-lg">
               <Image
                 src={
                   offering.attributes.squared_image.data.attributes.formats
                     .medium.url
                 }
                 alt="image"
-                width={300}
-                height={300}
+                fill={true}
+                objectFit="cover"
               />
             </div>
-            <div className="flex flex-col gap-3">
-              <h3 className="text-2xl">{offering.attributes.title}</h3>
+            <div className="mb-2 flex flex-1 flex-col">
+              <h3 className="text-3xl font-bold">
+                {offering.attributes.title}
+              </h3>
               {offering.attributes.instructors?.data.map((i) => (
-                <p key={i.id}>{i.attributes.full_name}</p>
+                <p className="mb-4 text-2xl" key={i.id}>
+                  {i.attributes.full_name}
+                </p>
               ))}
               <p>{offering.attributes.description}</p>
             </div>
