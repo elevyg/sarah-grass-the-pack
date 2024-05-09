@@ -8,6 +8,7 @@ import {
 import type { LandingPage } from "strapi-types/types/api/landing-page";
 import type { Offering } from "strapi-types/types/api/offering";
 import qs from "qs";
+import { z } from "zod";
 
 /**
  * This is the primary router for your server.
@@ -53,6 +54,24 @@ export const appRouter = createTRPCRouter({
     );
     return res.data.data;
   }),
+  getOffering: publicProcedure
+    .input(z.string())
+    .query(async ({ ctx, input }) => {
+      const query = qs.stringify({
+        populate: {
+          squared_image: {
+            fields: ["url", "formats"],
+          },
+          instructors: {
+            fields: ["full_name"],
+          },
+        },
+      });
+      const res = await ctx.strapi.get<{ data: Offering }>(
+        `offerings/${input}?` + query,
+      );
+      return res.data.data;
+    }),
 });
 
 // export type definition of API
