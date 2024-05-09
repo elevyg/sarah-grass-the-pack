@@ -89,7 +89,7 @@ const Offerings = ({ title, offerings }: Props) => {
             >
               <Image
                 src={
-                  offering.attributes.squared_image.data.attributes.formats
+                  offering.attributes.square_image.data.attributes.formats
                     .medium.url
                 }
                 alt="image"

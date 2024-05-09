@@ -24,7 +24,7 @@ export const appRouter = createTRPCRouter({
   getOfferings: publicProcedure.query(async ({ ctx }) => {
     const query = qs.stringify({
       populate: {
-        squared_image: {
+        square_image: {
           fields: ["url", "formats"],
         },
         instructors: {
@@ -59,7 +59,7 @@ export const appRouter = createTRPCRouter({
     .query(async ({ ctx, input }) => {
       const query = qs.stringify({
         populate: {
-          squared_image: {
+          square_image: {
             fields: ["url", "formats"],
           },
           instructors: {

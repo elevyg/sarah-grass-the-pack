@@ -20,12 +20,13 @@ export interface Offering {
     slug: string;
     status?: Status;
     event_info?: string;
-    squared_image: { data: Media };
+    square_image: { data: Media };
     ending_date?: Date;
     starting_time?: Date;
     ending_time?: Date;
     instructors?: { data: Instructor[] };
     days?: string;
+    rectangle_image?: { data: Media };
   };
 }
 export interface Offering_Plain {
@@ -36,12 +37,13 @@ export interface Offering_Plain {
   slug: string;
   status?: Status;
   event_info?: string;
-  squared_image: Media_Plain;
+  square_image: Media_Plain;
   ending_date?: Date;
   starting_time?: Date;
   ending_time?: Date;
   instructors?: Instructor_Plain[];
   days?: string;
+  rectangle_image?: Media_Plain;
 }
 
 export interface Offering_NoRelations {
@@ -52,12 +54,13 @@ export interface Offering_NoRelations {
   slug: string;
   status?: Status;
   event_info?: string;
-  squared_image: number;
+  square_image: number;
   ending_date?: Date;
   starting_time?: Date;
   ending_time?: Date;
   instructors?: number[];
   days?: string;
+  rectangle_image?: number;
 }
 
 export interface Offering_AdminPanelLifeCycle {
@@ -68,10 +71,11 @@ export interface Offering_AdminPanelLifeCycle {
   slug: string;
   status?: Status;
   event_info?: string;
-  squared_image: AdminPanelRelationPropertyModification<Media_Plain>;
+  square_image: AdminPanelRelationPropertyModification<Media_Plain>;
   ending_date?: Date;
   starting_time?: Date;
   ending_time?: Date;
   instructors?: AdminPanelRelationPropertyModification<Instructor_Plain>;
   days?: string;
+  rectangle_image?: AdminPanelRelationPropertyModification<Media_Plain>;
 }

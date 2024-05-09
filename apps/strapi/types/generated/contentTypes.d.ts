@@ -906,7 +906,7 @@ export interface ApiOfferingOffering extends Schema.CollectionType {
     slug: Attribute.UID<'api::offering.offering', 'title'> & Attribute.Required;
     status: Attribute.Enumeration<['active', 'suspended', 'finished']>;
     event_info: Attribute.Text;
-    squared_image: Attribute.Media & Attribute.Required;
+    square_image: Attribute.Media & Attribute.Required;
     ending_date: Attribute.Date;
     starting_time: Attribute.Time;
     ending_time: Attribute.Time;
@@ -916,6 +916,7 @@ export interface ApiOfferingOffering extends Schema.CollectionType {
       'api::instructor.instructor'
     >;
     days: Attribute.String;
+    rectangle_image: Attribute.Media;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

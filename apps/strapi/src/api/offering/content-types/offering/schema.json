@@ -40,7 +40,7 @@
     "event_info": {
       "type": "text"
     },
-    "squared_image": {
+    "square_image": {
       "type": "media",
       "multiple": false,
       "required": true,
@@ -68,6 +68,16 @@
     },
     "days": {
       "type": "string"
+    },
+    "rectangle_image": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
     }
   }
 }
