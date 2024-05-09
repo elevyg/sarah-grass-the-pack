@@ -27,7 +27,7 @@ const Offerings = async ({ title }: Props) => {
             key={offering.id}
             className={`flex w-auto flex-col  items-center border-b-2 border-matteBlack p-10`}
           >
-            <div className="mb-5 inline-block overflow-hidden rounded-[40px]">
+            <div className="mb-5 inline-block overflow-hidden rounded-[0.5em]">
               <Image
                 src={
                   offering.attributes.squared_image.data.attributes.formats
