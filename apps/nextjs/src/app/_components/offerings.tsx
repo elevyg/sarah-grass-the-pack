@@ -2,6 +2,7 @@
 import Image from "next/image";
 import { type Offering } from "strapi-types/types/api/offering";
 import { motion } from "framer-motion";
+import Link from "next/link";
 
 interface Props {
   title?: string;
@@ -143,7 +144,9 @@ const Offerings = ({ title, offerings }: Props) => {
               </p>
             </div>
             <motion.div variants={textMotion} className="self-start text-2xl">
-              <p>LEARN MORE</p>
+              <Link href={`/offering/${offering.attributes.slug}`}>
+                LEARN MORE
+              </Link>
             </motion.div>
           </motion.div>
         ))}
