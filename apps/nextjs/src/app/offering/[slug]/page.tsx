@@ -3,10 +3,19 @@ import React from "react";
 import Section from "~/app/_components/section";
 import { api } from "~/trpc/server";
 import { stringTimeToDate } from "~/utils/indext";
+import { remark } from "remark";
+import html from "remark-html";
 
 const Page = async ({ params }: { params: { slug: string } }) => {
   const texts = await api.getOfferingPageTexts();
   const offering = await api.getOffering(params.slug);
+
+  const processedContent = await remark()
+    .use(html)
+    .process(offering.attributes.extended_description);
+  const contentHtml = processedContent.toString();
+
+  console.log(contentHtml);
 
   return (
     <main className="min-h-screen bg-eggWhite">
@@ -55,8 +64,13 @@ const Page = async ({ params }: { params: { slug: string } }) => {
               </div>
             </div>
             <div className="flex flex-col border-b-2 border-matteBlack p-10">
-              <h2>{texts.attributes.about_offering_title}</h2>
-              <p>{offering.attributes.extended_description}</p>
+              <h2 className="pb-4 text-2xl">
+                {texts.attributes.about_offering_title}
+              </h2>
+              <div
+                className="flex flex-col gap-2"
+                dangerouslySetInnerHTML={{ __html: contentHtml }}
+              />
             </div>
           </div>
           <div className="flex flex-1 flex-col">

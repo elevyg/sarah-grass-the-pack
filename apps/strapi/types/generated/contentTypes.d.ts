@@ -917,7 +917,7 @@ export interface ApiOfferingOffering extends Schema.CollectionType {
     >;
     days: Attribute.String;
     rectangle_image: Attribute.Media;
-    extended_description: Attribute.Text;
+    extended_description: Attribute.RichText;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

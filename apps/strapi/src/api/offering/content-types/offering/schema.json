@@ -81,7 +81,7 @@
       ]
     },
     "extended_description": {
-      "type": "text"
+      "type": "richtext"
     }
   }
 }
