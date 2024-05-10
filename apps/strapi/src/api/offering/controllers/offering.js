@@ -29,7 +29,6 @@ module.exports = createCoreController(
         offering,
         contentType
       );
-      console.log("OFFERING!", sanitizedEntity);
 
       return this.transformResponse(sanitizedEntity[0]);
     },

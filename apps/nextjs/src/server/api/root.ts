@@ -59,11 +59,11 @@ export const appRouter = createTRPCRouter({
     .query(async ({ ctx, input }) => {
       const query = qs.stringify({
         populate: {
-          square_image: {
+          rectangle_image: {
             fields: ["url", "formats"],
           },
           instructors: {
-            fields: ["full_name"],
+            fields: "*",
           },
         },
       });
