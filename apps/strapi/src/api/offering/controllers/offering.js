@@ -5,6 +5,7 @@
  */
 
 const { createCoreController } = require("@strapi/strapi").factories;
+const { sanitize } = require("@strapi/utils");
 
 module.exports = createCoreController(
   "api::offering.offering",
@@ -22,7 +23,13 @@ module.exports = createCoreController(
         query
       );
 
-      const sanitizedEntity = await this.sanitizeOutput(offering);
+      const contentType = strapi.contentType("api::offering.offering");
+
+      const sanitizedEntity = await sanitize.contentAPI.output(
+        offering,
+        contentType
+      );
+      console.log("OFFERING!", sanitizedEntity);
 
       return this.transformResponse(sanitizedEntity[0]);
     },
