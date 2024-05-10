@@ -27,6 +27,7 @@ export interface Offering {
     instructors?: { data: Instructor[] };
     days?: string;
     rectangle_image?: { data: Media };
+    extended_description?: string;
   };
 }
 export interface Offering_Plain {
@@ -44,6 +45,7 @@ export interface Offering_Plain {
   instructors?: Instructor_Plain[];
   days?: string;
   rectangle_image?: Media_Plain;
+  extended_description?: string;
 }
 
 export interface Offering_NoRelations {
@@ -61,6 +63,7 @@ export interface Offering_NoRelations {
   instructors?: number[];
   days?: string;
   rectangle_image?: number;
+  extended_description?: string;
 }
 
 export interface Offering_AdminPanelLifeCycle {
@@ -78,4 +81,5 @@ export interface Offering_AdminPanelLifeCycle {
   instructors?: AdminPanelRelationPropertyModification<Instructor_Plain>;
   days?: string;
   rectangle_image?: AdminPanelRelationPropertyModification<Media_Plain>;
+  extended_description?: string;
 }

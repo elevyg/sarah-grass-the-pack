@@ -1,4 +1,3 @@
-import { postRouter } from "~/server/api/routers/post";
 import {
   createCallerFactory,
   createTRPCRouter,
@@ -6,6 +5,7 @@ import {
 } from "~/server/api/trpc";
 
 import type { LandingPage } from "strapi-types/types/api/landing-page";
+import type { OfferingPage } from "strapi-types/types/api/offering-page";
 import type { Offering } from "strapi-types/types/api/offering";
 import qs from "qs";
 import { z } from "zod";
@@ -16,9 +16,12 @@ import { z } from "zod";
  * All routers added in /api/routers should be manually added here.
  */
 export const appRouter = createTRPCRouter({
-  post: postRouter,
-  getLanding: publicProcedure.query(async ({ ctx }) => {
+  getLandingTexts: publicProcedure.query(async ({ ctx }) => {
     const res = await ctx.strapi.get<{ data: LandingPage }>("landing-page");
+    return res.data.data;
+  }),
+  getOfferingPageTexts: publicProcedure.query(async ({ ctx }) => {
+    const res = await ctx.strapi.get<{ data: OfferingPage }>("offering-page");
     return res.data.data;
   }),
   getOfferings: publicProcedure.query(async ({ ctx }) => {

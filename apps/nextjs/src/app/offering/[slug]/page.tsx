@@ -5,6 +5,7 @@ import { api } from "~/trpc/server";
 import { stringTimeToDate } from "~/utils/indext";
 
 const Page = async ({ params }: { params: { slug: string } }) => {
+  const texts = await api.getOfferingPageTexts();
   const offering = await api.getOffering(params.slug);
 
   return (
@@ -52,6 +53,10 @@ const Page = async ({ params }: { params: { slug: string } }) => {
                 }`}
                 </p>
               </div>
+            </div>
+            <div className="flex flex-col border-b-2 border-matteBlack p-10">
+              <h2>{texts.attributes.about_offering_title}</h2>
+              <p>{offering.attributes.extended_description}</p>
             </div>
           </div>
           <div className="flex flex-1 flex-col">

@@ -4,7 +4,7 @@ import Section from "~/app/_components/section";
 import { api } from "~/trpc/server";
 
 export default async function Home() {
-  const data = await api.getLanding();
+  const texts = await api.getLandingTexts();
   const offerings = await api.getOfferings();
 
   return (
@@ -14,14 +14,14 @@ export default async function Home() {
       </div>
       <Section color="mint">
         <Offerings
-          title={data.attributes.offering_header}
+          title={texts.attributes.offering_header}
           offerings={offerings}
         />
       </Section>
       <Section color="lavander">
-        <h2>{data.attributes.journal_header}</h2>
+        <h2>{texts.attributes.journal_header}</h2>
       </Section>
-      <h2>{data.attributes.artist_work_header}</h2>
+      <h2>{texts.attributes.artist_work_header}</h2>
     </main>
   );
 }
