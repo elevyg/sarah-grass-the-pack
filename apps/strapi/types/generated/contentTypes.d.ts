@@ -917,6 +917,7 @@ export interface ApiOfferingOffering extends Schema.CollectionType {
     >;
     days: Attribute.String;
     rectangle_image: Attribute.Media;
+    extended_description: Attribute.Text;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -928,6 +929,39 @@ export interface ApiOfferingOffering extends Schema.CollectionType {
       Attribute.Private;
     updatedBy: Attribute.Relation<
       'api::offering.offering',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiOfferingPageOfferingPage extends Schema.SingleType {
+  collectionName: 'offering_pages';
+  info: {
+    singularName: 'offering-page';
+    pluralName: 'offering-pages';
+    displayName: 'Offering Page';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    about_offering_title: Attribute.String;
+    event_info_title: Attribute.String;
+    other_offerings_title: Attribute.String;
+    apply_now_button_title: Attribute.String;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::offering-page.offering-page',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::offering-page.offering-page',
       'oneToOne',
       'admin::user'
     > &
@@ -956,6 +990,7 @@ declare module '@strapi/types' {
       'api::instructor.instructor': ApiInstructorInstructor;
       'api::landing-page.landing-page': ApiLandingPageLandingPage;
       'api::offering.offering': ApiOfferingOffering;
+      'api::offering-page.offering-page': ApiOfferingPageOfferingPage;
     }
   }
 }

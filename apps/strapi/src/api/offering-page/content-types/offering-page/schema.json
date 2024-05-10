@@ -1,0 +1,27 @@
+{
+  "kind": "singleType",
+  "collectionName": "offering_pages",
+  "info": {
+    "singularName": "offering-page",
+    "pluralName": "offering-pages",
+    "displayName": "Offering Page"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "about_offering_title": {
+      "type": "string"
+    },
+    "event_info_title": {
+      "type": "string"
+    },
+    "other_offerings_title": {
+      "type": "string"
+    },
+    "apply_now_button_title": {
+      "type": "string"
+    }
+  }
+}
