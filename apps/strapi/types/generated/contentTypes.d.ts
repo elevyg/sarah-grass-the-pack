@@ -832,6 +832,7 @@ export interface ApiLandingPageLandingPage extends Schema.SingleType {
     singularName: 'landing-page';
     pluralName: 'landing-pages';
     displayName: 'Landing Page';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -855,6 +856,12 @@ export interface ApiLandingPageLandingPage extends Schema.SingleType {
         };
       }>;
     artist_work_header: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    journal_section_image: Attribute.Media &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: true;

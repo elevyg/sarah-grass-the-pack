@@ -46,7 +46,7 @@ const textMotion = {
 
 const Offerings = ({ title, offerings }: Props) => {
   return (
-    <div id="offering-container" className="flex-flex-col w-full flex-1">
+    <div id="offering-container" className="flex w-full flex-1 flex-col">
       <div
         id="offering-header"
         className="w-full border-b-2 border-matteBlack py-2 pl-2"

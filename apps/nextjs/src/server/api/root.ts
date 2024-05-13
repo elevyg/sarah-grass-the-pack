@@ -17,7 +17,12 @@ import { z } from "zod";
  */
 export const appRouter = createTRPCRouter({
   getLandingTexts: publicProcedure.query(async ({ ctx }) => {
-    const res = await ctx.strapi.get<{ data: LandingPage }>("landing-page");
+    const query = qs.stringify({
+      populate: ["journal_section_image"],
+    });
+    const res = await ctx.strapi.get<{ data: LandingPage }>(
+      "landing-page?" + query,
+    );
     return res.data.data;
   }),
   getOfferingPageTexts: publicProcedure.query(async ({ ctx }) => {
