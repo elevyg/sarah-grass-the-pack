@@ -10,10 +10,13 @@ const Page = async ({ params }: { params: { slug: string } }) => {
   const texts = await api.getOfferingPageTexts();
   const offering = await api.getOffering(params.slug);
 
-  const processedContent = await remark()
-    .use(html)
-    .process(offering.attributes.extended_description);
-  const contentHtml = processedContent.toString();
+  const extendedDescriptionHtml = (
+    await remark().use(html).process(offering.attributes.extended_description)
+  ).toString();
+
+  const eventInfoHtml = (
+    await remark().use(html).process(offering.attributes.event_info)
+  ).toString();
 
   const imageAspectRatio = !!offering.attributes.rectangle_image
     ? offering.attributes.rectangle_image.data.attributes.formats.medium.width /
@@ -72,12 +75,21 @@ const Page = async ({ params }: { params: { slug: string } }) => {
               </h2>
               <div
                 className="flex flex-col gap-2"
-                dangerouslySetInnerHTML={{ __html: contentHtml }}
+                dangerouslySetInnerHTML={{ __html: extendedDescriptionHtml }}
+              />
+            </div>
+            <div className="flex flex-col border-b-2 border-matteBlack p-10">
+              <h2 className="pb-4 text-2xl">
+                {texts.attributes.event_info_title}
+              </h2>
+              <div
+                className="flex flex-col gap-2"
+                dangerouslySetInnerHTML={{ __html: eventInfoHtml }}
               />
             </div>
           </div>
           <div className="flex flex-1 flex-col">
-            <div className="flex flex-1 items-center justify-center p-8">
+            <div className="flex flex-1 items-start justify-center p-8">
               {offering.attributes.rectangle_image && (
                 <div
                   className="relative w-full overflow-hidden rounded-2xl"

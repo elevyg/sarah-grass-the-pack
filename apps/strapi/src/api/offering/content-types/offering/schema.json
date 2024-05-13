@@ -37,9 +37,6 @@
         "finished"
       ]
     },
-    "event_info": {
-      "type": "text"
-    },
     "square_image": {
       "type": "media",
       "multiple": false,
@@ -81,6 +78,9 @@
       ]
     },
     "extended_description": {
+      "type": "richtext"
+    },
+    "event_info": {
       "type": "richtext"
     }
   }

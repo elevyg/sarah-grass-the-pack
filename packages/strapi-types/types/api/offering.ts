@@ -19,7 +19,6 @@ export interface Offering {
     starting_date?: Date;
     slug: string;
     status?: Status;
-    event_info?: string;
     square_image: { data: Media };
     ending_date?: Date;
     starting_time?: Date;
@@ -28,6 +27,7 @@ export interface Offering {
     days?: string;
     rectangle_image?: { data: Media };
     extended_description?: string;
+    event_info?: string;
   };
 }
 export interface Offering_Plain {
@@ -37,7 +37,6 @@ export interface Offering_Plain {
   starting_date?: Date;
   slug: string;
   status?: Status;
-  event_info?: string;
   square_image: Media_Plain;
   ending_date?: Date;
   starting_time?: Date;
@@ -46,6 +45,7 @@ export interface Offering_Plain {
   days?: string;
   rectangle_image?: Media_Plain;
   extended_description?: string;
+  event_info?: string;
 }
 
 export interface Offering_NoRelations {
@@ -55,7 +55,6 @@ export interface Offering_NoRelations {
   starting_date?: Date;
   slug: string;
   status?: Status;
-  event_info?: string;
   square_image: number;
   ending_date?: Date;
   starting_time?: Date;
@@ -64,6 +63,7 @@ export interface Offering_NoRelations {
   days?: string;
   rectangle_image?: number;
   extended_description?: string;
+  event_info?: string;
 }
 
 export interface Offering_AdminPanelLifeCycle {
@@ -73,7 +73,6 @@ export interface Offering_AdminPanelLifeCycle {
   starting_date?: Date;
   slug: string;
   status?: Status;
-  event_info?: string;
   square_image: AdminPanelRelationPropertyModification<Media_Plain>;
   ending_date?: Date;
   starting_time?: Date;
@@ -82,4 +81,5 @@ export interface Offering_AdminPanelLifeCycle {
   days?: string;
   rectangle_image?: AdminPanelRelationPropertyModification<Media_Plain>;
   extended_description?: string;
+  event_info?: string;
 }
