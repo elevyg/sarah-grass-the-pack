@@ -39,9 +39,9 @@ export default async function Home() {
               {texts.attributes.journal_header}
             </h2>
           </div>
-          <div className="flex w-full p-8">
+          <div className="flex w-full flex-col p-8 md:flex-row">
             <div
-              className="relative flex-1 overflow-hidden rounded-lg "
+              className="relative mb-5 flex-1 overflow-hidden rounded-lg md:mb-0"
               style={{ aspectRatio: journalImageAspectRatio }}
             >
               {texts.attributes.journal_section_image && (
@@ -58,7 +58,7 @@ export default async function Home() {
                 />
               )}
             </div>
-            <div className="flex-1 pl-10 ">
+            <div className="flex-1 md:pl-10 ">
               <div>
                 <h2 className="mb-5 text-3xl">
                   {texts.attributes.journal_section_title}
