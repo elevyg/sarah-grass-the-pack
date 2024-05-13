@@ -15,7 +15,10 @@ const Page = async ({ params }: { params: { slug: string } }) => {
     .process(offering.attributes.extended_description);
   const contentHtml = processedContent.toString();
 
-  console.log(contentHtml);
+  const imageAspectRatio = !!offering.attributes.rectangle_image
+    ? offering.attributes.rectangle_image.data.attributes.formats.medium.width /
+      offering.attributes.rectangle_image.data.attributes.formats.medium.height
+    : 1;
 
   return (
     <main className="min-h-screen bg-eggWhite">
@@ -74,25 +77,21 @@ const Page = async ({ params }: { params: { slug: string } }) => {
             </div>
           </div>
           <div className="flex flex-1 flex-col">
-            <div className="flex flex-1 items-center justify-center p-5">
+            <div className="flex flex-1 items-center justify-center p-8">
               {offering.attributes.rectangle_image && (
-                <div className="relative w-full overflow-hidden rounded-2xl">
+                <div
+                  className="relative w-full overflow-hidden rounded-2xl"
+                  style={{ aspectRatio: imageAspectRatio }}
+                >
                   <Image
                     src={
                       offering.attributes.rectangle_image.data.attributes
                         .formats.medium.url
                     }
                     alt="image"
-                    width={
-                      offering.attributes.rectangle_image.data.attributes
-                        .formats.medium.width
-                    }
-                    height={
-                      offering.attributes.rectangle_image.data.attributes
-                        .formats.medium.height
-                    }
                     priority
                     sizes=""
+                    fill
                     style={{
                       objectFit: "contain",
                     }}
