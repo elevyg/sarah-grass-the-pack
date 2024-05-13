@@ -23,7 +23,7 @@ const Page = async ({ params }: { params: { slug: string } }) => {
   return (
     <main className="min-h-screen bg-eggWhite">
       <Section lowerBorderOnly color="mint">
-        <div className="grid w-full grid-cols-2">
+        <div className="grid w-full grid-cols-1 md:grid-cols-2">
           <div className="flex flex-1 flex-col  border-r-2 border-matteBlack">
             <div className="flex flex-col border-b-2 border-matteBlack p-10">
               <h1 className="pb-3 text-5xl">{offering.attributes.title}</h1>
@@ -90,7 +90,7 @@ const Page = async ({ params }: { params: { slug: string } }) => {
                     }
                     alt="image"
                     priority
-                    sizes=""
+                    sizes="(max-width: 768px) 100vw, (max-width:1024px) 50vw, 33vw"
                     fill
                     style={{
                       objectFit: "contain",
