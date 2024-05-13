@@ -17,11 +17,11 @@ const Section = ({
 }: Props) => {
   return (
     <div
-      className={`flex w-full ${lowerBorderOnly ? "border-b-2" : "border-y-2"} border-matteBlack ${className}`}
+      className={`flex w-full ${lowerBorderOnly ? "border-b-2" : "border-y-2"} border-matteBlack ${className} `}
     >
       <div
         id="left-color-index"
-        className={`h-full, w-4 border-r-2 border-matteBlack bg-${color} ${barClassName}`}
+        className={`h-full, w-4 border-r-2 border-matteBlack bg-${color} ${barClassName} pt-[111px]`}
       ></div>
       {children}
     </div>

@@ -89,7 +89,7 @@ const Page = async ({ params }: { params: { slug: string } }) => {
             </div>
           </div>
           <div className="flex flex-1 flex-col">
-            <div className="flex flex-1 items-start justify-center p-8">
+            <div id="image" className="flex items-start justify-center p-8">
               {offering.attributes.rectangle_image && (
                 <div
                   className="relative w-full overflow-hidden rounded-2xl"
@@ -110,6 +110,9 @@ const Page = async ({ params }: { params: { slug: string } }) => {
                   />
                 </div>
               )}
+            </div>
+            <div className="flex items-center justify-center border-y-2 border-matteBlack bg-mint px-8 py-3 text-xl hover:bg-slate-200">
+              <p>Apply now</p>
             </div>
           </div>
         </div>
