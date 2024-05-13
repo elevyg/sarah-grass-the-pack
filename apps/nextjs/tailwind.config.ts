@@ -3,8 +3,13 @@ import { fontFamily } from "tailwindcss/defaultTheme";
 
 export default {
   content: ["./src/**/*.tsx"],
-  safelist: ["bg-mint", "bg-lavander", "bg-beige"],
+  safelist: ["bg-mint", "bg-lavander", "bg-beige", "list-disc", "text-red-400"],
   theme: {
+    listStyleType: {
+      none: "none",
+      disc: "disc",
+      decimal: "decimal",
+    },
     extend: {
       colors: {
         eggWhite: "#FFFCF4",

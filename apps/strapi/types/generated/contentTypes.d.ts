@@ -788,6 +788,44 @@ export interface PluginI18NLocale extends Schema.CollectionType {
   };
 }
 
+export interface ApiAboutPageAboutPage extends Schema.SingleType {
+  collectionName: 'about_pages';
+  info: {
+    singularName: 'about-page';
+    pluralName: 'about-pages';
+    displayName: 'About Page';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    first_block_title: Attribute.String;
+    first_block_text: Attribute.RichText;
+    second_block_title: Attribute.String;
+    second_block_text: Attribute.RichText;
+    third_block_title: Attribute.String;
+    third_block_text: Attribute.RichText;
+    main_image: Attribute.Media;
+    directions_title: Attribute.String;
+    directions_text: Attribute.RichText;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::about-page.about-page',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::about-page.about-page',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiInstructorInstructor extends Schema.CollectionType {
   collectionName: 'instructors';
   info: {
@@ -1006,6 +1044,7 @@ declare module '@strapi/types' {
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
       'plugin::i18n.locale': PluginI18NLocale;
+      'api::about-page.about-page': ApiAboutPageAboutPage;
       'api::instructor.instructor': ApiInstructorInstructor;
       'api::landing-page.landing-page': ApiLandingPageLandingPage;
       'api::offering.offering': ApiOfferingOffering;

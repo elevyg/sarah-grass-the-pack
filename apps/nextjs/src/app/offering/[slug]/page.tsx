@@ -12,7 +12,7 @@ const Page = async ({ params }: { params: { slug: string } }) => {
     offering.attributes.extended_description,
   );
 
-  const eventInfoHtml = markdownToHtml(offering.attributes.event_info);
+  const eventInfoHtml = await markdownToHtml(offering.attributes.event_info);
 
   const imageAspectRatio = !!offering.attributes.rectangle_image
     ? offering.attributes.rectangle_image.data.attributes.formats.medium.width /
@@ -79,7 +79,7 @@ const Page = async ({ params }: { params: { slug: string } }) => {
                 {texts.attributes.event_info_title}
               </h2>
               <div
-                className="flex flex-col gap-2"
+                className=""
                 dangerouslySetInnerHTML={{ __html: eventInfoHtml }}
               />
             </div>
