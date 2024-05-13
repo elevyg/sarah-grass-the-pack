@@ -11,6 +11,8 @@ export interface LandingPage {
     journal_header?: string;
     artist_work_header?: string;
     journal_section_image?: { data: Media };
+    journal_section_title?: string;
+    journal_section_description?: string;
     locale: string;
     localizations?: { data: LandingPage[] };
   };
@@ -21,6 +23,8 @@ export interface LandingPage_Plain {
   journal_header?: string;
   artist_work_header?: string;
   journal_section_image?: Media_Plain;
+  journal_section_title?: string;
+  journal_section_description?: string;
   locale: string;
   localizations?: LandingPage_Plain[];
 }
@@ -31,6 +35,8 @@ export interface LandingPage_NoRelations {
   journal_header?: string;
   artist_work_header?: string;
   journal_section_image?: number;
+  journal_section_title?: string;
+  journal_section_description?: string;
   locale: string;
   localizations?: LandingPage[];
 }
@@ -41,6 +47,8 @@ export interface LandingPage_AdminPanelLifeCycle {
   journal_header?: string;
   artist_work_header?: string;
   journal_section_image?: AdminPanelRelationPropertyModification<Media_Plain>;
+  journal_section_title?: string;
+  journal_section_description?: string;
   locale: string;
   localizations?: LandingPage[];
 }

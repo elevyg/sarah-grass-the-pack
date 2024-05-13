@@ -3,6 +3,7 @@ import GeometricFigures from "~/app/_components/geometric-figures";
 import Offerings from "~/app/_components/offerings";
 import Section from "~/app/_components/section";
 import { api } from "~/trpc/server";
+import markdownToHtml from "~/utils/markdownToHtml";
 
 export default async function Home() {
   const texts = await api.getLandingTexts();
@@ -13,13 +14,12 @@ export default async function Home() {
       texts.attributes.journal_section_image?.data.attributes.height
     : 1;
 
-  console.log(
-    "IMAGE",
-    texts.attributes.journal_section_image?.data.attributes.url,
+  const journalDescriptionHtml = await markdownToHtml(
+    texts.attributes.journal_section_description,
   );
 
   return (
-    <main className="flex min-h-screen flex-col bg-eggWhite">
+    <main className="flex min-h-screen flex-col bg-eggWhite text-matteBlack">
       <div className="flex min-h-screen flex-1 items-center justify-center">
         <GeometricFigures />
       </div>
@@ -58,7 +58,16 @@ export default async function Home() {
                 />
               )}
             </div>
-            <div className="flex-1"></div>
+            <div className="flex-1 pl-10 ">
+              <div>
+                <h2 className="mb-5 text-3xl">
+                  {texts.attributes.journal_section_title}
+                </h2>
+                <div
+                  dangerouslySetInnerHTML={{ __html: journalDescriptionHtml }}
+                />
+              </div>
+            </div>
           </div>
         </div>
       </Section>

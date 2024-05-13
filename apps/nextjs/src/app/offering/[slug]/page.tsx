@@ -1,22 +1,18 @@
 import Image from "next/image";
-import React from "react";
 import Section from "~/app/_components/section";
 import { api } from "~/trpc/server";
 import { stringTimeToDate } from "~/utils/indext";
-import { remark } from "remark";
-import html from "remark-html";
+import markdownToHtml from "~/utils/markdownToHtml";
 
 const Page = async ({ params }: { params: { slug: string } }) => {
   const texts = await api.getOfferingPageTexts();
   const offering = await api.getOffering(params.slug);
 
-  const extendedDescriptionHtml = (
-    await remark().use(html).process(offering.attributes.extended_description)
-  ).toString();
+  const extendedDescriptionHtml = await markdownToHtml(
+    offering.attributes.extended_description,
+  );
 
-  const eventInfoHtml = (
-    await remark().use(html).process(offering.attributes.event_info)
-  ).toString();
+  const eventInfoHtml = markdownToHtml(offering.attributes.event_info);
 
   const imageAspectRatio = !!offering.attributes.rectangle_image
     ? offering.attributes.rectangle_image.data.attributes.formats.medium.width /
