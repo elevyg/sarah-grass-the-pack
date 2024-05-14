@@ -38,23 +38,26 @@ export default async function Home() {
             <h2 className="heading-1">{texts.attributes.journal_header}</h2>
           </div>
           <div className="flex w-full flex-col p-8 md:flex-row">
-            <div
-              className="relative mb-5 flex-1 overflow-hidden rounded-lg md:mb-0"
-              style={{ aspectRatio: journalImageAspectRatio }}
-            >
-              {texts.attributes.journal_section_image && (
-                <Image
-                  src={
-                    texts.attributes.journal_section_image?.data.attributes.url
-                  }
-                  alt="Journal Section Image"
-                  fill
-                  style={{
-                    objectFit: "contain",
-                    scale: 1.05,
-                  }}
-                />
-              )}
+            <div className="flex flex-1 items-center justify-center">
+              <div
+                className="relative mb-5 w-full overflow-hidden rounded-lg md:mb-0"
+                style={{ aspectRatio: journalImageAspectRatio }}
+              >
+                {texts.attributes.journal_section_image && (
+                  <Image
+                    src={
+                      texts.attributes.journal_section_image?.data.attributes
+                        .url
+                    }
+                    alt="Journal Section Image"
+                    fill
+                    style={{
+                      objectFit: "contain",
+                      scale: 1.05,
+                    }}
+                  />
+                )}
+              </div>
             </div>
             <div className="flex-1 md:pl-10 ">
               <div>
