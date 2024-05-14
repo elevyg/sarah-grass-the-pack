@@ -35,9 +35,7 @@ export default async function Home() {
             id="journal-header"
             className="w-full border-b-2 border-matteBlack py-2 pl-2"
           >
-            <h2 className="text-lg uppercase">
-              {texts.attributes.journal_header}
-            </h2>
+            <h2 className="heading-1">{texts.attributes.journal_header}</h2>
           </div>
           <div className="flex w-full flex-col p-8 md:flex-row">
             <div
@@ -75,7 +73,7 @@ export default async function Home() {
         id="offering-header"
         className="w-full border-b-2 border-matteBlack py-2 pl-2"
       >
-        <h2>{texts.attributes.artist_work_header}</h2>
+        <h2 className="heading-1">{texts.attributes.artist_work_header}</h2>
       </div>
     </main>
   );

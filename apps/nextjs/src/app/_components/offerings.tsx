@@ -51,7 +51,7 @@ const Offerings = ({ title, offerings }: Props) => {
         id="offering-header"
         className="w-full border-b-2 border-matteBlack py-2 pl-2"
       >
-        <h2 className="text-lg uppercase">{title}</h2>
+        <h2 className="heading-1">{title}</h2>
       </div>
       <div
         id="offering-content-container"
@@ -85,17 +85,19 @@ const Offerings = ({ title, offerings }: Props) => {
               />
             </motion.div>
             <div className="mb-2 flex flex-1 flex-col">
-              <h3 className="text-3xl font-bold">
+              <h3 className="heading-2 font-bold">
                 {offering.attributes.title}
               </h3>
               {offering.attributes.instructors?.data.map((i) => (
-                <p className="mb-4 text-2xl" key={i.id}>
+                <p className="heading-2-az mb-4" key={i.id}>
                   {i.attributes.full_name}
                 </p>
               ))}
-              <p className="mb-4">{offering.attributes.description}</p>
+              <p className="paragraph mb-4">
+                {offering.attributes.description}
+              </p>
             </div>
-            <div className="mb-4 self-start text-2xl leading-none">
+            <div className="heading-2-az mb-4 self-start leading-none">
               <p>{offering.attributes.days}</p>
               <p>
                 {!!offering.attributes.starting_date &&

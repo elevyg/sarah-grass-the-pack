@@ -19,7 +19,9 @@ export default {
         beige: "#CCA887",
       },
       fontFamily: {
-        sans: ["var(--font-sans)", ...fontFamily.sans],
+        sans: ["var(--founders-grotesk)", ...fontFamily.sans],
+        arizona: ["var(--arizona)"],
+        foundersGrotesk: ["var(--founders-grotesk)"],
       },
     },
   },
