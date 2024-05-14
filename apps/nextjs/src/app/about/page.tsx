@@ -24,8 +24,6 @@ export default async function About() {
       texts.attributes.main_image?.data.attributes.formats.medium.height
     : 1;
 
-  console.log(directionsHtml);
-
   return (
     <div className="grid grid-cols-2">
       <div className="border-r-2 border-matteBlack">
