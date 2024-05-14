@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Markdown from "~/app/_components/markdown";
 import { api } from "~/trpc/server";
 import markdownToHtml from "~/utils/markdownToHtml";
@@ -5,22 +6,74 @@ import markdownToHtml from "~/utils/markdownToHtml";
 export default async function About() {
   const texts = await api.getAboutTexts();
 
+  const firstBlockHtml = await markdownToHtml(
+    texts.attributes.first_block_text,
+  );
   const secondBlockHtml = await markdownToHtml(
     texts.attributes.second_block_text,
   );
+  const thirdBlockHtml = await markdownToHtml(
+    texts.attributes.third_block_text,
+  );
 
-  console.log(secondBlockHtml);
+  const directionsHtml = await markdownToHtml(texts.attributes.directions_text);
+
+  const mainImageAspectRatio = texts.attributes.main_image?.data.attributes
+    .formats.medium
+    ? texts.attributes.main_image?.data.attributes.formats.medium.width /
+      texts.attributes.main_image?.data.attributes.formats.medium.height
+    : 1;
+
+  console.log(directionsHtml);
 
   return (
-    <div>
-      <div>
-        <h2>{texts.attributes.second_block_title}</h2>
-        <Markdown content={secondBlockHtml} />
+    <div className="grid grid-cols-2">
+      <div className="border-r-2 border-matteBlack">
+        <div className="border-b-2 border-matteBlack p-10">
+          <h2 className="heading-2-az mb-5">
+            {texts.attributes.first_block_title}
+          </h2>
+          <Markdown content={firstBlockHtml} />
+        </div>
+        <div className="border-b-2 border-matteBlack p-10">
+          <h2 className="heading-2-az mb-5">
+            {texts.attributes.second_block_title}
+          </h2>
+          <Markdown content={secondBlockHtml} />
+        </div>
+        <div className="border-b-2 border-matteBlack p-10">
+          <h2 className="heading-2-az mb-5">
+            {texts.attributes.third_block_title}
+          </h2>
+          <Markdown content={thirdBlockHtml} />
+        </div>
       </div>
-      <ul className="list-disc pl-10">
-        <li className="list-item">hola</li>
-        <li>chao</li>
-      </ul>
+      <div>
+        <div className="border-b-2 border-matteBlack p-10 ">
+          <div
+            className="relative"
+            style={{ aspectRatio: mainImageAspectRatio }}
+          >
+            {texts.attributes.main_image && (
+              <Image
+                src={
+                  texts.attributes.main_image?.data.attributes.formats.medium
+                    .url
+                }
+                alt="studio image"
+                fill
+                priority
+              />
+            )}
+          </div>
+        </div>
+        <div className="border-b-2 border-matteBlack p-10 ">
+          <h2 className="heading-2-az mb-5">
+            {texts.attributes.directions_title}
+          </h2>
+          <Markdown content={directionsHtml} />
+        </div>
+      </div>
     </div>
   );
 }

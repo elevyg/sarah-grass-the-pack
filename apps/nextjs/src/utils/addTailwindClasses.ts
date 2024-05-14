@@ -3,10 +3,11 @@ import parse, { type HTMLElement, NodeType } from "node-html-parser";
 
 const classMap = new Map(
   Object.entries({
-    p: "leading-8 py-2",
-    h1: "text-2xl font-bold",
-    ol: "list-decimal list-inside",
-    ul: "list-disc pl-10",
+    p: "paragraph py-2",
+    h1: "heading-1",
+    h2: "heading-2",
+    ol: "list-decimal list-inside paragraph",
+    ul: "list-disc paragraph pl-10",
   }),
 );
 

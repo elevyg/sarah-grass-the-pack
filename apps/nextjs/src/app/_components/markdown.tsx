@@ -7,12 +7,7 @@ type Props = {
 
 const Markdown = (props: Props) => {
   if (!props.content) return null;
-  return (
-    <div
-      dangerouslySetInnerHTML={{ __html: props.content }}
-      className="flex gap-2"
-    />
-  );
+  return <div dangerouslySetInnerHTML={{ __html: props.content }} />;
 };
 
 export default Markdown;
