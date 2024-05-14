@@ -58,7 +58,7 @@ const GeometricFigures = () => {
       />
       <motion.div
         style={{ bottom: "calc(50% - 1vw)" }}
-        className="absolute w-full  origin-top-left text-center text-[2vw] font-light capitalize text-[#fffcf4]"
+        className="font-arizona absolute  w-full origin-top-left text-center text-[2vw] capitalize text-[#fffcf4]"
       >
         An art school for the Wild
       </motion.div>
