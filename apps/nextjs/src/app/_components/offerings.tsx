@@ -104,16 +104,16 @@ const Offerings = ({ title, offerings }: Props) => {
                   new Date(
                     offering.attributes.starting_date as unknown as string,
                   ).toLocaleDateString("en-US", {
-                    month: "numeric",
-                    day: "numeric",
+                    month: "2-digit",
+                    day: "2-digit",
                   })}
                 {" - "}
                 {!!offering.attributes.ending_date &&
                   new Date(
                     offering.attributes.ending_date as unknown as string,
                   ).toLocaleDateString("en-US", {
-                    month: "numeric",
-                    day: "numeric",
+                    month: "2-digit",
+                    day: "2-digit",
                   })}
               </p>
               <p>
