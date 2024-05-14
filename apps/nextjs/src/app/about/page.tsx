@@ -25,7 +25,7 @@ export default async function About() {
     : 1;
 
   return (
-    <div className="grid grid-cols-2">
+    <div className="grid grid-cols-1 md:grid-cols-2">
       <div className="border-r-2 border-matteBlack">
         <div className="border-b-2 border-matteBlack p-10">
           <h2 className="heading-2-az mb-5">
