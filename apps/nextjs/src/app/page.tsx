@@ -58,12 +58,20 @@ export default async function Home() {
             </div>
             <div className="flex-1 md:pl-10 ">
               <div>
-                <h2 className="mb-5 text-3xl">
+                <h3 className="heading-2 mb-5">
                   {texts.attributes.journal_section_title}
-                </h2>
+                </h3>
                 <div
                   dangerouslySetInnerHTML={{ __html: journalDescriptionHtml }}
+                  className="mb-5"
                 />
+                <a
+                  href="https://thepackartschool.substack.com/about"
+                  target="_blank"
+                  className="heading-3 hover:underline"
+                >
+                  Suscribe
+                </a>
               </div>
             </div>
           </div>
