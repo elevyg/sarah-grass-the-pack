@@ -14,7 +14,9 @@ const Navbar = () => {
         <Link href="about">
           <p>ABOUT</p>
         </Link>
-        <a>JOURNAL</a>
+        <a href="https://thepackartschool.substack.com/" target="_blank">
+          JOURNAL
+        </a>
       </div>
     </nav>
   );
