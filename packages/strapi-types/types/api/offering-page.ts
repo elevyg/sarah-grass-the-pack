@@ -7,7 +7,6 @@ export interface OfferingPage {
     event_info_title?: string;
     other_offerings_title?: string;
     apply_now_button_title?: string;
-    footerTitle?: string;
   };
 }
 export interface OfferingPage_Plain {
@@ -16,7 +15,6 @@ export interface OfferingPage_Plain {
   event_info_title?: string;
   other_offerings_title?: string;
   apply_now_button_title?: string;
-  footerTitle?: string;
 }
 
 export interface OfferingPage_NoRelations {
@@ -25,7 +23,6 @@ export interface OfferingPage_NoRelations {
   event_info_title?: string;
   other_offerings_title?: string;
   apply_now_button_title?: string;
-  footerTitle?: string;
 }
 
 export interface OfferingPage_AdminPanelLifeCycle {
@@ -34,5 +31,4 @@ export interface OfferingPage_AdminPanelLifeCycle {
   event_info_title?: string;
   other_offerings_title?: string;
   apply_now_button_title?: string;
-  footerTitle?: string;
 }

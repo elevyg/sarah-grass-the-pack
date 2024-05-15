@@ -23,9 +23,6 @@
     },
     "apply_now_button_title": {
       "type": "string"
-    },
-    "footerTitle": {
-      "type": "string"
     }
   }
 }

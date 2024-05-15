@@ -116,12 +116,6 @@ const Page = async ({ params }: { params: { slug: string } }) => {
       </Section>
       <Section color="beige">
         <div className="w-full">
-          <div
-            id="connect-header"
-            className="w-full border-b-2 border-matteBlack bg-beige py-2 pl-2 md:bg-eggWhite"
-          >
-            <h2 className="heading-1">{texts.attributes.footerTitle}</h2>
-          </div>
           <Footer />
         </div>
       </Section>

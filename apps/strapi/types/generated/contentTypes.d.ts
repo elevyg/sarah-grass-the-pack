@@ -1064,7 +1064,6 @@ export interface ApiOfferingPageOfferingPage extends Schema.SingleType {
     event_info_title: Attribute.String;
     other_offerings_title: Attribute.String;
     apply_now_button_title: Attribute.String;
-    footerTitle: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
