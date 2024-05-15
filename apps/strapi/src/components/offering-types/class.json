@@ -1,0 +1,25 @@
+{
+  "collectionName": "components_offering_types_classes",
+  "info": {
+    "displayName": "Class"
+  },
+  "options": {},
+  "attributes": {
+    "monthlyPrice": {
+      "type": "string"
+    },
+    "yearlyPrice": {
+      "type": "string"
+    },
+    "monthlyPricePaymentLink": {
+      "type": "string"
+    },
+    "yearlyPricePaymentLink": {
+      "type": "string"
+    },
+    "actionButtonText": {
+      "type": "string",
+      "default": "Register Now"
+    }
+  }
+}

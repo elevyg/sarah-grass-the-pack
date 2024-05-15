@@ -2,8 +2,10 @@
 
 import { Media } from '../common/Media';
 import { Instructor } from './instructor';
+import { OfferingType } from './offering-type';
 import { Media_Plain } from '../common/Media';
 import { Instructor_Plain } from './instructor';
+import { OfferingType_Plain } from './offering-type';
 import { AdminPanelRelationPropertyModification } from '../common/AdminPanelRelationPropertyModification';
 
 export enum Status {
@@ -28,6 +30,8 @@ export interface Offering {
     rectangle_image?: { data: Media };
     extended_description?: string;
     event_info?: string;
+    offeringTypeInfo?: any;
+    offering_type?: { data: OfferingType };
   };
 }
 export interface Offering_Plain {
@@ -46,6 +50,8 @@ export interface Offering_Plain {
   rectangle_image?: Media_Plain;
   extended_description?: string;
   event_info?: string;
+  offeringTypeInfo?: any;
+  offering_type?: OfferingType_Plain;
 }
 
 export interface Offering_NoRelations {
@@ -64,6 +70,8 @@ export interface Offering_NoRelations {
   rectangle_image?: number;
   extended_description?: string;
   event_info?: string;
+  offeringTypeInfo?: any;
+  offering_type?: number;
 }
 
 export interface Offering_AdminPanelLifeCycle {
@@ -82,4 +90,6 @@ export interface Offering_AdminPanelLifeCycle {
   rectangle_image?: AdminPanelRelationPropertyModification<Media_Plain>;
   extended_description?: string;
   event_info?: string;
+  offeringTypeInfo?: any;
+  offering_type?: AdminPanelRelationPropertyModification<OfferingType_Plain>;
 }

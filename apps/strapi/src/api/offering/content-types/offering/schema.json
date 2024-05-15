@@ -82,6 +82,20 @@
     },
     "event_info": {
       "type": "richtext"
+    },
+    "offeringTypeInfo": {
+      "type": "dynamiczone",
+      "components": [
+        "offering-types.class",
+        "offering-types.one-on-one",
+        "offering-types.price"
+      ]
+    },
+    "offering_type": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::offering-type.offering-type",
+      "inversedBy": "offerings"
     }
   }
 }

@@ -71,6 +71,14 @@
         }
       },
       "type": "richtext"
+    },
+    "connect_header": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "string"
     }
   }
 }

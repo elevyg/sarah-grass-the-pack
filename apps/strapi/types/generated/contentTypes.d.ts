@@ -917,6 +917,12 @@ export interface ApiLandingPageLandingPage extends Schema.SingleType {
           localized: true;
         };
       }>;
+    connect_header: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -975,6 +981,18 @@ export interface ApiOfferingOffering extends Schema.CollectionType {
     rectangle_image: Attribute.Media;
     extended_description: Attribute.RichText;
     event_info: Attribute.RichText;
+    offeringTypeInfo: Attribute.DynamicZone<
+      [
+        'offering-types.class',
+        'offering-types.one-on-one',
+        'offering-types.price'
+      ]
+    >;
+    offering_type: Attribute.Relation<
+      'api::offering.offering',
+      'manyToOne',
+      'api::offering-type.offering-type'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1026,6 +1044,41 @@ export interface ApiOfferingPageOfferingPage extends Schema.SingleType {
   };
 }
 
+export interface ApiOfferingTypeOfferingType extends Schema.CollectionType {
+  collectionName: 'offering_types';
+  info: {
+    singularName: 'offering-type';
+    pluralName: 'offering-types';
+    displayName: 'Offering Type';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Name: Attribute.String;
+    offerings: Attribute.Relation<
+      'api::offering-type.offering-type',
+      'oneToMany',
+      'api::offering.offering'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::offering-type.offering-type',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::offering-type.offering-type',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 declare module '@strapi/types' {
   export module Shared {
     export interface ContentTypes {
@@ -1049,6 +1102,7 @@ declare module '@strapi/types' {
       'api::landing-page.landing-page': ApiLandingPageLandingPage;
       'api::offering.offering': ApiOfferingOffering;
       'api::offering-page.offering-page': ApiOfferingPageOfferingPage;
+      'api::offering-type.offering-type': ApiOfferingTypeOfferingType;
     }
   }
 }

@@ -13,6 +13,7 @@ export interface LandingPage {
     journal_section_image?: { data: Media };
     journal_section_title?: string;
     journal_section_description?: string;
+    connect_header?: string;
     locale: string;
     localizations?: { data: LandingPage[] };
   };
@@ -25,6 +26,7 @@ export interface LandingPage_Plain {
   journal_section_image?: Media_Plain;
   journal_section_title?: string;
   journal_section_description?: string;
+  connect_header?: string;
   locale: string;
   localizations?: LandingPage_Plain[];
 }
@@ -37,6 +39,7 @@ export interface LandingPage_NoRelations {
   journal_section_image?: number;
   journal_section_title?: string;
   journal_section_description?: string;
+  connect_header?: string;
   locale: string;
   localizations?: LandingPage[];
 }
@@ -49,6 +52,7 @@ export interface LandingPage_AdminPanelLifeCycle {
   journal_section_image?: AdminPanelRelationPropertyModification<Media_Plain>;
   journal_section_title?: string;
   journal_section_description?: string;
+  connect_header?: string;
   locale: string;
   localizations?: LandingPage[];
 }

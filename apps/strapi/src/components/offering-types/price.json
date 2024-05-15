@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_offering_types_prices",
+  "info": {
+    "displayName": "Open session",
+    "icon": "server",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "suggestedPrice": {
+      "type": "string"
+    },
+    "actionButtonText": {
+      "type": "string",
+      "default": "Add me to the mailing list"
+    }
+  }
+}

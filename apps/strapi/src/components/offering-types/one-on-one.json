@@ -1,0 +1,17 @@
+{
+  "collectionName": "components_offering_types_one_on_ones",
+  "info": {
+    "displayName": "One on one",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "actionButtonText": {
+      "type": "string",
+      "default": "Book Now"
+    },
+    "price": {
+      "type": "string"
+    }
+  }
+}
