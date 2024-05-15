@@ -4,7 +4,8 @@
   "info": {
     "singularName": "offering-page",
     "pluralName": "offering-pages",
-    "displayName": "Offering Page"
+    "displayName": "Offering Page",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -21,6 +22,9 @@
       "type": "string"
     },
     "apply_now_button_title": {
+      "type": "string"
+    },
+    "footerTitle": {
       "type": "string"
     }
   }

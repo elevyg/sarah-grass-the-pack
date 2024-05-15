@@ -5,6 +5,7 @@ import markdownToHtml from "~/utils/markdownToHtml";
 
 const Footer = async () => {
   const texts = await api.getFooter();
+
   const address = await markdownToHtml(texts.attributes.address, {
     p: "paragraph",
   });

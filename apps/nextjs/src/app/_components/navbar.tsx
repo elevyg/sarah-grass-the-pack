@@ -11,7 +11,7 @@ const Navbar = () => {
       </div>
       <div className="flex gap-2">
         <a>OFFERINGS</a>
-        <Link href="about">
+        <Link href="/about">
           <p>ABOUT</p>
         </Link>
         <a href="https://thepackartschool.substack.com/" target="_blank">

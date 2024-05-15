@@ -25,7 +25,7 @@ export default async function About() {
     : 1;
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2">
+    <div className="grid grid-cols-1 border-b-2 border-matteBlack md:grid-cols-2">
       <div className="border-r-2 border-matteBlack">
         <div className="border-b-2 border-matteBlack p-10">
           <h2 className="heading-2-az mb-5">
@@ -39,7 +39,7 @@ export default async function About() {
           </h2>
           <Markdown content={secondBlockHtml} />
         </div>
-        <div className="border-b-2 border-matteBlack p-10">
+        <div className="border-b-2 border-matteBlack p-10 md:mb-10">
           <h2 className="heading-2-az mb-5">
             {texts.attributes.third_block_title}
           </h2>
