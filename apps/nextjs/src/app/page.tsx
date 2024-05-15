@@ -21,7 +21,7 @@ export default async function Home() {
 
   return (
     <main className="flex min-h-screen flex-col bg-eggWhite text-matteBlack">
-      <div className="flex min-h-screen flex-1 items-center justify-center">
+      <div className="flex min-h-screen flex-1 items-center justify-center py-10 md:py-0">
         <GeometricFigures />
       </div>
       <Section color="mint">
