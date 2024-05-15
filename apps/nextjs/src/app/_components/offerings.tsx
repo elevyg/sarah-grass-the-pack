@@ -49,7 +49,7 @@ const Offerings = ({ title, offerings }: Props) => {
     <div id="offering-container" className="flex w-full flex-1 flex-col">
       <div
         id="offering-header"
-        className="w-full border-b-2 border-matteBlack py-2 pl-2"
+        className="w-full border-b-2 border-matteBlack bg-mint py-2 pl-2 md:bg-eggWhite"
       >
         <h2 className="heading-1">{title}</h2>
       </div>

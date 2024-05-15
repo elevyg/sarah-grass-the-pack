@@ -8,6 +8,7 @@ import type { LandingPage } from "strapi-types/types/api/landing-page";
 import type { OfferingPage } from "strapi-types/types/api/offering-page";
 import type { Offering } from "strapi-types/types/api/offering";
 import type { AboutPage } from "strapi-types/types/api/about-page";
+import type { Footer } from "strapi-types/types/api/footer";
 import qs from "qs";
 import { z } from "zod";
 
@@ -90,6 +91,10 @@ export const appRouter = createTRPCRouter({
       );
       return res.data.data;
     }),
+  getFooter: publicProcedure.query(
+    async ({ ctx }) =>
+      (await ctx.strapi.get<{ data: Footer }>("footer")).data.data,
+  ),
 });
 
 // export type definition of API

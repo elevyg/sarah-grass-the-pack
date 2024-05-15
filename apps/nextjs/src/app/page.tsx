@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Footer from "~/app/_components/footer";
 import GeometricFigures from "~/app/_components/geometric-figures";
 import Offerings from "~/app/_components/offerings";
 import Section from "~/app/_components/section";
@@ -33,7 +34,7 @@ export default async function Home() {
         <div className="flex w-full flex-1 flex-col">
           <div
             id="journal-header"
-            className="w-full border-b-2 border-matteBlack py-2 pl-2"
+            className="w-full border-b-2 border-matteBlack bg-lavander py-2 pl-2 md:bg-eggWhite"
           >
             <h2 className="heading-1">{texts.attributes.journal_header}</h2>
           </div>
@@ -86,6 +87,17 @@ export default async function Home() {
       >
         <h2 className="heading-1">{texts.attributes.artist_work_header}</h2>
       </div>
+      <Section color="beige">
+        <div className="w-full">
+          <div
+            id="connect-header"
+            className="w-full border-b-2 border-matteBlack bg-beige py-2 pl-2 md:bg-eggWhite"
+          >
+            <h2 className="heading-1">{texts.attributes.connect_header}</h2>
+          </div>
+          <Footer />
+        </div>
+      </Section>
     </main>
   );
 }

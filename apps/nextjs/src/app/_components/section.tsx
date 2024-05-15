@@ -21,7 +21,7 @@ const Section = ({
     >
       <div
         id="left-color-index"
-        className={`h-full, w-4 border-r-2 border-matteBlack bg-${color} ${barClassName} pt-[111px]`}
+        className={`hidden  w-4 border-r-2 border-matteBlack md:block bg-${color} ${barClassName} pt-[111px]`}
       ></div>
       {children}
     </div>

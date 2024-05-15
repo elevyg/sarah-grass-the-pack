@@ -1,0 +1,37 @@
+{
+  "kind": "singleType",
+  "collectionName": "footers",
+  "info": {
+    "singularName": "footer",
+    "pluralName": "footers",
+    "displayName": "Footer",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "address": {
+      "type": "richtext"
+    },
+    "visitHours": {
+      "type": "richtext"
+    },
+    "contactEmail": {
+      "type": "string"
+    },
+    "instagramLink": {
+      "type": "string"
+    },
+    "visitHoursTitle": {
+      "type": "string"
+    },
+    "contactTitle": {
+      "type": "string"
+    }
+  }
+}
