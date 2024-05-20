@@ -1,12 +1,16 @@
 "use client";
-import { motion } from "framer-motion";
+import { motion, useAnimate } from "framer-motion";
+import { useEffect } from "react";
 import useMediaQuery from "~/hooks/useMediaQuery";
 
 const GeometricFigures = () => {
   const isDesktop = useMediaQuery(`(min-width: 768px)`);
 
-  if (isDesktop) return <DesktopGeometricFigures />;
-  else return <MobileGeometricFigures />;
+  if (isDesktop === true) return <DesktopGeometricFigures />;
+  if (isDesktop === false) {
+    return <MobileGeometricFigures />;
+  }
+  return null;
 };
 
 const DesktopGeometricFigures = () => {
@@ -24,16 +28,91 @@ const DesktopGeometricFigures = () => {
     forth: `${size}*${insets.fourth}`,
   };
 
+  const [scope, animate] = useAnimate();
+
+  const firstFigure = async () => {
+    await animate(
+      "#first-figure",
+      { left: 0, top: 0, borderRadius: "0 0 0 0" },
+      { duration: 1 },
+    );
+    await animate(
+      "#first-figure",
+      { left: 0, top: "10%", borderRadius: "0 0 0 0" },
+      { duration: 1 },
+    );
+    await animate(
+      "#first-figure",
+      {
+        left: 0,
+        top: "30%",
+        borderRadius: "0% 0% 0% 50%",
+      },
+      { duration: 1 },
+    );
+    await animate(
+      "#first-figure",
+      {
+        left: 0,
+        top: 0,
+        borderRadius: "50% 0% 0% 0%",
+      },
+      { duration: 1 },
+    );
+    await animate(
+      "#first-figure",
+      {
+        left: 0,
+        top: 0,
+        borderRadius: "100% 100% 100% 100%",
+      },
+      { duration: 1 },
+    );
+  };
+
+  const secondKeyFrame = () => {
+    void animate(
+      "#second-figure",
+      {
+        left: `calc(${size} + ${left.second})`,
+        top: `calc((${diagonal}/2 - ${size}/2) * 0.5)`,
+        borderRadius: "0 0 0 0",
+      },
+      { duration: 1 },
+    );
+  };
+
+  const handleAnimation = async () => {
+    await firstFigure();
+  };
+
+  useEffect(() => {
+    void handleAnimation();
+  });
+
+  const duration = [1, 1, 1, 1];
+  const times = [0.2, 1];
+
   return (
     <div
+      ref={scope}
       style={{ height: diagonal, width: containerWidth }}
-      className="relative block origin-center"
+      className="relative block origin-center bg-red-400"
     >
-      <div
+      <motion.div
+        id="first-figure"
+        initial={{ left: -500, top: -500 }}
         style={{ height: size, width: size, display: "block" }}
-        className="absolute left-0 top-0 inline-block flex-shrink-0  rounded-full  bg-matteBlack"
+        // animate={{
+        //   left: [-200, 0, 0, 0, 0, 0],
+        //   top: ["-500%", 0, 0, "30%", 0, 0],
+        //   borderRadius: [0, 0, 0, "0 0 0 50%", "100% 100% 100% 100%", "100%"],
+        // }}
+        transition={{ duration: 4 }}
+        className="fl2ex-shrink-0 absolute left-0 top-0 inline-block  rounded-full  bg-matteBlack"
       />
       <motion.div
+        id="second-figure"
         style={{
           height: size,
           width: size,
@@ -41,14 +120,15 @@ const DesktopGeometricFigures = () => {
           left: `calc(${size} + ${left.second})`,
           display: "block",
         }}
-        className="absolute inline-block flex-shrink-0 rotate-45 bg-matteBlack"
+        className="absolute inline-block flex-shrink-0 rotate-45 bg-green-500"
       />
       <div
         style={{
           height: size,
           width: size,
           left: `calc(${size} + ${left.second} + ${left.third})`,
-          bottom: 0,
+          top: `calc(${diagonal} - ${size})`,
+          // borderRadius: `calc(${size}*0.12)`,
           display: "block",
         }}
         className="absolute  inline-block flex-shrink-0 origin-center bg-matteBlack"
