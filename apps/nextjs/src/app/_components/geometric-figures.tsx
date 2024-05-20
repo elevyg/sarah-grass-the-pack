@@ -38,6 +38,8 @@ const DesktopGeometricFigures = () => {
     5: 1,
   };
 
+  // const textAnimations = async () => {};
+
   const firstFigure = async () => {
     await animate(
       "#first-figure",
@@ -45,9 +47,24 @@ const DesktopGeometricFigures = () => {
       { duration: keyFramesDuration[1] },
     );
     await animate(
+      "#an-text",
+      { top: "30%", left: "13%", opacity: "100%" },
+      { duration: 0.5 },
+    );
+    void animate(
+      "#an-text",
+      { top: "40%", left: "13%", opacity: "100%" },
+      { duration: keyFramesDuration[2] },
+    );
+    await animate(
       "#first-figure",
       { left: 0, top: "10%", borderRadius: "0 0 0 0" },
       { duration: keyFramesDuration[2] },
+    );
+    void animate(
+      "#an-text",
+      { top: "60%", left: "14%", opacity: "100%" },
+      { duration: keyFramesDuration[3] },
     );
     await animate(
       "#first-figure",
@@ -56,8 +73,10 @@ const DesktopGeometricFigures = () => {
         top: "30%",
         borderRadius: "0% 0% 0% 50%",
       },
-      { duration: keyFramesDuration[3] },
+      { duration: keyFramesDuration[3], delay: 0.5 },
     );
+
+    return;
     await animate(
       "#first-figure",
       {
@@ -88,6 +107,16 @@ const DesktopGeometricFigures = () => {
       },
       { duration: keyFramesDuration[1] },
     );
+
+    void animate(
+      "#art-text",
+      {
+        opacity: "100%",
+        top: "22%",
+        left: "35%",
+      },
+      { duration: 0.5, delay: keyFramesDuration[1] },
+    );
     await animate(
       "#second-figure",
       {
@@ -95,8 +124,14 @@ const DesktopGeometricFigures = () => {
         top: 0,
         borderRadius: "0% 0% 0% 0%",
       },
-      { duration: keyFramesDuration[2] },
+      { duration: keyFramesDuration[2], delay: 0.5 },
     );
+    void animate(
+      "#art-text",
+      { top: "40%", left: "35%" },
+      { duration: keyFramesDuration[3] },
+    );
+
     await animate(
       "#second-figure",
       {
@@ -105,8 +140,10 @@ const DesktopGeometricFigures = () => {
         borderRadius: "100% 100% 100% 100%",
         rotate: "-45deg",
       },
-      { duration: keyFramesDuration[3] },
+      { duration: keyFramesDuration[3], delay: 0.5 },
     );
+
+    return;
     await animate(
       "#second-figure",
       {
@@ -140,6 +177,7 @@ const DesktopGeometricFigures = () => {
       },
       { duration: keyFramesDuration[1] },
     );
+
     await animate(
       "#third-figure",
       {
@@ -147,7 +185,12 @@ const DesktopGeometricFigures = () => {
         top: `15%`,
         borderRadius: "0% 0% 0% 0%",
       },
-      { duration: keyFramesDuration[2] },
+      { duration: keyFramesDuration[2], delay: 0.5 },
+    );
+    void animate(
+      "#school-text",
+      { top: "58%", left: "50%", opacity: "100%" },
+      { duration: 0.5, delay: 0 },
     );
     await animate(
       "#third-figure",
@@ -156,8 +199,9 @@ const DesktopGeometricFigures = () => {
         top: `29%`,
         borderRadius: "0% 0% 0% 0%",
       },
-      { duration: keyFramesDuration[3] },
+      { duration: keyFramesDuration[3] * 2 },
     );
+    return;
     await animate(
       "#third-figure",
       {
@@ -190,6 +234,7 @@ const DesktopGeometricFigures = () => {
       },
       { duration: keyFramesDuration[1] },
     );
+    return;
     await animate(
       "#fourth-figure",
       {
@@ -236,6 +281,7 @@ const DesktopGeometricFigures = () => {
     void secondFigure();
     void thirdFigure();
     void fourthFigure();
+    // void textAnimations();
   };
 
   useEffect(() => {
@@ -248,6 +294,38 @@ const DesktopGeometricFigures = () => {
       style={{ height: diagonal, width: containerWidth }}
       className="relative block origin-center "
     >
+      <motion.p
+        id="an-text"
+        className="absolute z-20 font-arizona text-[2vw] text-red-500"
+        style={{
+          top: "30%",
+          left: "13%",
+          opacity: "0%",
+        }}
+      >
+        An
+      </motion.p>
+      <motion.p
+        id="art-text"
+        className="absolute z-20 font-arizona text-[2vw] text-red-500"
+        style={{
+          top: "22%",
+          left: "35%",
+          opacity: "0%",
+        }}
+      >
+        Art
+      </motion.p>
+      <motion.p
+        id="school-text"
+        className="absolute z-20 font-arizona text-[2vw] text-red-500"
+        style={{ top: "58%", left: "50%", opacity: "0%" }}
+      >
+        School
+      </motion.p>
+      {/* <motion.p>for</motion.p>
+      <motion.p>The</motion.p>
+      <motion.p>Wild</motion.p> */}
       <motion.div
         id="first-figure"
         initial={{ left: -500, top: -500 }}
@@ -292,12 +370,12 @@ const DesktopGeometricFigures = () => {
         }}
         className="absolute inline-block flex-shrink-0 bg-matteBlack"
       />
-      <motion.div
+      {/* <motion.div
         style={{ bottom: "calc(50% - 1vw)" }}
         className="absolute w-full  origin-top-left text-center font-arizona text-[2vw] capitalize text-[#fffcf4]"
       >
         An art school for the Wild
-      </motion.div>
+      </motion.div> */}
     </div>
   );
 };
