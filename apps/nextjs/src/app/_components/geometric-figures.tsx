@@ -30,16 +30,24 @@ const DesktopGeometricFigures = () => {
 
   const [scope, animate] = useAnimate();
 
+  const keyFramesDuration = {
+    1: 1,
+    2: 1,
+    3: 1,
+    4: 1,
+    5: 1,
+  };
+
   const firstFigure = async () => {
     await animate(
       "#first-figure",
       { left: 0, top: 0, borderRadius: "0 0 0 0" },
-      { duration: 1 },
+      { duration: keyFramesDuration[1] },
     );
     await animate(
       "#first-figure",
       { left: 0, top: "10%", borderRadius: "0 0 0 0" },
-      { duration: 1 },
+      { duration: keyFramesDuration[2] },
     );
     await animate(
       "#first-figure",
@@ -48,7 +56,7 @@ const DesktopGeometricFigures = () => {
         top: "30%",
         borderRadius: "0% 0% 0% 50%",
       },
-      { duration: 1 },
+      { duration: keyFramesDuration[3] },
     );
     await animate(
       "#first-figure",
@@ -57,7 +65,7 @@ const DesktopGeometricFigures = () => {
         top: 0,
         borderRadius: "50% 0% 0% 0%",
       },
-      { duration: 1 },
+      { duration: keyFramesDuration[4] },
     );
     await animate(
       "#first-figure",
@@ -66,48 +74,184 @@ const DesktopGeometricFigures = () => {
         top: 0,
         borderRadius: "100% 100% 100% 100%",
       },
-      { duration: 1 },
+      { duration: keyFramesDuration[5] },
     );
   };
 
-  const secondKeyFrame = () => {
-    void animate(
+  const secondFigure = async () => {
+    await animate(
       "#second-figure",
       {
         left: `calc(${size} + ${left.second})`,
-        top: `calc((${diagonal}/2 - ${size}/2) * 0.5)`,
-        borderRadius: "0 0 0 0",
+        bottom: 0,
+        borderRadius: "10% 10% 10% 10%",
       },
-      { duration: 1 },
+      { duration: keyFramesDuration[1] },
+    );
+    await animate(
+      "#second-figure",
+      {
+        left: `calc(${size} + ${left.second})`,
+        top: 0,
+        borderRadius: "0% 0% 0% 0%",
+      },
+      { duration: keyFramesDuration[2] },
+    );
+    await animate(
+      "#second-figure",
+      {
+        left: `calc(${size} + ${left.second})`,
+        top: `calc((${diagonal}/2 - ${size}/2))`,
+        borderRadius: "100% 100% 100% 100%",
+        rotate: "-45deg",
+      },
+      { duration: keyFramesDuration[3] },
+    );
+    await animate(
+      "#second-figure",
+      {
+        left: `calc(${size} + ${left.second})`,
+        top: `calc((${diagonal}/2 - ${size}/2))`,
+        borderRadius: "10% 10% 10% 10%",
+        rotate: "-45deg",
+      },
+      { duration: keyFramesDuration[4] },
+    );
+    await animate(
+      "#second-figure",
+      {
+        left: `calc(${size} + ${left.second})`,
+        top: `calc((${diagonal}/2 - ${size}/2))`,
+        borderRadius: "0% 0% 0% 0%",
+        rotate: "-45deg",
+      },
+      { duration: keyFramesDuration[5], delay: 0.5 },
+    );
+  };
+
+  const thirdFigure = async () => {
+    await animate(
+      "#third-figure",
+      {
+        left: `calc(${size} + ${left.second} + ${left.third})`,
+
+        top: `15%`,
+        borderRadius: "100% 100% 100% 100%",
+      },
+      { duration: keyFramesDuration[1] },
+    );
+    await animate(
+      "#third-figure",
+      {
+        left: `calc(${size} + ${left.second} + ${left.third})`,
+        top: `15%`,
+        borderRadius: "0% 0% 0% 0%",
+      },
+      { duration: keyFramesDuration[2] },
+    );
+    await animate(
+      "#third-figure",
+      {
+        left: `calc(${size} + ${left.second} + ${left.third})`,
+        top: `29%`,
+        borderRadius: "0% 0% 0% 0%",
+      },
+      { duration: keyFramesDuration[3] },
+    );
+    await animate(
+      "#third-figure",
+      {
+        left: `calc(${size} + ${left.second} + ${left.third})`,
+        top: `29%`,
+        rotate: "45deg",
+        borderRadius: "100% 100% 100% 100%",
+      },
+      { duration: keyFramesDuration[4] },
+    );
+    await animate(
+      "#third-figure",
+      {
+        left: `calc(${size} + ${left.second} + ${left.third})`,
+        top: `29%`,
+        rotate: "45deg",
+        borderRadius: "0% 0% 0% 0%",
+      },
+      { duration: keyFramesDuration[5] },
+    );
+  };
+
+  const fourthFigure = async () => {
+    await animate(
+      "#fourth-figure",
+      {
+        left: `calc(${size} + ${left.second} + ${left.third} + ${left.forth})`,
+        top: "0%",
+        borderRadius: "0% 0% 0% 0%",
+      },
+      { duration: keyFramesDuration[1] },
+    );
+    await animate(
+      "#fourth-figure",
+      {
+        left: `calc(${size} + ${left.second} + ${left.third} + ${left.forth})`,
+        top: "0%",
+        rotate: "45deg",
+        borderRadius: "100% 100% 100% 100%",
+      },
+      { duration: keyFramesDuration[2] },
+    );
+    await animate(
+      "#fourth-figure",
+      {
+        left: `calc(${size} + ${left.second} + ${left.third} + ${left.forth})`,
+        top: "0%",
+        rotate: "90deg",
+        borderRadius: "10% 10% 10% 10%",
+      },
+      { duration: keyFramesDuration[3] },
+    );
+    await animate(
+      "#fourth-figure",
+      {
+        left: `calc(${size} + ${left.second} + ${left.third} + ${left.forth})`,
+        top: "0%",
+        rotate: "45deg",
+        borderRadius: "0% 0% 0% 0%",
+      },
+      { duration: keyFramesDuration[4] },
+    );
+    await animate(
+      "#fourth-figure",
+      {
+        left: `calc(${size} + ${left.second} + ${left.third} + ${left.forth})`,
+        top: "0%",
+        borderRadius: "10% 10% 10% 10%",
+      },
+      { duration: keyFramesDuration[5], delay: 0.5 },
     );
   };
 
   const handleAnimation = async () => {
-    await firstFigure();
+    void firstFigure();
+    void secondFigure();
+    void thirdFigure();
+    void fourthFigure();
   };
 
   useEffect(() => {
     void handleAnimation();
   });
 
-  const duration = [1, 1, 1, 1];
-  const times = [0.2, 1];
-
   return (
     <div
       ref={scope}
       style={{ height: diagonal, width: containerWidth }}
-      className="relative block origin-center bg-red-400"
+      className="relative block origin-center "
     >
       <motion.div
         id="first-figure"
         initial={{ left: -500, top: -500 }}
         style={{ height: size, width: size, display: "block" }}
-        // animate={{
-        //   left: [-200, 0, 0, 0, 0, 0],
-        //   top: ["-500%", 0, 0, "30%", 0, 0],
-        //   borderRadius: [0, 0, 0, "0 0 0 50%", "100% 100% 100% 100%", "100%"],
-        // }}
         transition={{ duration: 4 }}
         className="fl2ex-shrink-0 absolute left-0 top-0 inline-block  rounded-full  bg-matteBlack"
       />
@@ -116,29 +260,34 @@ const DesktopGeometricFigures = () => {
         style={{
           height: size,
           width: size,
-          bottom: `calc(${diagonal}/2 - ${size}/2)`,
+          bottom: -500,
           left: `calc(${size} + ${left.second})`,
           display: "block",
         }}
-        className="absolute inline-block flex-shrink-0 rotate-45 bg-green-500"
+        className="absolute inline-block flex-shrink-0 bg-matteBlack"
       />
       <div
+        id="third-figure"
         style={{
           height: size,
           width: size,
           left: `calc(${size} + ${left.second} + ${left.third})`,
-          top: `calc(${diagonal} - ${size})`,
-          // borderRadius: `calc(${size}*0.12)`,
+          bottom: 500,
+          borderRadius: "100% 100% 100% 100%",
+          rotate: "45deg",
           display: "block",
         }}
         className="absolute  inline-block flex-shrink-0 origin-center bg-matteBlack"
       />
       <div
+        id="fourth-figure"
         style={{
           height: size,
           width: size,
-          left: `calc(${size} + ${left.second} + ${left.third} + ${left.forth})`,
-          borderRadius: `calc(${size}*0.12)`,
+          left: "calc(100vw + 500px)",
+          top: "0%",
+          borderRadius: `0% 0% 0% 0%`,
+          rotate: "45deg",
           display: "block",
         }}
         className="absolute inline-block flex-shrink-0 bg-matteBlack"
