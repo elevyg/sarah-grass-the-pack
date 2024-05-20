@@ -388,7 +388,7 @@ const DesktopGeometricFigures = () => {
     >
       <motion.p
         id="an-text"
-        className="absolute z-20 font-arizona text-[2vw]"
+        className="absolute z-20 font-arizona text-[2vw] text-eggWhite"
         style={{
           top: "30%",
           left: "13%",
@@ -399,7 +399,7 @@ const DesktopGeometricFigures = () => {
       </motion.p>
       <motion.p
         id="art-text"
-        className="absolute z-20 font-arizona text-[2vw]"
+        className="absolute z-20 font-arizona text-[2vw] text-eggWhite"
         style={{
           top: "22%",
           left: "35%",
@@ -410,28 +410,28 @@ const DesktopGeometricFigures = () => {
       </motion.p>
       <motion.p
         id="school-text"
-        className="absolute z-20 font-arizona text-[2vw]"
+        className="absolute z-20 font-arizona text-[2vw] text-eggWhite"
         style={{ top: "58%", left: "50%", opacity: "0%" }}
       >
         School
       </motion.p>
       <motion.p
         id="for-text"
-        className="absolute z-20 font-arizona text-[2vw]"
+        className="absolute z-20 font-arizona text-[2vw] text-eggWhite"
         style={{ top: "66%", left: "60%", opacity: "0%" }}
       >
         for
       </motion.p>
       <motion.p
         id="the-text"
-        className="absolute z-20 font-arizona text-[2vw]"
+        className="absolute z-20 font-arizona text-[2vw] text-eggWhite"
         style={{ top: "43%", left: "74%", opacity: "0%" }}
       >
         the
       </motion.p>
       <motion.p
         id="wild-text"
-        className="absolute z-20 font-arizona text-[2vw]"
+        className="absolute z-20 font-arizona text-[2vw] text-eggWhite"
         style={{ top: "20%", left: "85%", opacity: "0%" }}
       >
         Wild
