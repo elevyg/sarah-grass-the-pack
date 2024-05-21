@@ -583,6 +583,7 @@ export const DesktopGeometricFigures = () => {
   return (
     <div ref={scope}>
       <Navbar
+        mode="desktop"
         id="navbar"
         style={{
           backgroundColor: colors.mint,
@@ -726,7 +727,7 @@ export const DesktopGeometricFigures = () => {
 };
 
 export const MobileGeometricFigures = () => {
-  const dimension = 60;
+  const dimension = 55;
   const insets = { second: 0.61, third: 0.95, fourth: 0.5 };
 
   const size = `${dimension}vw`;
@@ -740,91 +741,160 @@ export const MobileGeometricFigures = () => {
   const containerHeight =
     dimension * (2 - insets.second + insets.third + insets.fourth);
 
-  return (
-    <div className="flex min-h-screen flex-1 items-center justify-center py-10 md:py-0">
-      <div
-        style={{
-          height: `${containerHeight}vw`,
-          width: `${dimension * (1 + 0.21)}vw`,
-        }}
-        className="relative block origin-center"
-      >
-        <div
-          style={{
-            height: size,
-            width: size,
-            left: `calc(${size}*0.21)`,
-            display: "block",
-          }}
-          className="absolute  inline-block flex-shrink-0 origin-center bg-matteBlack"
-        />
-        <div
-          style={{
-            height: size,
-            width: size,
-            top: `calc(${bottom.second})`,
+  const [scope, animate] = useAnimate();
 
-            borderRadius: `calc(${size}*0.12)`,
-            display: "block",
-          }}
-          className="absolute inline-block flex-shrink-0 bg-matteBlack"
-        />
-        <div
-          style={{
-            height: size,
-            width: size,
-            left: `calc(${size}*0.21)`,
-            top: `calc(${size} - ${bottom.second} + ${bottom.third})`,
-            borderRadius: `calc(${size}*0.12)`,
-            display: "block",
-          }}
-          className="absolute inline-block flex-shrink-0 bg-matteBlack"
-        />
-        <div
-          style={{
-            height: size,
-            width: size,
-            display: "block",
-            top: `calc(${size} - ${bottom.second} + ${bottom.third} + ${bottom.forth})`,
-          }}
-          className="absolute left-0 top-0 inline-block flex-shrink-0  rounded-full  bg-matteBlack"
-        />
-        <motion.div
-          style={{ top: `calc(${size}*0.25)`, right: `calc(${size}*0.25)` }}
-          className=" absolute font-arizona text-2xl text-eggWhite"
-        >
-          An
-        </motion.div>
-        <motion.div
-          style={{ top: `calc(${size}*0.60)`, right: `calc(${size}*0.6)` }}
-          className=" absolute font-arizona text-2xl text-eggWhite"
-        >
-          art
-        </motion.div>
-        <motion.div
-          style={{ top: `calc(${size}*1)`, right: `calc(${size}*0.8)` }}
-          className=" absolute font-arizona text-2xl text-eggWhite"
-        >
-          school
-        </motion.div>
-        <motion.div
-          style={{ top: `calc(${size}*1.4)`, right: `calc(${size}*0.6)` }}
-          className=" absolute font-arizona text-2xl text-eggWhite"
-        >
-          for
-        </motion.div>
-        <motion.div
-          style={{ top: `calc(${size}*1.8)`, right: `calc(${size}*0.25)` }}
-          className=" absolute font-arizona text-2xl text-eggWhite"
-        >
-          the
-        </motion.div>
-        <motion.div
-          style={{ top: `calc(${size}*2.3)`, right: `calc(${size}*0.8)` }}
-          className=" absolute font-arizona text-2xl text-eggWhite"
-        >
-          wild
-        </motion.div>
+  const firstKeyFrame = async ({ duration } = { duration: 1 }) => {
+    void animate("#first-figure", { top: 0, left: "21%" }, { duration });
+    void animate(
+      "#second-figure",
+      { top: `calc(${bottom.second})`, left: 0 },
+      { duration },
+    );
+    void animate(
+      "#third-figure",
+      {
+        left: `calc(${size}*0.21)`,
+        top: `calc(${size} - ${bottom.second} + ${bottom.third})`,
+      },
+      { duration },
+    );
+    await animate(
+      "#fourth-figure",
+      {
+        top: `calc(${size} - ${bottom.second} + ${bottom.third} + ${bottom.forth})`,
+        left: 0,
+      },
+      { duration },
+    );
+  };
+
+  const handleAnimation = () => {
+    void firstKeyFrame();
+  };
+
+  useEffect(() => {
+    void handleAnimation();
+  });
+
+  return (
+    <div ref={scope}>
+      <Navbar
+        mode="mobile"
+        id="navbar"
+        style={{
+          backgroundColor: colors.mint,
+          color: colors.eggWhite,
+          borderBottomColor: colors.eggWhite,
+        }}
+      />
+      <div
+        id="background"
+        className="pt-[111px]"
+        style={{ backgroundColor: colors.mint, color: colors.mint }}
+      >
+        <div className="flex flex-1 items-center justify-center py-14">
+          <div
+            style={{
+              height: `${containerHeight}vw`,
+              width: `${dimension * (1 + 0.21)}vw`,
+            }}
+            className="relative block origin-center"
+          >
+            <div
+              id="first-figure"
+              style={{
+                height: size,
+                width: size,
+                top: -500,
+                left: "21%",
+                backgroundColor: colors.eggWhite,
+                borderRadius: "0% 0% 0% 0%",
+              }}
+              className="absolute"
+            />
+            <div
+              id="second-figure"
+              style={{
+                height: size,
+                width: size,
+                top: `calc(${bottom.second})`,
+                left: -500,
+                borderRadius: `10% 10% 10% 10%`,
+                backgroundColor: colors.eggWhite,
+              }}
+              className="absolute"
+            />
+            <div
+              id="third-figure"
+              style={{
+                height: size,
+                width: size,
+                left: `calc(100vw + 500px)`,
+                top: `calc(${size} - ${bottom.second} + ${bottom.third} + 300px)`,
+                borderRadius: "100% 100% 100% 100%",
+                backgroundColor: colors.eggWhite,
+                display: "block",
+              }}
+              className="absolute"
+            />
+            <div
+              id="fourth-figure"
+              style={{
+                height: size,
+                width: size,
+                display: "block",
+                top: `calc(${size} - ${bottom.second} + ${bottom.third} + ${bottom.forth} + 500px)`,
+                left: 0,
+                backgroundColor: colors.eggWhite,
+                borderRadius: `10% 10% 10% 10%`,
+                rotate: "45deg",
+              }}
+              className="absolute"
+            />
+            <motion.div
+              id="an-text"
+              style={{ top: `calc(${size}*0.25)`, right: `calc(${size}*0.25)` }}
+              className=" absolute font-arizona text-2xl"
+            >
+              An
+            </motion.div>
+            <motion.div
+              id="art-text"
+              style={{ top: `calc(${size}*0.60)`, right: `calc(${size}*0.6)` }}
+              className=" absolute font-arizona text-2xl"
+            >
+              art
+            </motion.div>
+            <motion.div
+              id="school-text"
+              style={{ top: `calc(${size}*1)`, right: `calc(${size}*0.8)` }}
+              className=" absolute font-arizona text-2xl"
+            >
+              school
+            </motion.div>
+            <motion.div
+              id="for-text"
+              style={{ top: `calc(${size}*1.4)`, right: `calc(${size}*0.6)` }}
+              className=" absolute font-arizona text-2xl"
+            >
+              for
+            </motion.div>
+            <motion.div
+              id="the-text"
+              style={{ top: `calc(${size}*1.8)`, right: `calc(${size}*0.25)` }}
+              className=" absolute font-arizona text-2xl"
+            >
+              the
+            </motion.div>
+            <motion.div
+              id="wild-text"
+              style={{ top: `calc(${size}*2.3)`, right: `calc(${size}*0.8)` }}
+              className=" absolute font-arizona text-2xl"
+            >
+              wild
+            </motion.div>
+          </div>
+        </div>
       </div>
     </div>
   );
