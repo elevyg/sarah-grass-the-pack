@@ -458,6 +458,96 @@ export const DesktopGeometricFigures = () => {
     );
   };
 
+  const finalFrame = () => {
+    void animate(
+      "#navbar",
+      {
+        backgroundColor: colors.eggWhite,
+        color: colors.matteBlack,
+        borderBottomColor: colors.matteBlack,
+      },
+      { duration: 1 },
+    );
+    void animate(
+      "#background",
+      { backgroundColor: colors.eggWhite, color: colors.eggWhite },
+      { duration: 1 },
+    );
+    void animate(
+      "#an-text",
+      { top: "42%", left: "31.1%", opacity: "100%" },
+      { duration: keyFramesDuration[3] },
+    );
+
+    void animate(
+      "#art-text",
+      { top: "42%", left: "35.9%", opacity: "100%" },
+      { duration: keyFramesDuration[3] },
+    );
+    void animate(
+      "#school-text",
+      { top: "42%", left: "41.35%", opacity: "100%" },
+      { duration: 1 },
+    );
+    void animate(
+      "#for-text",
+      { top: "42%", left: "51.9%", opacity: "100%" },
+      { duration: 1 },
+    );
+    void animate(
+      "#the-text",
+      { top: "42%", left: "56.8%", opacity: "100%" },
+      { duration: 1 },
+    );
+    void animate(
+      "#wild-text",
+      { top: "42%", left: "62.2%", opacity: "100%" },
+      { duration: 1 },
+    );
+    void animate(
+      "#first-figure",
+      {
+        left: 0,
+        top: 0,
+        borderRadius: "100% 100% 100% 100%",
+        backgroundColor: colors.matteBlack,
+      },
+      { duration: keyFramesDuration[5] },
+    );
+    void animate(
+      "#second-figure",
+      {
+        left: `calc(${size} + ${left.second})`,
+        top: `calc((${diagonal}/2 - ${size}/2))`,
+        borderRadius: "0% 0% 0% 0%",
+        rotate: "-45deg",
+        backgroundColor: colors.matteBlack,
+      },
+      { duration: keyFramesDuration[5] },
+    );
+    void animate(
+      "#third-figure",
+      {
+        left: `calc(${size} + ${left.second} + ${left.third})`,
+        top: `29%`,
+        rotate: "45deg",
+        borderRadius: "0% 0% 0% 0%",
+        backgroundColor: colors.matteBlack,
+      },
+      { duration: keyFramesDuration[5] },
+    );
+    void animate(
+      "#fourth-figure",
+      {
+        left: `calc(${size} + ${left.second} + ${left.third} + ${left.forth})`,
+        top: "0%",
+        borderRadius: "10% 10% 10% 10%",
+        backgroundColor: colors.matteBlack,
+      },
+      { duration: keyFramesDuration[5] },
+    );
+  };
+
   const handleAnimation = async () => {
     await firstKeyFrame();
     await secondKeyFrame();
@@ -470,7 +560,24 @@ export const DesktopGeometricFigures = () => {
   };
 
   useEffect(() => {
-    void handleAnimation();
+    const lastAnimatedAtString = localStorage.getItem("lastAnimatedAt");
+
+    const lastAnimatedAt = lastAnimatedAtString
+      ? new Date(parseInt(lastAnimatedAtString))
+      : null;
+
+    const aMinute = 60 * 1000;
+
+    const hasAnimatedInTheLast = lastAnimatedAt
+      ? Date.now() - lastAnimatedAt.getTime() < aMinute * 15
+      : false;
+
+    if (hasAnimatedInTheLast) {
+      void finalFrame();
+    } else {
+      void handleAnimation();
+      localStorage.setItem("lastAnimatedAt", Date.now().toString());
+    }
   });
 
   return (
