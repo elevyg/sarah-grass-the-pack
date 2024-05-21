@@ -4,7 +4,6 @@ import { Inter } from "next/font/google";
 import localFont from "next/font/local";
 
 import { TRPCReactProvider } from "~/trpc/react";
-import Navbar from "~/app/_components/navbar";
 
 const arizona = localFont({
   src: "../../public/fonts/EduArizonaFlare-Light.otf",
@@ -37,12 +36,7 @@ export default function RootLayout({
         className={`font-sans ${inter.variable} ${arizona.variable} ${foundersGrotesk.variable}`}
       >
         <TRPCReactProvider>
-          {/* <Navbar /> */}
-          <div
-          // className="pt-[111px]"
-          >
-            {children}
-          </div>
+          <div>{children}</div>
         </TRPCReactProvider>
       </body>
     </html>

@@ -1,5 +1,4 @@
 import Image from "next/image";
-import Footer from "~/app/_components/footer";
 import Section from "~/app/_components/section";
 import { api } from "~/trpc/server";
 import { stringTimeToDate } from "~/utils/indext";
@@ -21,7 +20,7 @@ const Page = async ({ params }: { params: { slug: string } }) => {
     : 1;
 
   return (
-    <main className="min-h-screen bg-eggWhite">
+    <div className="min-h-screen bg-eggWhite">
       <Section lowerBorderOnly color="mint">
         <div className="grid w-full grid-cols-1 md:grid-cols-2">
           <div className="flex flex-1 flex-col  border-r-2 border-matteBlack">
@@ -114,12 +113,7 @@ const Page = async ({ params }: { params: { slug: string } }) => {
           </div>
         </div>
       </Section>
-      <Section color="beige">
-        <div className="w-full">
-          <Footer />
-        </div>
-      </Section>
-    </main>
+    </div>
   );
 };
 
