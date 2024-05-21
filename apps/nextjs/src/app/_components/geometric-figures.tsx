@@ -813,10 +813,61 @@ export const MobileGeometricFigures = () => {
     );
   };
 
+  const fourthKeyFrame = async ({ duration } = { duration: 1 }) => {
+    void animate("#navbar", {
+      backgroundColor: colors.beige,
+    });
+    void animate("#background", {
+      backgroundColor: colors.beige,
+      color: colors.beige,
+    });
+    void animate(
+      "#an-text",
+      {
+        top: `calc(${size}*0.25)`,
+        right: `calc(${size}*0.25)`,
+        opacity: "100%",
+      },
+      { duration },
+    );
+    void animate(
+      "#art-text",
+      {
+        top: `calc(${size}*0.55)`,
+        right: `calc(${size}*0.55)`,
+        opacity: "100%",
+      },
+      { duration },
+    );
+    void animate("#school-text", { opacity: "100%" }, { duration });
+    void animate(
+      "#first-figure",
+      {
+        borderRadius: "10% 0% 0% 0%",
+      },
+      { duration },
+    );
+    void animate(
+      "#second-figure",
+      {
+        borderRadius: "100% 100% 100% 100%",
+      },
+      { duration },
+    );
+    await animate(
+      "#fourth-figure",
+      {
+        borderRadius: "10% 10% 10% 10%",
+      },
+      { duration },
+    );
+  };
+
   const handleAnimation = async () => {
     await firstKeyFrame();
     await secondKeyFrame();
     await thirdKeyFrame();
+    await fourthKeyFrame();
   };
 
   useEffect(() => {
@@ -921,7 +972,11 @@ export const MobileGeometricFigures = () => {
             </motion.div>
             <motion.div
               id="school-text"
-              style={{ top: `calc(${size}*1)`, right: `calc(${size}*0.8)` }}
+              style={{
+                top: `calc(${size}*1)`,
+                right: `calc(${size}*0.6)`,
+                opacity: "0%",
+              }}
               className=" absolute font-arizona text-2xl"
             >
               school
