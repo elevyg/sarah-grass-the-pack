@@ -13,7 +13,7 @@ const GeometricFigures = () => {
   return null;
 };
 
-const DesktopGeometricFigures = () => {
+export const DesktopGeometricFigures = () => {
   const dimension = 60;
   const containerWidth = `${dimension}vw`;
   const insets = { second: -0.15, third: 0.75, fourth: 0.75 };
@@ -383,108 +383,112 @@ const DesktopGeometricFigures = () => {
   return (
     <div
       ref={scope}
-      style={{ height: diagonal, width: containerWidth }}
-      className="relative block origin-center "
+      className="flex min-h-screen flex-1 items-center justify-center py-10 md:py-0"
     >
-      <motion.p
-        id="an-text"
-        className="absolute z-20 font-arizona text-[2vw] text-eggWhite"
-        style={{
-          top: "30%",
-          left: "13%",
-          opacity: "0%",
-        }}
-      >
-        An
-      </motion.p>
-      <motion.p
-        id="art-text"
-        className="absolute z-20 font-arizona text-[2vw] text-eggWhite"
-        style={{
-          top: "22%",
-          left: "35%",
-          opacity: "0%",
-        }}
-      >
-        Art
-      </motion.p>
-      <motion.p
-        id="school-text"
-        className="absolute z-20 font-arizona text-[2vw] text-eggWhite"
-        style={{ top: "58%", left: "50%", opacity: "0%" }}
-      >
-        School
-      </motion.p>
-      <motion.p
-        id="for-text"
-        className="absolute z-20 font-arizona text-[2vw] text-eggWhite"
-        style={{ top: "66%", left: "60%", opacity: "0%" }}
-      >
-        for
-      </motion.p>
-      <motion.p
-        id="the-text"
-        className="absolute z-20 font-arizona text-[2vw] text-eggWhite"
-        style={{ top: "43%", left: "74%", opacity: "0%" }}
-      >
-        the
-      </motion.p>
-      <motion.p
-        id="wild-text"
-        className="absolute z-20 font-arizona text-[2vw] text-eggWhite"
-        style={{ top: "20%", left: "85%", opacity: "0%" }}
-      >
-        Wild
-      </motion.p>
-      <motion.div
-        id="first-figure"
-        initial={{ left: -500, top: -500 }}
-        style={{ height: size, width: size, display: "block" }}
-        transition={{ duration: 4 }}
-        className="fl2ex-shrink-0 absolute left-0 top-0 inline-block  rounded-full  bg-matteBlack"
-      />
-      <motion.div
-        id="second-figure"
-        style={{
-          height: size,
-          width: size,
-          bottom: -500,
-          left: `calc(${size} + ${left.second})`,
-          display: "block",
-        }}
-        className="absolute inline-block flex-shrink-0 bg-matteBlack"
-      />
       <div
-        id="third-figure"
-        style={{
-          height: size,
-          width: size,
-          left: `calc(${size} + ${left.second} + ${left.third})`,
-          bottom: 500,
-          borderRadius: "100% 100% 100% 100%",
-          rotate: "45deg",
-          display: "block",
-        }}
-        className="absolute  inline-block flex-shrink-0 origin-center bg-matteBlack"
-      />
-      <div
-        id="fourth-figure"
-        style={{
-          height: size,
-          width: size,
-          left: "calc(100vw + 500px)",
-          top: "0%",
-          borderRadius: `0% 0% 0% 0%`,
-          rotate: "45deg",
-          display: "block",
-        }}
-        className="absolute inline-block flex-shrink-0 bg-matteBlack"
-      />
+        style={{ height: diagonal, width: containerWidth }}
+        className="relative block origin-center "
+      >
+        <motion.p
+          id="an-text"
+          className="absolute z-20 font-arizona text-[2vw] text-eggWhite"
+          style={{
+            top: "30%",
+            left: "13%",
+            opacity: "0%",
+          }}
+        >
+          An
+        </motion.p>
+        <motion.p
+          id="art-text"
+          className="absolute z-20 font-arizona text-[2vw] text-eggWhite"
+          style={{
+            top: "22%",
+            left: "35%",
+            opacity: "0%",
+          }}
+        >
+          Art
+        </motion.p>
+        <motion.p
+          id="school-text"
+          className="absolute z-20 font-arizona text-[2vw] text-eggWhite"
+          style={{ top: "58%", left: "50%", opacity: "0%" }}
+        >
+          School
+        </motion.p>
+        <motion.p
+          id="for-text"
+          className="absolute z-20 font-arizona text-[2vw] text-eggWhite"
+          style={{ top: "66%", left: "60%", opacity: "0%" }}
+        >
+          for
+        </motion.p>
+        <motion.p
+          id="the-text"
+          className="absolute z-20 font-arizona text-[2vw] text-eggWhite"
+          style={{ top: "43%", left: "74%", opacity: "0%" }}
+        >
+          the
+        </motion.p>
+        <motion.p
+          id="wild-text"
+          className="absolute z-20 font-arizona text-[2vw] text-eggWhite"
+          style={{ top: "20%", left: "85%", opacity: "0%" }}
+        >
+          Wild
+        </motion.p>
+        <motion.div
+          id="first-figure"
+          initial={{ left: -500, top: -500 }}
+          style={{ height: size, width: size, display: "block" }}
+          transition={{ duration: 4 }}
+          className="fl2ex-shrink-0 absolute left-0 top-0 inline-block  rounded-full  bg-matteBlack"
+        />
+        <motion.div
+          id="second-figure"
+          style={{
+            height: size,
+            width: size,
+            bottom: -500,
+            left: `calc(${size} + ${left.second})`,
+            display: "block",
+          }}
+          className="absolute inline-block flex-shrink-0 bg-matteBlack"
+        />
+        <div
+          id="third-figure"
+          style={{
+            height: size,
+            width: size,
+            left: `calc(${size} + ${left.second} + ${left.third})`,
+            bottom: 500,
+            borderRadius: "100% 100% 100% 100%",
+            rotate: "45deg",
+            display: "block",
+          }}
+          className="absolute  inline-block flex-shrink-0 origin-center bg-matteBlack"
+        />
+        <div
+          id="fourth-figure"
+          style={{
+            height: size,
+            width: size,
+            left: "calc(100vw + 500px)",
+            top: "0%",
+            borderRadius: `0% 0% 0% 0%`,
+            rotate: "45deg",
+            display: "block",
+          }}
+          className="absolute inline-block flex-shrink-0 bg-matteBlack"
+        />
+      </div>
     </div>
   );
 };
 
-const MobileGeometricFigures = () => {
+export const MobileGeometricFigures = () => {
   const dimension = 60;
   const insets = { second: 0.61, third: 0.95, fourth: 0.5 };
 
@@ -500,89 +504,91 @@ const MobileGeometricFigures = () => {
     dimension * (2 - insets.second + insets.third + insets.fourth);
 
   return (
-    <div
-      style={{
-        height: `${containerHeight}vw`,
-        width: `${dimension * (1 + 0.21)}vw`,
-      }}
-      className="relative block origin-center"
-    >
+    <div className="flex min-h-screen flex-1 items-center justify-center py-10 md:py-0">
       <div
         style={{
-          height: size,
-          width: size,
-          left: `calc(${size}*0.21)`,
-          display: "block",
+          height: `${containerHeight}vw`,
+          width: `${dimension * (1 + 0.21)}vw`,
         }}
-        className="absolute  inline-block flex-shrink-0 origin-center bg-matteBlack"
-      />
-      <div
-        style={{
-          height: size,
-          width: size,
-          top: `calc(${bottom.second})`,
+        className="relative block origin-center"
+      >
+        <div
+          style={{
+            height: size,
+            width: size,
+            left: `calc(${size}*0.21)`,
+            display: "block",
+          }}
+          className="absolute  inline-block flex-shrink-0 origin-center bg-matteBlack"
+        />
+        <div
+          style={{
+            height: size,
+            width: size,
+            top: `calc(${bottom.second})`,
 
-          borderRadius: `calc(${size}*0.12)`,
-          display: "block",
-        }}
-        className="absolute inline-block flex-shrink-0 bg-matteBlack"
-      />
-      <div
-        style={{
-          height: size,
-          width: size,
-          left: `calc(${size}*0.21)`,
-          top: `calc(${size} - ${bottom.second} + ${bottom.third})`,
-          borderRadius: `calc(${size}*0.12)`,
-          display: "block",
-        }}
-        className="absolute inline-block flex-shrink-0 bg-matteBlack"
-      />
-      <div
-        style={{
-          height: size,
-          width: size,
-          display: "block",
-          top: `calc(${size} - ${bottom.second} + ${bottom.third} + ${bottom.forth})`,
-        }}
-        className="absolute left-0 top-0 inline-block flex-shrink-0  rounded-full  bg-matteBlack"
-      />
-      <motion.div
-        style={{ top: `calc(${size}*0.25)`, right: `calc(${size}*0.25)` }}
-        className=" absolute font-arizona text-2xl text-eggWhite"
-      >
-        An
-      </motion.div>
-      <motion.div
-        style={{ top: `calc(${size}*0.60)`, right: `calc(${size}*0.6)` }}
-        className=" absolute font-arizona text-2xl text-eggWhite"
-      >
-        art
-      </motion.div>
-      <motion.div
-        style={{ top: `calc(${size}*1)`, right: `calc(${size}*0.8)` }}
-        className=" absolute font-arizona text-2xl text-eggWhite"
-      >
-        school
-      </motion.div>
-      <motion.div
-        style={{ top: `calc(${size}*1.4)`, right: `calc(${size}*0.6)` }}
-        className=" absolute font-arizona text-2xl text-eggWhite"
-      >
-        for
-      </motion.div>
-      <motion.div
-        style={{ top: `calc(${size}*1.8)`, right: `calc(${size}*0.25)` }}
-        className=" absolute font-arizona text-2xl text-eggWhite"
-      >
-        the
-      </motion.div>
-      <motion.div
-        style={{ top: `calc(${size}*2.3)`, right: `calc(${size}*0.8)` }}
-        className=" absolute font-arizona text-2xl text-eggWhite"
-      >
-        wild
-      </motion.div>
+            borderRadius: `calc(${size}*0.12)`,
+            display: "block",
+          }}
+          className="absolute inline-block flex-shrink-0 bg-matteBlack"
+        />
+        <div
+          style={{
+            height: size,
+            width: size,
+            left: `calc(${size}*0.21)`,
+            top: `calc(${size} - ${bottom.second} + ${bottom.third})`,
+            borderRadius: `calc(${size}*0.12)`,
+            display: "block",
+          }}
+          className="absolute inline-block flex-shrink-0 bg-matteBlack"
+        />
+        <div
+          style={{
+            height: size,
+            width: size,
+            display: "block",
+            top: `calc(${size} - ${bottom.second} + ${bottom.third} + ${bottom.forth})`,
+          }}
+          className="absolute left-0 top-0 inline-block flex-shrink-0  rounded-full  bg-matteBlack"
+        />
+        <motion.div
+          style={{ top: `calc(${size}*0.25)`, right: `calc(${size}*0.25)` }}
+          className=" absolute font-arizona text-2xl text-eggWhite"
+        >
+          An
+        </motion.div>
+        <motion.div
+          style={{ top: `calc(${size}*0.60)`, right: `calc(${size}*0.6)` }}
+          className=" absolute font-arizona text-2xl text-eggWhite"
+        >
+          art
+        </motion.div>
+        <motion.div
+          style={{ top: `calc(${size}*1)`, right: `calc(${size}*0.8)` }}
+          className=" absolute font-arizona text-2xl text-eggWhite"
+        >
+          school
+        </motion.div>
+        <motion.div
+          style={{ top: `calc(${size}*1.4)`, right: `calc(${size}*0.6)` }}
+          className=" absolute font-arizona text-2xl text-eggWhite"
+        >
+          for
+        </motion.div>
+        <motion.div
+          style={{ top: `calc(${size}*1.8)`, right: `calc(${size}*0.25)` }}
+          className=" absolute font-arizona text-2xl text-eggWhite"
+        >
+          the
+        </motion.div>
+        <motion.div
+          style={{ top: `calc(${size}*2.3)`, right: `calc(${size}*0.8)` }}
+          className=" absolute font-arizona text-2xl text-eggWhite"
+        >
+          wild
+        </motion.div>
+      </div>
     </div>
   );
 };

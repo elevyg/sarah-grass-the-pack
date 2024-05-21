@@ -1,12 +1,15 @@
 import Image from "next/image";
 import Footer from "~/app/_components/footer";
-import GeometricFigures from "~/app/_components/geometric-figures";
 import Offerings from "~/app/_components/offerings";
 import Section from "~/app/_components/section";
 import { api } from "~/trpc/server";
 import markdownToHtml from "~/utils/markdownToHtml";
+import { type SearchParams } from "../middleware";
+import Hero from "~/app/_components/hero";
 
-export default async function Home() {
+type Request = { searchParams: SearchParams };
+
+export default async function Home(request: Request) {
   const texts = await api.getLandingTexts();
   const offerings = await api.getOfferings();
 
@@ -21,9 +24,7 @@ export default async function Home() {
 
   return (
     <main className="flex min-h-screen flex-col bg-eggWhite text-matteBlack">
-      <div className="flex min-h-screen flex-1 items-center justify-center py-10 md:py-0">
-        <GeometricFigures />
-      </div>
+      <Hero viewport={request.searchParams.viewport} />
       <Section color="mint">
         <Offerings
           title={texts.attributes.offering_header}
