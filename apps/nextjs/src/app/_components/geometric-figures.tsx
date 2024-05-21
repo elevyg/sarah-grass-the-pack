@@ -2,7 +2,6 @@
 import { motion, useAnimate } from "framer-motion";
 import { useEffect } from "react";
 import Navbar from "~/app/_components/navbar";
-import useMediaQuery from "~/hooks/useMediaQuery";
 
 const colors = {
   eggWhite: "#FFFCF4",
@@ -12,16 +11,6 @@ const colors = {
   beige: "#CCA887",
   skyBlue: "#ACCEED",
   yellow: "#EDDF94",
-};
-
-const GeometricFigures = () => {
-  const isDesktop = useMediaQuery(`(min-width: 768px)`);
-
-  if (isDesktop === true) return <DesktopGeometricFigures />;
-  if (isDesktop === false) {
-    return <MobileGeometricFigures />;
-  }
-  return null;
 };
 
 export const DesktopGeometricFigures = () => {
@@ -1348,5 +1337,3 @@ export const MobileGeometricFigures = () => {
     </div>
   );
 };
-
-export default GeometricFigures;
