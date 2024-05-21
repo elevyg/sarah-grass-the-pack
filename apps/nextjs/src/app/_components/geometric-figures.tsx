@@ -952,9 +952,30 @@ export const MobileGeometricFigures = () => {
       { duration },
     );
     void animate("#school-text", { opacity: "100%" }, { duration });
-    void animate("#for-text", { opacity: "100%" }, { duration });
-    void animate("#the-text", { opacity: "100%" }, { duration });
-    void animate("#wild-text", { opacity: "100%" }, { duration });
+    void animate(
+      "#for-text",
+      { opacity: "100%", right: `calc(${size}*0.5)` },
+      { duration },
+    );
+    void animate(
+      "#the-text",
+      {
+        opacity: "100%",
+        right: `calc(${size}*0.25)`,
+        top: `calc(${size}*1.8)`,
+      },
+      { duration },
+    );
+    void animate(
+      "#wild-text",
+      { opacity: "100%", right: `calc(${size}*0.6)` },
+      { duration },
+    );
+    void animate(
+      "#wild-text",
+      { opacity: "100%", right: `calc(${size}*0.6)` },
+      { duration },
+    );
     void animate(
       "#first-figure",
       {
@@ -986,6 +1007,79 @@ export const MobileGeometricFigures = () => {
       { duration },
     );
   };
+  const seventhKeyFrame = async ({ duration } = { duration: 1 }) => {
+    void animate("#navbar", {
+      backgroundColor: colors.eggWhite,
+      color: colors.matteBlack,
+      borderBottomColor: colors.matteBlack,
+    });
+    void animate("#background", {
+      backgroundColor: colors.eggWhite,
+      color: colors.eggWhite,
+    });
+    void animate(
+      "#an-text",
+      {
+        top: `calc(${size}*0.25)`,
+        right: `calc(${size}*0.25)`,
+        opacity: "100%",
+      },
+      { duration },
+    );
+    void animate(
+      "#art-text",
+      {
+        top: `calc(${size}*0.55)`,
+        right: `calc(${size}*0.55)`,
+        opacity: "100%",
+      },
+      { duration },
+    );
+    void animate("#school-text", { opacity: "100%" }, { duration });
+    void animate(
+      "#wild-text",
+      { opacity: "100%", right: `calc(${size}*0.6)` },
+      { duration },
+    );
+    void animate(
+      "#wild-text",
+      { opacity: "100%", right: `calc(${size}*0.6)` },
+      { duration },
+    );
+    void animate("#wild-text", { opacity: "100%" }, { duration });
+    void animate(
+      "#first-figure",
+      {
+        borderRadius: "0% 0% 0% 0%",
+        backgroundColor: colors.matteBlack,
+      },
+      { duration },
+    );
+    void animate(
+      "#second-figure",
+      {
+        borderRadius: "10% 10% 10% 10%",
+        backgroundColor: colors.matteBlack,
+      },
+      { duration },
+    );
+    void animate(
+      "#third-figure",
+      {
+        borderRadius: "10% 10% 10% 10%",
+        backgroundColor: colors.matteBlack,
+      },
+      { duration },
+    );
+    await animate(
+      "#fourth-figure",
+      {
+        borderRadius: "100% 100% 100% 100%",
+        backgroundColor: colors.matteBlack,
+      },
+      { duration },
+    );
+  };
 
   const handleAnimation = async () => {
     await firstKeyFrame();
@@ -994,6 +1088,7 @@ export const MobileGeometricFigures = () => {
     await fourthKeyFrame();
     await fifthKeyFrame();
     await sixthKeyFrame();
+    await seventhKeyFrame();
   };
 
   useEffect(() => {
@@ -1121,8 +1216,8 @@ export const MobileGeometricFigures = () => {
             <motion.div
               id="the-text"
               style={{
-                top: `calc(${size}*1.8)`,
-                right: `calc(${size}*0.25)`,
+                top: `calc(${size}*1.7)`,
+                right: `calc(${size}*0.45)`,
                 opacity: "0%",
               }}
               className=" absolute font-arizona text-2xl"
@@ -1133,7 +1228,7 @@ export const MobileGeometricFigures = () => {
               id="wild-text"
               style={{
                 top: `calc(${size}*2.3)`,
-                right: `calc(${size}*0.8)`,
+                right: `calc(${size}*1.05)`,
                 opacity: "0%",
               }}
               className=" absolute font-arizona text-2xl"
