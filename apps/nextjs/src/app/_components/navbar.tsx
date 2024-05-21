@@ -1,9 +1,16 @@
+"use-client";
+import { motion } from "framer-motion";
 import Link from "next/link";
-import React from "react";
+import { type ComponentProps } from "react";
 
-const Navbar = () => {
+type Props = ComponentProps<typeof motion.nav>;
+
+const Navbar = (props: Props) => {
   return (
-    <nav className="fixed z-10 flex h-[111px] w-screen items-end justify-between border-b-2 border-b-matteBlack bg-eggWhite p-2">
+    <motion.nav
+      className="fixed z-10 flex h-[111px] w-screen items-end justify-between border-b-2 border-b-matteBlack bg-eggWhite p-2"
+      {...props}
+    >
       <div>
         <Link href="/">
           <h1 className="font-arizona text-[1.125rem]">The Pack</h1>
@@ -18,7 +25,7 @@ const Navbar = () => {
           JOURNAL
         </a>
       </div>
-    </nav>
+    </motion.nav>
   );
 };
 

@@ -37,8 +37,12 @@ export default function RootLayout({
         className={`font-sans ${inter.variable} ${arizona.variable} ${foundersGrotesk.variable}`}
       >
         <TRPCReactProvider>
-          <Navbar />
-          <div className="pt-[111px]">{children}</div>
+          {/* <Navbar /> */}
+          <div
+          // className="pt-[111px]"
+          >
+            {children}
+          </div>
         </TRPCReactProvider>
       </body>
     </html>

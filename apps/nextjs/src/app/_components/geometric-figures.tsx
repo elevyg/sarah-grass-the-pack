@@ -1,7 +1,18 @@
 "use client";
 import { motion, useAnimate } from "framer-motion";
 import { useEffect } from "react";
+import Navbar from "~/app/_components/navbar";
 import useMediaQuery from "~/hooks/useMediaQuery";
+
+const colors = {
+  eggWhite: "#FFFCF4",
+  matteBlack: "#232323",
+  mint: "#B4DDCB",
+  lavander: "#BBA0CA",
+  beige: "#CCA887",
+  skyBlue: "#ACCEED",
+  yellow: "#EDDF94",
+};
 
 const GeometricFigures = () => {
   const isDesktop = useMediaQuery(`(min-width: 768px)`);
@@ -86,6 +97,16 @@ export const DesktopGeometricFigures = () => {
 
   const thirdKeyFrame = async () => {
     void animate(
+      "#navbar",
+      { backgroundColor: colors.lavander },
+      { duration: 1 },
+    );
+    void animate(
+      "#background",
+      { backgroundColor: colors.lavander, color: colors.lavander },
+      { duration: 1 },
+    );
+    void animate(
       "#an-text",
       { top: "40%", left: "13%", opacity: "100%" },
       { duration: keyFramesDuration[2] },
@@ -134,7 +155,13 @@ export const DesktopGeometricFigures = () => {
     );
   };
 
-  const fifthKeyFrame = async () => {
+  const fourthKeyFrame = async () => {
+    void animate("#navbar", { backgroundColor: colors.beige }, { duration: 1 });
+    void animate(
+      "#background",
+      { backgroundColor: colors.beige, color: colors.beige },
+      { duration: 1 },
+    );
     void animate(
       "#an-text",
       { top: "60%", left: "14%", opacity: "100%" },
@@ -192,7 +219,17 @@ export const DesktopGeometricFigures = () => {
     );
   };
 
-  const sixthKeyFrame = async () => {
+  const fifthKeyFrame = async () => {
+    void animate(
+      "#navbar",
+      { backgroundColor: colors.skyBlue },
+      { duration: 1 },
+    );
+    void animate(
+      "#background",
+      { backgroundColor: colors.skyBlue, color: colors.skyBlue },
+      { duration: 1 },
+    );
     void animate(
       "#an-text",
       { top: "26%", left: "10%", opacity: "100%" },
@@ -260,7 +297,17 @@ export const DesktopGeometricFigures = () => {
     );
   };
 
-  const seventhKeyFrame = async () => {
+  const sixthKeyFrame = async () => {
+    void animate(
+      "#navbar",
+      { backgroundColor: colors.yellow },
+      { duration: 1 },
+    );
+    void animate(
+      "#background",
+      { backgroundColor: colors.yellow, color: colors.yellow },
+      { duration: 1 },
+    );
     void animate(
       "#an-text",
       { top: "22%", left: "10%", opacity: "100%" },
@@ -332,7 +379,7 @@ export const DesktopGeometricFigures = () => {
     );
   };
 
-  const eighthKeyFrame = async () => {
+  const seventhKeyFrame = async () => {
     void animate(
       "#an-text",
       { top: "42%", left: "31.1%", opacity: "100%" },
@@ -366,14 +413,60 @@ export const DesktopGeometricFigures = () => {
     );
   };
 
+  const eghtKeyFrame = async () => {
+    void animate(
+      "#navbar",
+      {
+        backgroundColor: colors.eggWhite,
+        color: colors.matteBlack,
+        borderBottomColor: colors.matteBlack,
+      },
+      { duration: 1 },
+    );
+    void animate(
+      "#background",
+      { backgroundColor: colors.eggWhite, color: colors.eggWhite },
+      { duration: 1 },
+    );
+    void animate(
+      "#first-figure",
+      {
+        backgroundColor: colors.matteBlack,
+      },
+      { duration: keyFramesDuration[5] },
+    );
+    void animate(
+      "#second-figure",
+      {
+        backgroundColor: colors.matteBlack,
+      },
+      { duration: keyFramesDuration[5] },
+    );
+    void animate(
+      "#third-figure",
+      {
+        backgroundColor: colors.matteBlack,
+      },
+      { duration: keyFramesDuration[5] },
+    );
+    await animate(
+      "#fourth-figure",
+      {
+        backgroundColor: colors.matteBlack,
+      },
+      { duration: keyFramesDuration[5] },
+    );
+  };
+
   const handleAnimation = async () => {
     await firstKeyFrame();
     await secondKeyFrame();
     await thirdKeyFrame();
+    await fourthKeyFrame();
     await fifthKeyFrame();
     await sixthKeyFrame();
     await seventhKeyFrame();
-    await eighthKeyFrame();
+    await eghtKeyFrame();
   };
 
   useEffect(() => {
@@ -381,108 +474,145 @@ export const DesktopGeometricFigures = () => {
   });
 
   return (
-    <div
-      ref={scope}
-      className="flex min-h-screen flex-1 items-center justify-center py-10 md:py-0"
-    >
+    <div ref={scope}>
+      <Navbar
+        id="navbar"
+        style={{
+          backgroundColor: colors.mint,
+          color: colors.eggWhite,
+          borderBottomColor: colors.eggWhite,
+        }}
+      />
       <div
-        style={{ height: diagonal, width: containerWidth }}
-        className="relative block origin-center "
+        id="background"
+        className="pt-[111px]"
+        style={{ backgroundColor: colors.mint, color: colors.mint }}
       >
-        <motion.p
-          id="an-text"
-          className="absolute z-20 font-arizona text-[2vw] text-eggWhite"
-          style={{
-            top: "30%",
-            left: "13%",
-            opacity: "0%",
-          }}
-        >
-          An
-        </motion.p>
-        <motion.p
-          id="art-text"
-          className="absolute z-20 font-arizona text-[2vw] text-eggWhite"
-          style={{
-            top: "22%",
-            left: "35%",
-            opacity: "0%",
-          }}
-        >
-          Art
-        </motion.p>
-        <motion.p
-          id="school-text"
-          className="absolute z-20 font-arizona text-[2vw] text-eggWhite"
-          style={{ top: "58%", left: "50%", opacity: "0%" }}
-        >
-          School
-        </motion.p>
-        <motion.p
-          id="for-text"
-          className="absolute z-20 font-arizona text-[2vw] text-eggWhite"
-          style={{ top: "66%", left: "60%", opacity: "0%" }}
-        >
-          for
-        </motion.p>
-        <motion.p
-          id="the-text"
-          className="absolute z-20 font-arizona text-[2vw] text-eggWhite"
-          style={{ top: "43%", left: "74%", opacity: "0%" }}
-        >
-          the
-        </motion.p>
-        <motion.p
-          id="wild-text"
-          className="absolute z-20 font-arizona text-[2vw] text-eggWhite"
-          style={{ top: "20%", left: "85%", opacity: "0%" }}
-        >
-          Wild
-        </motion.p>
-        <motion.div
-          id="first-figure"
-          initial={{ left: -500, top: -500 }}
-          style={{ height: size, width: size, display: "block" }}
-          transition={{ duration: 4 }}
-          className="fl2ex-shrink-0 absolute left-0 top-0 inline-block  rounded-full  bg-matteBlack"
-        />
-        <motion.div
-          id="second-figure"
-          style={{
-            height: size,
-            width: size,
-            bottom: -500,
-            left: `calc(${size} + ${left.second})`,
-            display: "block",
-          }}
-          className="absolute inline-block flex-shrink-0 bg-matteBlack"
-        />
-        <div
-          id="third-figure"
-          style={{
-            height: size,
-            width: size,
-            left: `calc(${size} + ${left.second} + ${left.third})`,
-            bottom: 500,
-            borderRadius: "100% 100% 100% 100%",
-            rotate: "45deg",
-            display: "block",
-          }}
-          className="absolute  inline-block flex-shrink-0 origin-center bg-matteBlack"
-        />
-        <div
-          id="fourth-figure"
-          style={{
-            height: size,
-            width: size,
-            left: "calc(100vw + 500px)",
-            top: "0%",
-            borderRadius: `0% 0% 0% 0%`,
-            rotate: "45deg",
-            display: "block",
-          }}
-          className="absolute inline-block flex-shrink-0 bg-matteBlack"
-        />
+        <div className="flex min-h-screen flex-1 items-center justify-center pb-10  md:py-0">
+          <div
+            style={{ height: diagonal, width: containerWidth }}
+            className="relative block origin-center "
+          >
+            <motion.p
+              id="an-text"
+              className="absolute z-20 font-arizona text-[2vw] "
+              style={{
+                top: "30%",
+                left: "13%",
+                opacity: "0%",
+              }}
+            >
+              An
+            </motion.p>
+            <motion.p
+              id="art-text"
+              className="absolute z-20 font-arizona text-[2vw] "
+              style={{
+                top: "22%",
+                left: "35%",
+                opacity: "0%",
+              }}
+            >
+              Art
+            </motion.p>
+            <motion.p
+              id="school-text"
+              className="absolute z-20 font-arizona text-[2vw] "
+              style={{
+                top: "58%",
+                left: "50%",
+                opacity: "0%",
+              }}
+            >
+              School
+            </motion.p>
+            <motion.p
+              id="for-text"
+              className="absolute z-20 font-arizona text-[2vw] "
+              style={{
+                top: "66%",
+                left: "60%",
+                opacity: "0%",
+              }}
+            >
+              for
+            </motion.p>
+            <motion.p
+              id="the-text"
+              className="absolute z-20 font-arizona text-[2vw] "
+              style={{
+                top: "43%",
+                left: "74%",
+                opacity: "0%",
+              }}
+            >
+              the
+            </motion.p>
+            <motion.p
+              id="wild-text"
+              className="absolute z-20 font-arizona text-[2vw]"
+              style={{
+                top: "20%",
+                left: "85%",
+                opacity: "0%",
+              }}
+            >
+              Wild
+            </motion.p>
+            <motion.div
+              id="first-figure"
+              initial={{ left: -500, top: -500 }}
+              style={{
+                backgroundColor: colors.eggWhite,
+                height: size,
+                width: size,
+                display: "block",
+              }}
+              transition={{ duration: 4 }}
+              className="fl2ex-shrink-0 absolute left-0 top-0 inline-block  rounded-full "
+            />
+            <motion.div
+              id="second-figure"
+              style={{
+                backgroundColor: colors.eggWhite,
+                height: size,
+                width: size,
+                bottom: -500,
+                left: `calc(${size} + ${left.second})`,
+                display: "block",
+              }}
+              className="absolute inline-block flex-shrink-0"
+            />
+            <div
+              id="third-figure"
+              style={{
+                backgroundColor: colors.eggWhite,
+                height: size,
+                width: size,
+                left: `calc(${size} + ${left.second} + ${left.third})`,
+                bottom: 500,
+                borderRadius: "100% 100% 100% 100%",
+                rotate: "45deg",
+                display: "block",
+              }}
+              className="absolute  inline-block flex-shrink-0 origin-center"
+            />
+            <div
+              id="fourth-figure"
+              style={{
+                backgroundColor: colors.eggWhite,
+                height: size,
+                width: size,
+                left: "calc(100vw + 500px)",
+                top: "0%",
+                borderRadius: `0% 0% 0% 0%`,
+                rotate: "45deg",
+                display: "block",
+              }}
+              className="absolute inline-block flex-shrink-0"
+            />
+          </div>
+        </div>
       </div>
     </div>
   );
