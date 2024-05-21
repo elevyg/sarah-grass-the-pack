@@ -1080,6 +1080,96 @@ export const MobileGeometricFigures = () => {
       { duration },
     );
   };
+  const finalFrame = async ({ duration } = { duration: 1 }) => {
+    void animate("#navbar", {
+      backgroundColor: colors.eggWhite,
+      color: colors.matteBlack,
+      borderBottomColor: colors.matteBlack,
+    });
+    void animate("#background", {
+      backgroundColor: colors.eggWhite,
+      color: colors.eggWhite,
+    });
+    void animate(
+      "#an-text",
+      {
+        top: `calc(${size}*0.25)`,
+        right: `calc(${size}*0.25)`,
+        opacity: "100%",
+      },
+      { duration },
+    );
+    void animate(
+      "#art-text",
+      {
+        top: `calc(${size}*0.55)`,
+        right: `calc(${size}*0.55)`,
+        opacity: "100%",
+      },
+      { duration },
+    );
+    void animate("#school-text", { opacity: "100%" }, { duration });
+    void animate(
+      "#for-text",
+      { opacity: "100%", right: `calc(${size}*0.5)` },
+      { duration },
+    );
+    void animate(
+      "#the-text",
+      {
+        opacity: "100%",
+        right: `calc(${size}*0.25)`,
+        top: `calc(${size}*1.8)`,
+      },
+      { duration },
+    );
+    void animate(
+      "#wild-text",
+      { opacity: "100%", right: `calc(${size}*0.6)` },
+      { duration },
+    );
+    void animate("#wild-text", { opacity: "100%" }, { duration });
+    void animate(
+      "#first-figure",
+      {
+        top: 0,
+        left: "21%",
+        borderRadius: "0% 0% 0% 0%",
+        backgroundColor: colors.matteBlack,
+      },
+      { duration },
+    );
+    void animate(
+      "#second-figure",
+      {
+        top: `calc(${bottom.second})`,
+        left: 0,
+        borderRadius: "10% 10% 10% 10%",
+        backgroundColor: colors.matteBlack,
+      },
+      { duration },
+    );
+    void animate(
+      "#third-figure",
+      {
+        left: `calc(${size}*0.21)`,
+        top: `calc(${size} - ${bottom.second} + ${bottom.third})`,
+        borderRadius: "10% 10% 10% 10%",
+        backgroundColor: colors.matteBlack,
+      },
+      { duration },
+    );
+    await animate(
+      "#fourth-figure",
+      {
+        top: `calc(${size} - ${bottom.second} + ${bottom.third} + ${bottom.forth})`,
+        left: 0,
+        borderRadius: "100% 100% 100% 100%",
+        backgroundColor: colors.matteBlack,
+      },
+      { duration },
+    );
+  };
 
   const handleAnimation = async () => {
     await firstKeyFrame();
@@ -1092,7 +1182,24 @@ export const MobileGeometricFigures = () => {
   };
 
   useEffect(() => {
-    void handleAnimation();
+    const lastAnimatedAtString = localStorage.getItem("lastAnimatedAt");
+
+    const lastAnimatedAt = lastAnimatedAtString
+      ? new Date(parseInt(lastAnimatedAtString))
+      : null;
+
+    const aMinute = 60 * 1000;
+
+    const hasAnimatedInTheLast = lastAnimatedAt
+      ? Date.now() - lastAnimatedAt.getTime() < aMinute * 15
+      : false;
+
+    if (hasAnimatedInTheLast) {
+      void finalFrame();
+    } else {
+      void handleAnimation();
+      localStorage.setItem("lastAnimatedAt", Date.now().toString());
+    }
   });
 
   return (
