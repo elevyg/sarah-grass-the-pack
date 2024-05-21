@@ -1,41 +1,78 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import Link from "next/link";
-import { type ComponentProps } from "react";
+import { useState, type ComponentProps } from "react";
 
 type Props = ComponentProps<typeof motion.nav> & {
   mode?: "desktop" | "mobile";
 };
 
 const Navbar = (props: Props) => {
-  return (
-    <motion.nav
-      className="fixed z-10 flex h-[111px] w-screen items-end justify-between border-b-2 border-b-matteBlack bg-eggWhite p-2"
-      {...props}
-    >
-      <div>
-        <Link href="/">
-          <h1 className="font-arizona text-[1.125rem]">The Pack</h1>
-        </Link>
-      </div>
+  const [isOpen, setIsOpen] = useState(false);
 
-      {props.mode === "desktop" ? (
-        <div className="flex gap-2">
-          <a>OFFERINGS</a>
-          <Link href="/about">
+  const handleMenuClick = () => {
+    setIsOpen((prev) => !prev);
+  };
+
+  return (
+    <AnimatePresence>
+      <motion.nav
+        className="fixed z-20 flex h-[111px] w-screen items-end justify-between border-b-2 border-b-matteBlack bg-eggWhite p-2"
+        {...props}
+      >
+        <div>
+          <Link href="/">
+            <h1 className="font-arizona text-[1.125rem]">The Pack</h1>
+          </Link>
+        </div>
+
+        {props.mode === "desktop" ? (
+          <div className="flex gap-2">
+            <a>OFFERINGS</a>
+            <Link href="/about">
+              <p>ABOUT</p>
+            </Link>
+            <a href="https://thepackartschool.substack.com/" target="_blank">
+              JOURNAL
+            </a>
+          </div>
+        ) : (
+          <div className="px-4">
+            <button onClick={handleMenuClick}>
+              {<p>{isOpen ? "CLOSE" : "MENU"}</p>}
+            </button>
+          </div>
+        )}
+      </motion.nav>
+      {isOpen && (
+        <motion.div
+          key="menu"
+          initial={{ opacity: 0, y: "-100%" }}
+          animate={{ opacity: 1, y: "0%" }}
+          exit={{ opacity: 0, y: "-100%" }}
+          transition={{ type: "spring", ease: "easeIn", duration: 0.5 }}
+          className="fixed left-0 top-0 z-10 flex w-screen flex-col border-b-2 border-b-matteBlack bg-eggWhite px-4 pt-[111px]"
+        >
+          <a className="border-b-[1px] border-b-matteBlack py-2">
+            <p>OFFERINGS</p>
+          </a>
+          <Link
+            href="/about"
+            className="border-b-[1px] border-b-matteBlack py-2"
+          >
             <p>ABOUT</p>
           </Link>
-          <a href="https://thepackartschool.substack.com/" target="_blank">
+          <a
+            href="https://thepackartschool.substack.com/"
+            target="_blank"
+            className=" border-b-matteBlack py-2"
+          >
             JOURNAL
           </a>
-        </div>
-      ) : (
-        <div>
-          <p>MENU</p>
-        </div>
+        </motion.div>
       )}
-    </motion.nav>
+    </AnimatePresence>
   );
 };
 
