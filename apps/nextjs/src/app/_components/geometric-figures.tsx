@@ -863,11 +863,74 @@ export const MobileGeometricFigures = () => {
     );
   };
 
+  const fifthKeyFrame = async ({ duration } = { duration: 1 }) => {
+    void animate("#navbar", {
+      backgroundColor: colors.skyBlue,
+    });
+    void animate("#background", {
+      backgroundColor: colors.skyBlue,
+      color: colors.skyBlue,
+    });
+    void animate(
+      "#an-text",
+      {
+        top: `calc(${size}*0.25)`,
+        right: `calc(${size}*0.25)`,
+        opacity: "100%",
+      },
+      { duration },
+    );
+    void animate(
+      "#art-text",
+      {
+        top: `calc(${size}*0.55)`,
+        right: `calc(${size}*0.55)`,
+        opacity: "100%",
+      },
+      { duration },
+    );
+    void animate("#school-text", { opacity: "100%" }, { duration });
+    void animate("#for-text", { opacity: "100%" }, { duration });
+    void animate("#the-text", { opacity: "100%" }, { duration });
+    void animate(
+      "#first-figure",
+      {
+        borderRadius: "0% 10% 0% 0%",
+      },
+      { duration },
+    );
+    void animate(
+      "#second-figure",
+      {
+        borderRadius: "10% 10% 10% 10%",
+        rotate: "45deg",
+      },
+      { duration },
+    );
+    void animate(
+      "#third-figure",
+      {
+        borderRadius: "100% 100% 100% 100%",
+        rotate: "45deg",
+      },
+      { duration },
+    );
+    await animate(
+      "#fourth-figure",
+      {
+        borderRadius: "0% 0% 0% 0%",
+        rotate: "90deg",
+      },
+      { duration },
+    );
+  };
+
   const handleAnimation = async () => {
     await firstKeyFrame();
     await secondKeyFrame();
     await thirdKeyFrame();
     await fourthKeyFrame();
+    await fifthKeyFrame();
   };
 
   useEffect(() => {
@@ -983,14 +1046,22 @@ export const MobileGeometricFigures = () => {
             </motion.div>
             <motion.div
               id="for-text"
-              style={{ top: `calc(${size}*1.4)`, right: `calc(${size}*0.6)` }}
+              style={{
+                top: `calc(${size}*1.4)`,
+                right: `calc(${size}*0.6)`,
+                opacity: "0%",
+              }}
               className=" absolute font-arizona text-2xl"
             >
               for
             </motion.div>
             <motion.div
               id="the-text"
-              style={{ top: `calc(${size}*1.8)`, right: `calc(${size}*0.25)` }}
+              style={{
+                top: `calc(${size}*1.8)`,
+                right: `calc(${size}*0.25)`,
+                opacity: "0%",
+              }}
               className=" absolute font-arizona text-2xl"
             >
               the
