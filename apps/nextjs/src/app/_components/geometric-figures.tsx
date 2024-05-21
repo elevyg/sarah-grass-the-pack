@@ -925,12 +925,75 @@ export const MobileGeometricFigures = () => {
     );
   };
 
+  const sixthKeyFrame = async ({ duration } = { duration: 1 }) => {
+    void animate("#navbar", {
+      backgroundColor: colors.yellow,
+    });
+    void animate("#background", {
+      backgroundColor: colors.yellow,
+      color: colors.yellow,
+    });
+    void animate(
+      "#an-text",
+      {
+        top: `calc(${size}*0.25)`,
+        right: `calc(${size}*0.25)`,
+        opacity: "100%",
+      },
+      { duration },
+    );
+    void animate(
+      "#art-text",
+      {
+        top: `calc(${size}*0.55)`,
+        right: `calc(${size}*0.55)`,
+        opacity: "100%",
+      },
+      { duration },
+    );
+    void animate("#school-text", { opacity: "100%" }, { duration });
+    void animate("#for-text", { opacity: "100%" }, { duration });
+    void animate("#the-text", { opacity: "100%" }, { duration });
+    void animate("#wild-text", { opacity: "100%" }, { duration });
+    void animate(
+      "#first-figure",
+      {
+        borderRadius: "0% 0% 0% 0%",
+      },
+      { duration },
+    );
+    void animate(
+      "#second-figure",
+      {
+        borderRadius: "10% 10% 10% 10%",
+        rotate: "90deg",
+      },
+      { duration },
+    );
+    void animate(
+      "#third-figure",
+      {
+        borderRadius: "10% 10% 10% 10%",
+        rotate: "90deg",
+      },
+      { duration },
+    );
+    await animate(
+      "#fourth-figure",
+      {
+        borderRadius: "100% 100% 100% 100%",
+      },
+      { duration },
+    );
+  };
+
   const handleAnimation = async () => {
     await firstKeyFrame();
     await secondKeyFrame();
     await thirdKeyFrame();
     await fourthKeyFrame();
     await fifthKeyFrame();
+    await sixthKeyFrame();
   };
 
   useEffect(() => {
@@ -953,7 +1016,7 @@ export const MobileGeometricFigures = () => {
         className="pt-[111px]"
         style={{ backgroundColor: colors.mint, color: colors.mint }}
       >
-        <div className="flex flex-1 items-center justify-center py-14">
+        <div className="flex min-h-[calc(100vh-111px)] flex-1 items-center justify-center py-14">
           <div
             style={{
               height: `${containerHeight}vw`,
@@ -1068,7 +1131,11 @@ export const MobileGeometricFigures = () => {
             </motion.div>
             <motion.div
               id="wild-text"
-              style={{ top: `calc(${size}*2.3)`, right: `calc(${size}*0.8)` }}
+              style={{
+                top: `calc(${size}*2.3)`,
+                right: `calc(${size}*0.8)`,
+                opacity: "0%",
+              }}
               className=" absolute font-arizona text-2xl"
             >
               wild
