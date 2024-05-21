@@ -768,8 +768,55 @@ export const MobileGeometricFigures = () => {
     );
   };
 
-  const handleAnimation = () => {
-    void firstKeyFrame();
+  const secondKeyFrame = async ({ duration } = { duration: 1 }) => {
+    await animate("#an-text", { opacity: "100%" }, { duration });
+  };
+
+  const thirdKeyFrame = async ({ duration } = { duration: 1 }) => {
+    void animate("#navbar", {
+      backgroundColor: colors.lavander,
+    });
+    void animate("#background", {
+      backgroundColor: colors.lavander,
+      color: colors.lavander,
+    });
+    void animate(
+      "#an-text",
+      {
+        top: `calc(${size}*0.25)`,
+        right: `calc(${size}*0.25)`,
+        opacity: "100%",
+      },
+      { duration },
+    );
+    void animate("#art-text", { opacity: "100%" }, { duration });
+    void animate(
+      "#second-figure",
+      {
+        borderRadius: "0% 0% 0% 0%",
+      },
+      { duration },
+    );
+    void animate(
+      "#third-figure",
+      {
+        borderRadius: "0% 0% 0% 0%",
+      },
+      { duration },
+    );
+    await animate(
+      "#fourth-figure",
+      {
+        borderRadius: "100% 100% 100% 100%",
+      },
+      { duration },
+    );
+  };
+
+  const handleAnimation = async () => {
+    await firstKeyFrame();
+    await secondKeyFrame();
+    await thirdKeyFrame();
   };
 
   useEffect(() => {
@@ -787,7 +834,7 @@ export const MobileGeometricFigures = () => {
           borderBottomColor: colors.eggWhite,
         }}
       />
-      <div
+      <motion.div
         id="background"
         className="pt-[111px]"
         style={{ backgroundColor: colors.mint, color: colors.mint }}
@@ -800,7 +847,7 @@ export const MobileGeometricFigures = () => {
             }}
             className="relative block origin-center"
           >
-            <div
+            <motion.div
               id="first-figure"
               style={{
                 height: size,
@@ -812,7 +859,7 @@ export const MobileGeometricFigures = () => {
               }}
               className="absolute"
             />
-            <div
+            <motion.div
               id="second-figure"
               style={{
                 height: size,
@@ -824,26 +871,25 @@ export const MobileGeometricFigures = () => {
               }}
               className="absolute"
             />
-            <div
+            <motion.div
               id="third-figure"
               style={{
                 height: size,
                 width: size,
-                left: `calc(100vw + 500px)`,
+                left: `150vw`,
                 top: `calc(${size} - ${bottom.second} + ${bottom.third} + 300px)`,
                 borderRadius: "100% 100% 100% 100%",
                 backgroundColor: colors.eggWhite,
-                display: "block",
+                rotate: "45deg",
               }}
               className="absolute"
             />
-            <div
+            <motion.div
               id="fourth-figure"
               style={{
                 height: size,
                 width: size,
-                display: "block",
-                top: `calc(${size} - ${bottom.second} + ${bottom.third} + ${bottom.forth} + 500px)`,
+                top: "150vh",
                 left: 0,
                 backgroundColor: colors.eggWhite,
                 borderRadius: `10% 10% 10% 10%`,
@@ -853,14 +899,22 @@ export const MobileGeometricFigures = () => {
             />
             <motion.div
               id="an-text"
-              style={{ top: `calc(${size}*0.25)`, right: `calc(${size}*0.25)` }}
+              style={{
+                top: `calc(${size}*0.30)`,
+                right: `calc(${size}*0.40)`,
+                opacity: "0%",
+              }}
               className=" absolute font-arizona text-2xl"
             >
               An
             </motion.div>
             <motion.div
               id="art-text"
-              style={{ top: `calc(${size}*0.60)`, right: `calc(${size}*0.6)` }}
+              style={{
+                top: `calc(${size}*0.60)`,
+                right: `calc(${size}*0.6)`,
+                opacity: "0%",
+              }}
               className=" absolute font-arizona text-2xl"
             >
               art
@@ -895,7 +949,7 @@ export const MobileGeometricFigures = () => {
             </motion.div>
           </div>
         </div>
-      </div>
+      </motion.div>
     </div>
   );
 };
