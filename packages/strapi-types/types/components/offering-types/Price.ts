@@ -3,14 +3,17 @@
 export interface Price {
   suggestedPrice?: string;
   actionButtonText?: string;
+  shortActionButtonText?: string;
 }
 export interface Price_Plain {
   suggestedPrice?: string;
   actionButtonText?: string;
+  shortActionButtonText?: string;
 }
 
 export interface Price_NoRelations {
   suggestedPrice?: string;
   actionButtonText?: string;
+  shortActionButtonText?: string;
 }
 

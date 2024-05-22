@@ -6,12 +6,14 @@ import { stringTimeToDate } from "~/utils/indext";
 import markdownToHtml from "~/utils/markdownToHtml";
 import { type SearchParams } from "../../../middleware";
 import Markdown from "~/app/_components/markdown";
+import OtherOfferings from "~/app/offering/[slug]/_other-offerings";
 
 type Request = { searchParams: SearchParams; params: { slug: string } };
 
 const Page = async ({ params, searchParams }: Request) => {
   const texts = await api.getOfferingPageTexts();
   const offering = await api.getOffering(params.slug);
+  const otherOfferings = await api.getOtherOfferings(params.slug);
 
   const extendedDescriptionHtml = await markdownToHtml(
     offering.attributes.extended_description,
@@ -27,6 +29,51 @@ const Page = async ({ params, searchParams }: Request) => {
     ? offering.attributes.rectangle_image.data.attributes.formats.medium.width /
       offering.attributes.rectangle_image.data.attributes.formats.medium.height
     : 1;
+
+  const startingDate = offering.attributes.starting_date
+    ? new Date(offering.attributes.starting_date).toLocaleDateString("en-US", {
+        month: "2-digit",
+        day: "2-digit",
+      })
+    : null;
+
+  const endingDate = offering.attributes.ending_date
+    ? new Date(offering.attributes.ending_date).toLocaleDateString("en-US", {
+        month: "2-digit",
+        day: "2-digit",
+      })
+    : null;
+
+  const startingTime = offering.attributes.starting_time
+    ? stringTimeToDate(
+        offering.attributes.starting_time as unknown as string,
+      ).toLocaleString("en-US", {
+        hour: "numeric",
+        hour12: true,
+      })
+    : null;
+
+  const endingTime =
+    offering.attributes.ending_time &&
+    stringTimeToDate(
+      offering.attributes.ending_time as unknown as string,
+    ).toLocaleString("en-US", {
+      hour: "numeric",
+      hour12: true,
+    });
+
+  const readableOfferingDate = () => {
+    if (
+      offering.attributes.days &&
+      startingDate &&
+      endingDate &&
+      startingTime &&
+      endingTime
+    ) {
+      return `${offering.attributes.days}, ${startingDate}-${endingDate}, ${startingTime}-${endingTime}`;
+    }
+    return;
+  };
 
   // eslint-disable-next-line @typescript-eslint/no-unsafe-call, @typescript-eslint/no-unsafe-member-access
   const offeringTypeInfo = offering.attributes.offeringTypeInfo.at(
@@ -53,52 +100,10 @@ const Page = async ({ params, searchParams }: Request) => {
                     <Markdown content={subtitle} />
                   </div>
                 )}
-                {offering.attributes.days &&
-                  offering.attributes.starting_date &&
-                  offering.attributes.ending_date &&
-                  offering.attributes.starting_time &&
-                  offering.attributes.ending_time && (
-                    <div className="mb-4 self-start text-2xl">
-                      <p>
-                        {offering.attributes.days},
-                        {!!offering.attributes.starting_date ??
-                          new Date(
-                            offering.attributes
-                              .starting_date as unknown as string,
-                          ).toLocaleDateString("en-US", {
-                            month: "2-digit",
-                            day: "2-digit",
-                          })}{" "}
-                        {!!offering.attributes.ending_date &&
-                          new Date(
-                            offering.attributes
-                              .ending_date as unknown as string,
-                          ).toLocaleDateString("en-US", {
-                            month: "2-digit",
-                            day: "2-digit",
-                          })}
-                        ,
-                        {!!offering.attributes.starting_time &&
-                          " " +
-                            stringTimeToDate(
-                              offering.attributes
-                                .starting_time as unknown as string,
-                            ).toLocaleString("en-US", {
-                              hour: "numeric",
-                              hour12: true,
-                            }) +
-                            " - "}
-                        {!!offering.attributes.ending_time &&
-                          stringTimeToDate(
-                            offering.attributes
-                              .ending_time as unknown as string,
-                          ).toLocaleString("en-US", {
-                            hour: "numeric",
-                            hour12: true,
-                          })}
-                      </p>
-                    </div>
-                  )}
+
+                <div className="mb-4 self-start text-2xl">
+                  <p>{readableOfferingDate()}</p>
+                </div>
               </div>
               <div className="flex flex-col border-b-2 border-matteBlack p-10">
                 <h2 className="pb-4 text-2xl">
@@ -152,6 +157,7 @@ const Page = async ({ params, searchParams }: Request) => {
           </div>
         </Section>
       </div>
+      <OtherOfferings otherOfferings={otherOfferings} />
     </div>
   );
 };

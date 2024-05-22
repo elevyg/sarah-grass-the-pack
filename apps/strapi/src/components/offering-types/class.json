@@ -31,6 +31,10 @@
     "yearlyPriceSubtitle": {
       "type": "string",
       "default": "pay in full"
+    },
+    "shortActionButtonText": {
+      "type": "string",
+      "default": "Register"
     }
   }
 }

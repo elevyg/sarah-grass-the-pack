@@ -8,6 +8,7 @@ export interface Class {
   actionButtonText?: string;
   monthlyPriceSubtitle?: string;
   yearlyPriceSubtitle?: string;
+  shortActionButtonText?: string;
 }
 export interface Class_Plain {
   monthlyPrice?: string;
@@ -17,6 +18,7 @@ export interface Class_Plain {
   actionButtonText?: string;
   monthlyPriceSubtitle?: string;
   yearlyPriceSubtitle?: string;
+  shortActionButtonText?: string;
 }
 
 export interface Class_NoRelations {
@@ -27,5 +29,6 @@ export interface Class_NoRelations {
   actionButtonText?: string;
   monthlyPriceSubtitle?: string;
   yearlyPriceSubtitle?: string;
+  shortActionButtonText?: string;
 }
 

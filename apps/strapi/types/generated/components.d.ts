@@ -15,6 +15,7 @@ export interface OfferingTypesClass extends Schema.Component {
     monthlyPriceSubtitle: Attribute.String &
       Attribute.DefaultTo<'monthly payment of '>;
     yearlyPriceSubtitle: Attribute.String & Attribute.DefaultTo<'pay in full'>;
+    shortActionButtonText: Attribute.String & Attribute.DefaultTo<'Register'>;
   };
 }
 
@@ -27,6 +28,7 @@ export interface OfferingTypesOneOnOne extends Schema.Component {
   attributes: {
     actionButtonText: Attribute.String & Attribute.DefaultTo<'Book Now'>;
     price: Attribute.String;
+    shortActionButtonText: Attribute.String & Attribute.DefaultTo<'Book'>;
   };
 }
 
@@ -41,6 +43,7 @@ export interface OfferingTypesPrice extends Schema.Component {
     suggestedPrice: Attribute.String;
     actionButtonText: Attribute.String &
       Attribute.DefaultTo<'Add me to the mailing list'>;
+    shortActionButtonText: Attribute.String & Attribute.DefaultTo<'Learn More'>;
   };
 }
 

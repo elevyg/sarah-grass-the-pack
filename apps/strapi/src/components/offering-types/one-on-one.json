@@ -12,6 +12,10 @@
     },
     "price": {
       "type": "string"
+    },
+    "shortActionButtonText": {
+      "type": "string",
+      "default": "Book"
     }
   }
 }

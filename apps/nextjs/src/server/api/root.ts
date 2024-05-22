@@ -64,7 +64,9 @@ export const appRouter = createTRPCRouter({
         pageSize: 10,
         page: 1,
       },
-      status: "active",
+      filters: {
+        status: { $eq: "active" },
+      },
       locale: ["en"],
     });
 
@@ -98,6 +100,52 @@ export const appRouter = createTRPCRouter({
 
       return res.data.data;
     }),
+  getOtherOfferings: publicProcedure
+    .input(z.string())
+    .query(async ({ ctx, input }) => {
+      const query = qs.stringify({
+        filters: {
+          slug: {
+            $ne: input,
+          },
+          status: { $eq: "active" },
+        },
+        populate: {
+          offeringTypeInfo: {
+            populate: true,
+          },
+          square_image: {
+            fields: ["url", "formats"],
+          },
+          instructors: {
+            fields: ["full_name"],
+          },
+        },
+        fields: [
+          "title",
+          "subtitle",
+          "starting_date",
+          "ending_date",
+          "starting_time",
+          "ending_time",
+          "days",
+          "slug",
+        ],
+        pagination: {
+          pageSize: 2,
+          page: 1,
+        },
+        status: "active",
+        locale: ["en"],
+      });
+
+      const res = await ctx.strapi.get<{ data: Offering[] }>(
+        "offerings?" + query,
+      );
+
+      return res.data.data;
+    }),
+
   getFooter: publicProcedure.query(
     async ({ ctx }) =>
       (await ctx.strapi.get<{ data: Footer }>("footer")).data.data,

@@ -13,6 +13,10 @@
     "actionButtonText": {
       "type": "string",
       "default": "Add me to the mailing list"
+    },
+    "shortActionButtonText": {
+      "type": "string",
+      "default": "Learn More"
     }
   }
 }
