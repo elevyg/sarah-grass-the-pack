@@ -4,13 +4,14 @@ import { Inter } from "next/font/google";
 import localFont from "next/font/local";
 
 import { TRPCReactProvider } from "~/trpc/react";
+import Script from "next/script";
 
 const arizona = localFont({
-  src: "../../public/fonts/EduArizonaFlare-Light.otf",
+  src: "../../public/fonts/EduArizonaFlare-Light.woff",
   variable: "--arizona",
 });
 const foundersGrotesk = localFont({
-  src: "../../public/fonts/FoundersGrotesk-Regular.otf",
+  src: "../../public/fonts/founders-grotesk-regular.woff2",
   variable: "--founders-grotesk",
 });
 
@@ -32,6 +33,11 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className="bg-eggWhite">
+      <Script
+        type="module"
+        src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+      ></Script>
+      <Script src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></Script>
       <body
         className={`font-sans ${inter.variable} ${arizona.variable} ${foundersGrotesk.variable}`}
       >

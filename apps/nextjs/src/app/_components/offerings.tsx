@@ -27,35 +27,18 @@ const imageMotion = {
   },
 };
 
-const textMotion = {
-  rest: {
-    textDecoration: "unset",
-    transition: {
-      duration: 0.4,
-      ease: "easeIn",
-    },
-  },
-  hover: {
-    textDecoration: "underline",
-    transition: {
-      duration: 0.4,
-      ease: "easeOut",
-    },
-  },
-};
-
 const Offerings = ({ title, offerings }: Props) => {
   return (
     <div id="offering-container" className="flex w-full flex-1 flex-col">
       <div
         id="offering-header"
-        className="w-full border-b-2 border-matteBlack bg-mint py-2 pl-2 md:bg-eggWhite"
+        className="w-full border-b-2 border-matteBlack bg-mint py-3 pl-2 md:bg-eggWhite"
       >
         <h2 className="heading-1">{title}</h2>
       </div>
       <div
         id="offering-content-container"
-        className="relative grid grid-cols-1 items-start justify-between pb-5 md:grid-cols-2"
+        className="relative grid grid-cols-1 items-start justify-between pb-40 md:grid-cols-2"
       >
         <div className=" absolute bottom-0 left-1/2 top-0 hidden h-full w-0.5 bg-matteBlack md:block" />
         {offerings.map((offering) => (
@@ -128,7 +111,7 @@ const Offerings = ({ title, offerings }: Props) => {
                   ).toLocaleString("en-US", { hour: "numeric", hour12: true })}
               </p>
             </div>
-            <motion.div variants={textMotion} className="self-start text-2xl">
+            <motion.div className="self-start text-2xl">
               <Link href={`/offering/${offering.attributes.slug}`}>
                 LEARN MORE
               </Link>

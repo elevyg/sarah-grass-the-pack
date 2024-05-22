@@ -82,11 +82,18 @@ export default async function Home(request: Request) {
           </div>
         </div>
       </Section>
-      <div
-        id="offering-header"
-        className="w-full border-b-2 border-matteBlack py-2 pl-2"
-      >
-        <h2 className="heading-1">{texts.attributes.artist_work_header}</h2>
+      <div className="flex w-full flex-col">
+        <div
+          id="artist-work-header"
+          className="flex w-full justify-between border-b-2 border-matteBlack py-2 pl-2"
+        >
+          <h2 className="heading-1">{texts.attributes.artist_work_header}</h2>
+          <div>
+            <ion-icon name="chevron-back-outline"></ion-icon>
+            <ion-icon name="chevron-forward-outline"></ion-icon>
+          </div>
+        </div>
+        <div className="min-h-[50vh] w-full"></div>
       </div>
       <Section color="beige">
         <div className="w-full">
@@ -96,6 +103,7 @@ export default async function Home(request: Request) {
           >
             <h2 className="heading-1">{texts.attributes.connect_header}</h2>
           </div>
+
           <Footer />
         </div>
       </Section>

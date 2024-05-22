@@ -1144,6 +1144,7 @@ export const MobileGeometricFigures = () => {
         left: `calc(${size}*0.21)`,
         top: `calc(${size} - ${bottom.second} + ${bottom.third})`,
         borderRadius: "10% 10% 10% 10%",
+        rotate: "90deg",
         backgroundColor: colors.matteBlack,
       },
       { duration },
