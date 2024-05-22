@@ -67,12 +67,10 @@ const Offerings = ({ title, offerings }: Props) => {
                 }}
               />
             </motion.div>
-            <div className="mb-2 flex flex-1 flex-col">
-              <h3 className="heading-2 font-bold">
-                {offering.attributes.title}
-              </h3>
+            <div className="mb-4 flex flex-1 flex-col">
+              <h3 className="heading-2 mb-4">{offering.attributes.title}</h3>
               {offering.attributes.instructors?.data.map((i) => (
-                <p className="heading-2-az mb-4" key={i.id}>
+                <p className="heading-2-az mb-6" key={i.id}>
                   {i.attributes.full_name}
                 </p>
               ))}
