@@ -25,7 +25,7 @@
     @apply leading-[1.04] text-[1.125rem] md:text-[1.563rem];
   }
   .caption {
-    @apply leading-[1.05] uppercase text-[1rem] md:text-[1.25rem];
+    @apply leading-[1.05] text-[1rem] md:text-[1.25rem];
   }
   .heading-1-az {
     @apply font-arizona leading-[1.067] t text-[1.875rem] md:text-[1.875rem];

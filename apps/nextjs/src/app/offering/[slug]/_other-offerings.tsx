@@ -14,7 +14,7 @@ const OtherOfferings = async ({
   return (
     <Section lowerBorderOnly color="lavander">
       <div className="w-full">
-        <div className="border-b-2 border-matteBlack py-8 pl-4">
+        <div className="border-b-2 border-matteBlack bg-lavander py-8 pl-4 md:bg-none">
           <h2 className="heading-3">Other offerings</h2>
         </div>
         <div className="flex w-full flex-col justify-between">
@@ -102,7 +102,7 @@ const Offering = async ({
         (index % 2 === 0 ? " border-b-2 border-matteBlack" : "")
       }
     >
-      <div className="flex flex-1 p-8">
+      <div className="flex min-w-[70%] flex-1 p-4 md:w-full md:p-8">
         <div className="h-[113px] w-[113px] overflow-hidden rounded-[1.5rem]">
           <Image
             src={
@@ -114,20 +114,20 @@ const Offering = async ({
           />
         </div>
         <div className="flex flex-1 items-center justify-between">
-          <div className="flex flex-col justify-center pl-12">
+          <div className="flex flex-col justify-center pl-6 md:pl-12">
             <p className="paragraph">{offering.attributes.title}</p>
             {offering.attributes.instructors?.data.map((i) => (
-              <p className="paragraph mt-4" key={i.id}>
+              <p className="caption md:paragraph mt-4" key={i.id}>
                 {i.attributes.full_name}
               </p>
             ))}
           </div>
-          <div className="flex h-full w-[20%] flex-col items-start justify-center">
+          <div className="hidden h-full w-[20%] flex-col items-start justify-center md:flex ">
             <ScheduleOrSubtitle schedule={schedule} subtitle={subtitle} />
           </div>
         </div>
       </div>
-      <div className="flex w-[15%] flex-col items-center justify-center border-l-2 border-matteBlack">
+      <div className="flex min-w-[30%] flex-1 flex-col items-center justify-center border-l-2 border-matteBlack md:w-[15%]">
         <Link href={"/offering/" + offering.attributes.slug}>
           <p className="paragraph">{actionButtonText}</p>
         </Link>

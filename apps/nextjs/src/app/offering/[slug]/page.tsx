@@ -214,7 +214,9 @@ const ClassActionSection = (props: { info: unknown }) => {
         {offeringTypeInfo.monthlyPrice && (
           <a className="flex flex-1 flex-col items-center justify-center px-8 py-3">
             <p className="text-xl">{offeringTypeInfo.monthlyPrice}</p>
-            <p className="text-sm">{offeringTypeInfo.monthlyPriceSubtitle}</p>
+            <p className="text-center text-sm">
+              {offeringTypeInfo.monthlyPriceSubtitle}
+            </p>
           </a>
         )}
         {!!offeringTypeInfo.monthlyPrice && !!offeringTypeInfo.yearlyPrice && (
@@ -224,7 +226,9 @@ const ClassActionSection = (props: { info: unknown }) => {
         {offeringTypeInfo.yearlyPrice && (
           <a className="flex flex-1 flex-col items-center justify-center px-8 py-3">
             <p className="text-xl">{offeringTypeInfo.yearlyPrice}</p>
-            <p className="text-sm">{offeringTypeInfo.yearlyPriceSubtitle}</p>
+            <p className="text-center text-sm">
+              {offeringTypeInfo.yearlyPriceSubtitle}
+            </p>
           </a>
         )}
       </div>
