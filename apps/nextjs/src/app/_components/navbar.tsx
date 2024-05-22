@@ -18,7 +18,7 @@ const Navbar = (props: Props) => {
   return (
     <AnimatePresence>
       <motion.nav
-        className={`fixed z-20 flex h-[4rem] w-screen items-end justify-between border-b-2 border-b-matteBlack bg-eggWhite p-2 md:h-[6rem]`}
+        className={`fixed z-20 flex h-[4rem] w-screen items-end justify-between border-b-2 border-b-matteBlack bg-eggWhite pb-2 pl-6 pr-6 md:h-[6rem] md:pr-8`}
         {...props}
       >
         <div>
@@ -28,7 +28,7 @@ const Navbar = (props: Props) => {
         </div>
 
         {props.mode === "desktop" ? (
-          <div className="flex gap-2">
+          <div className="flex gap-6">
             <a>OFFERINGS</a>
             <Link href="/about">
               <p>ABOUT</p>
