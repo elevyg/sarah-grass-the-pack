@@ -14,7 +14,7 @@ const Footer = async () => {
   });
 
   return (
-    <footer className="flex w-full flex-col gap-3 p-4 md:flex-row md:justify-between md:p-5 md:pb-16">
+    <footer className="flex w-full flex-col gap-3 p-4 md:flex-row md:justify-start md:gap-40 md:p-5 md:pb-16">
       <div>
         <h3 className="heading-2-az pb-2">{texts.attributes.title}</h3>
         <Markdown content={address} />
@@ -35,10 +35,6 @@ const Footer = async () => {
             Instagram
           </a>
         </p>
-      </div>
-      <div>
-        <h3 className="heading-2-az">Mailing List</h3>
-        {/* TODO */}
       </div>
     </footer>
   );
