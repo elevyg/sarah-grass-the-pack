@@ -79,7 +79,7 @@ const Offerings = ({ title, offerings }: Props) => {
               </p>
             </div>
             <div className="heading-2-az mb-4 self-start leading-none">
-              <p>{offering.attributes.days}</p>
+              {offering.attributes.days ?? <p>{offering.attributes.days}</p>}
               <p>
                 {!!offering.attributes.starting_date &&
                   new Date(
@@ -87,8 +87,7 @@ const Offerings = ({ title, offerings }: Props) => {
                   ).toLocaleDateString("en-US", {
                     month: "2-digit",
                     day: "2-digit",
-                  })}
-                {" - "}
+                  }) + " - "}
                 {!!offering.attributes.ending_date &&
                   new Date(
                     offering.attributes.ending_date as unknown as string,
@@ -101,8 +100,8 @@ const Offerings = ({ title, offerings }: Props) => {
                 {!!offering.attributes.starting_time &&
                   stringTimeToDate(
                     offering.attributes.starting_time as unknown as string,
-                  ).toLocaleString("en-US", { hour: "numeric", hour12: true })}
-                {" - "}
+                  ).toLocaleString("en-US", { hour: "numeric", hour12: true }) +
+                    " - "}
                 {!!offering.attributes.ending_time &&
                   stringTimeToDate(
                     offering.attributes.ending_time as unknown as string,
