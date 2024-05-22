@@ -122,7 +122,7 @@ const Offering = async ({
               </p>
             ))}
           </div>
-          <div>
+          <div className="flex h-full w-[20%] flex-col items-start justify-center">
             <ScheduleOrSubtitle schedule={schedule} subtitle={subtitle} />
           </div>
         </div>
@@ -154,11 +154,11 @@ const ScheduleOrSubtitle = ({
   }
   if (schedule) {
     return (
-      <div>
+      <>
         <p className="paragraph pb-1">{schedule.days}</p>
         <p className="paragraph pb-1">{`${schedule.startingDate}-${schedule.endingDate}`}</p>
         <p className="paragraph">{`${schedule.startingTime}-${schedule.endingTime}`}</p>
-      </div>
+      </>
     );
   }
   return null;
