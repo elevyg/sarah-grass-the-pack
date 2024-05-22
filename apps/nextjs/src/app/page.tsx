@@ -62,7 +62,7 @@ export default async function Home(request: Request) {
               </div>
             </div>
             <div className="flex-1 md:pl-10 ">
-              <div>
+              <div className="flex w-full flex-col">
                 <h3 className="heading-2 mb-5">
                   {texts.attributes.journal_section_title}
                 </h3>
@@ -73,9 +73,9 @@ export default async function Home(request: Request) {
                 <a
                   href="https://thepackartschool.substack.com/about"
                   target="_blank"
-                  className="heading-3 hover:underline"
+                  className="heading-3 w-full border-y-2 border-lavander px-4 py-2 text-lavander"
                 >
-                  Suscribe
+                  {texts.attributes.suscribe_button_label}
                 </a>
               </div>
             </div>
