@@ -52,8 +52,6 @@ const Offering = async ({
     // @ts-ignore
   )?.shortActionButtonText as string;
 
-  console.log(actionButtonText);
-
   const endingDate = offering.attributes.ending_date
     ? new Date(offering.attributes.ending_date).toLocaleDateString("en-US", {
         month: "2-digit",
