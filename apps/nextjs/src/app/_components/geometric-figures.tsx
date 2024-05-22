@@ -13,10 +13,12 @@ const colors = {
   yellow: "#EDDF94",
 };
 
+const DESKTOP_FINAL_LETTERS_HEIGHT = "55%";
+
 export const DesktopGeometricFigures = () => {
-  const dimension = 60;
+  const dimension = 85;
   const containerWidth = `${dimension}vw`;
-  const insets = { second: -0.15, third: 0.75, fourth: 0.75 };
+  const insets = { second: -0.5, third: 0.65, fourth: 0.6 };
   const proportion = 2 + insets.second + insets.third + insets.fourth;
 
   const size = `${dimension / proportion}vw`;
@@ -37,8 +39,6 @@ export const DesktopGeometricFigures = () => {
     4: 1,
     5: 1,
   };
-
-  // const textAnimations = async () => {};
 
   const firstKeyFrame = async () => {
     void animate(
@@ -369,40 +369,41 @@ export const DesktopGeometricFigures = () => {
   };
 
   const seventhKeyFrame = async () => {
+    const lettersTop = DESKTOP_FINAL_LETTERS_HEIGHT;
     void animate(
       "#an-text",
-      { top: "42%", left: "31.1%", opacity: "100%" },
+      { top: lettersTop, left: "36.7%", opacity: "100%" },
       { duration: keyFramesDuration[3] },
     );
 
     void animate(
       "#art-text",
-      { top: "42%", left: "35.9%" },
+      { top: lettersTop, left: "40%", opacity: "100%" },
       { duration: keyFramesDuration[3] },
     );
     void animate(
       "#school-text",
-      { top: "42%", left: "41.35%", opacity: "100%" },
+      { top: lettersTop, left: "43.9%", opacity: "100%" },
       { duration: 1 },
     );
     void animate(
       "#for-text",
-      { top: "42%", left: "51.9%", opacity: "100%" },
+      { top: lettersTop, left: "51.2%", opacity: "100%" },
       { duration: 1 },
     );
     void animate(
       "#the-text",
-      { top: "42%", left: "56.8%", opacity: "100%" },
+      { top: lettersTop, left: "54.8%", opacity: "100%" },
       { duration: 1 },
     );
     await animate(
       "#wild-text",
-      { top: "42%", left: "62.2%", opacity: "100%" },
+      { top: lettersTop, left: "58.5%", opacity: "100%" },
       { duration: 1 },
     );
   };
 
-  const eghtKeyFrame = async () => {
+  const eightKeyFrame = async () => {
     void animate(
       "#navbar",
       {
@@ -448,6 +449,7 @@ export const DesktopGeometricFigures = () => {
   };
 
   const finalFrame = () => {
+    const lettersTop = DESKTOP_FINAL_LETTERS_HEIGHT;
     void animate(
       "#navbar",
       {
@@ -464,33 +466,33 @@ export const DesktopGeometricFigures = () => {
     );
     void animate(
       "#an-text",
-      { top: "42%", left: "31.1%", opacity: "100%" },
+      { top: lettersTop, left: "36.7%", opacity: "100%" },
       { duration: keyFramesDuration[3] },
     );
 
     void animate(
       "#art-text",
-      { top: "42%", left: "35.9%", opacity: "100%" },
+      { top: lettersTop, left: "40%", opacity: "100%" },
       { duration: keyFramesDuration[3] },
     );
     void animate(
       "#school-text",
-      { top: "42%", left: "41.35%", opacity: "100%" },
+      { top: lettersTop, left: "43.9%", opacity: "100%" },
       { duration: 1 },
     );
     void animate(
       "#for-text",
-      { top: "42%", left: "51.9%", opacity: "100%" },
+      { top: lettersTop, left: "51.2%", opacity: "100%" },
       { duration: 1 },
     );
     void animate(
       "#the-text",
-      { top: "42%", left: "56.8%", opacity: "100%" },
+      { top: lettersTop, left: "54.8%", opacity: "100%" },
       { duration: 1 },
     );
     void animate(
       "#wild-text",
-      { top: "42%", left: "62.2%", opacity: "100%" },
+      { top: lettersTop, left: "58.5%", opacity: "100%" },
       { duration: 1 },
     );
     void animate(
@@ -531,6 +533,7 @@ export const DesktopGeometricFigures = () => {
         left: `calc(${size} + ${left.second} + ${left.third} + ${left.forth})`,
         top: "0%",
         borderRadius: "10% 10% 10% 10%",
+        rotate: "45deg",
         backgroundColor: colors.matteBlack,
       },
       { duration: keyFramesDuration[5] },
@@ -545,27 +548,29 @@ export const DesktopGeometricFigures = () => {
     await fifthKeyFrame();
     await sixthKeyFrame();
     await seventhKeyFrame();
-    await eghtKeyFrame();
+    await eightKeyFrame();
+    localStorage.setItem("lastAnimatedAt", Date.now().toString());
   };
 
   useEffect(() => {
     const lastAnimatedAtString = localStorage.getItem("lastAnimatedAt");
 
+    console.log(lastAnimatedAtString);
+
     const lastAnimatedAt = lastAnimatedAtString
-      ? new Date(parseInt(lastAnimatedAtString))
+      ? parseInt(lastAnimatedAtString)
       : null;
 
     const aMinute = 60 * 1000;
 
     const hasAnimatedInTheLast = lastAnimatedAt
-      ? Date.now() - lastAnimatedAt.getTime() < aMinute * 15
+      ? Date.now() - lastAnimatedAt < aMinute * 15
       : false;
 
     if (hasAnimatedInTheLast) {
       void finalFrame();
     } else {
       void handleAnimation();
-      localStorage.setItem("lastAnimatedAt", Date.now().toString());
     }
   });
 
@@ -582,7 +587,7 @@ export const DesktopGeometricFigures = () => {
       />
       <div
         id="background"
-        className="pt-[111px]"
+        className="pt-[4rem] md:pt-[6rem]"
         style={{ backgroundColor: colors.mint, color: colors.mint }}
       >
         <div className="flex min-h-screen flex-1 items-center justify-center pb-10  md:py-0">
@@ -663,10 +668,8 @@ export const DesktopGeometricFigures = () => {
                 backgroundColor: colors.eggWhite,
                 height: size,
                 width: size,
-                display: "block",
               }}
-              transition={{ duration: 4 }}
-              className="fl2ex-shrink-0 absolute left-0 top-0 inline-block  rounded-full "
+              className="absolute"
             />
             <motion.div
               id="second-figure"
@@ -676,9 +679,8 @@ export const DesktopGeometricFigures = () => {
                 width: size,
                 bottom: -500,
                 left: `calc(${size} + ${left.second})`,
-                display: "block",
               }}
-              className="absolute inline-block flex-shrink-0"
+              className="absolute"
             />
             <div
               id="third-figure"
@@ -1169,6 +1171,7 @@ export const MobileGeometricFigures = () => {
     await fifthKeyFrame();
     await sixthKeyFrame();
     await seventhKeyFrame();
+    localStorage.setItem("lastAnimatedAt", Date.now().toString());
   };
 
   useEffect(() => {
@@ -1188,7 +1191,6 @@ export const MobileGeometricFigures = () => {
       void finalFrame();
     } else {
       void handleAnimation();
-      localStorage.setItem("lastAnimatedAt", Date.now().toString());
     }
   });
 
@@ -1205,7 +1207,7 @@ export const MobileGeometricFigures = () => {
       />
       <motion.div
         id="background"
-        className="pt-[111px]"
+        className="pt-[4rem]"
         style={{ backgroundColor: colors.mint, color: colors.mint }}
       >
         <div className="flex min-h-[calc(100vh-111px)] flex-1 items-center justify-center py-14">

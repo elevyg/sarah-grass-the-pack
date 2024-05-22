@@ -1,12 +1,16 @@
 "use client";
 
+import classNames from "classnames";
 import { AnimatePresence, motion } from "framer-motion";
 import Link from "next/link";
 import { useState, type ComponentProps } from "react";
+import { values } from "~/utils/values";
 
 type Props = ComponentProps<typeof motion.nav> & {
   mode?: "desktop" | "mobile";
 };
+
+const navbarHeight = classNames();
 
 const Navbar = (props: Props) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -18,7 +22,7 @@ const Navbar = (props: Props) => {
   return (
     <AnimatePresence>
       <motion.nav
-        className="fixed z-20 flex h-[111px] w-screen items-end justify-between border-b-2 border-b-matteBlack bg-eggWhite p-2"
+        className={`fixed z-20 flex h-[4rem] w-screen items-end justify-between border-b-2 border-b-matteBlack bg-eggWhite p-2 md:h-[6rem]`}
         {...props}
       >
         <div>
@@ -52,7 +56,7 @@ const Navbar = (props: Props) => {
           animate={{ opacity: 1, y: "0%" }}
           exit={{ opacity: 0, y: "-100%" }}
           transition={{ type: "spring", ease: "easeIn", duration: 0.5 }}
-          className="fixed left-0 top-0 z-10 flex w-screen flex-col border-b-2 border-b-matteBlack bg-eggWhite px-4 pt-[111px]"
+          className="fixed left-0 top-0 z-10 flex w-screen flex-col border-b-2 border-b-matteBlack bg-eggWhite px-4 pt-[4rem] md:pt-[6rem]"
         >
           <a className="border-b-[1px] border-b-matteBlack py-2">
             <p>OFFERINGS</p>

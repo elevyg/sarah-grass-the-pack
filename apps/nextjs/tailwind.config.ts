@@ -3,7 +3,17 @@ import { fontFamily } from "tailwindcss/defaultTheme";
 
 export default {
   content: ["./src/**/*.tsx"],
-  safelist: ["bg-mint", "bg-lavander", "bg-beige", "list-disc", "text-red-400"],
+  safelist: [
+    "bg-mint",
+    "bg-lavander",
+    "bg-beige",
+    "list-disc",
+    "h-[6rem]",
+    "h-[4rem]",
+    "pt-[6rem]",
+    "pt-[4rem]",
+    "text-red-400",
+  ],
   theme: {
     listStyleType: {
       none: "none",

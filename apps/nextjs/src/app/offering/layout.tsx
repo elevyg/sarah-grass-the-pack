@@ -10,7 +10,7 @@ export default function AboutLayout({
   return (
     <>
       <Navbar />
-      <main className="pt-[111px]">{children}</main>
+      <main className="pt-[4rem] md:pt-[6rem]">{children}</main>
       <Section color="beige">
         <div className="w-full">
           <Footer />
