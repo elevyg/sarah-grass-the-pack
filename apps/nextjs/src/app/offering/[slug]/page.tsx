@@ -23,6 +23,13 @@ const Page = async ({ params, searchParams }: Request) => {
       offering.attributes.rectangle_image.data.attributes.formats.medium.height
     : 1;
 
+  // eslint-disable-next-line @typescript-eslint/no-unsafe-call, @typescript-eslint/no-unsafe-member-access
+  const offeringTypeInfo = offering.attributes.offeringTypeInfo.at(
+    0,
+  ) as unknown;
+  console.log(offering.attributes.offering_type?.data.attributes.Name);
+  console.log(offeringTypeInfo);
+
   return (
     <div>
       <Navbar mode={searchParams.viewport} />
@@ -37,39 +44,59 @@ const Page = async ({ params, searchParams }: Request) => {
                     {i.attributes.full_name}
                   </p>
                 ))}
-                <div className="mb-4 self-start text-2xl">
-                  <p>
-                    {`${offering.attributes.days}, 
-                ${
-                  !!offering.attributes.starting_date &&
-                  new Date(
-                    offering.attributes.starting_date as unknown as string,
-                  ).toLocaleDateString("en-US", {
-                    month: "2-digit",
-                    day: "2-digit",
-                  })
-                }-${
-                  !!offering.attributes.ending_date &&
-                  new Date(
-                    offering.attributes.ending_date as unknown as string,
-                  ).toLocaleDateString("en-US", {
-                    month: "2-digit",
-                    day: "2-digit",
-                  })
-                }, 
-                ${
-                  !!offering.attributes.starting_time &&
-                  stringTimeToDate(
-                    offering.attributes.starting_time as unknown as string,
-                  ).toLocaleString("en-US", { hour: "numeric", hour12: true })
-                }-${
-                  !!offering.attributes.ending_time &&
-                  stringTimeToDate(
-                    offering.attributes.ending_time as unknown as string,
-                  ).toLocaleString("en-US", { hour: "numeric", hour12: true })
-                }`}
-                  </p>
-                </div>
+                {offering.attributes.offering_type?.data.attributes.Name ===
+                  "One-on-one" && (
+                  <div className="mb-4 self-start text-2xl">
+                    <p>One-On-One Session</p>
+                    <p>Online</p>
+                  </div>
+                )}
+                {offering.attributes.days &&
+                  offering.attributes.starting_date &&
+                  offering.attributes.ending_date &&
+                  offering.attributes.starting_time &&
+                  offering.attributes.ending_time && (
+                    <div className="mb-4 self-start text-2xl">
+                      <p>
+                        {offering.attributes.days},
+                        {!!offering.attributes.starting_date ??
+                          new Date(
+                            offering.attributes
+                              .starting_date as unknown as string,
+                          ).toLocaleDateString("en-US", {
+                            month: "2-digit",
+                            day: "2-digit",
+                          })}{" "}
+                        {!!offering.attributes.ending_date &&
+                          new Date(
+                            offering.attributes
+                              .ending_date as unknown as string,
+                          ).toLocaleDateString("en-US", {
+                            month: "2-digit",
+                            day: "2-digit",
+                          })}
+                        ,
+                        {!!offering.attributes.starting_time &&
+                          " " +
+                            stringTimeToDate(
+                              offering.attributes
+                                .starting_time as unknown as string,
+                            ).toLocaleString("en-US", {
+                              hour: "numeric",
+                              hour12: true,
+                            }) +
+                            " - "}
+                        {!!offering.attributes.ending_time &&
+                          stringTimeToDate(
+                            offering.attributes
+                              .ending_time as unknown as string,
+                          ).toLocaleString("en-US", {
+                            hour: "numeric",
+                            hour12: true,
+                          })}
+                      </p>
+                    </div>
+                  )}
               </div>
               <div className="flex flex-col border-b-2 border-matteBlack p-10">
                 <h2 className="pb-4 text-2xl">
@@ -113,14 +140,85 @@ const Page = async ({ params, searchParams }: Request) => {
                   </div>
                 )}
               </div>
-              <div className="flex items-center justify-center border-y-2 border-matteBlack bg-mint px-8 py-3 text-xl hover:bg-slate-200">
-                <p>Apply now</p>
-              </div>
+              <ActionSection
+                offeringType={
+                  offering.attributes.offering_type?.data.attributes.Name
+                }
+                info={offeringTypeInfo}
+              />
             </div>
           </div>
         </Section>
       </div>
     </div>
+  );
+};
+
+const ActionSection = (props: {
+  offeringType: string | undefined;
+  info: unknown;
+}) => {
+  if (props.offeringType === "One-on-one") {
+    return <OneOneOneActionSection info={props.info} />;
+  }
+  if (props.offeringType === "Class") {
+    return <ClassActionSection info={props.info} />;
+  }
+
+  return null;
+};
+
+const OneOneOneActionSection = (props: { info: unknown }) => {
+  const offeringTypeInfo = props.info as {
+    actionButtonText: string;
+    price: number;
+  };
+
+  return (
+    <>
+      <div className="flex items-center justify-center border-y-2 border-matteBlack bg-mint px-8 py-3 text-xl hover:bg-matteBlack hover:text-eggWhite">
+        <p>{offeringTypeInfo.actionButtonText}</p>
+      </div>
+
+      <div className="border-b0 flex items-center justify-center border-matteBlack px-8 py-3 text-xl">
+        <p>{"$" + offeringTypeInfo.price}</p>
+      </div>
+    </>
+  );
+};
+
+const ClassActionSection = (props: { info: unknown }) => {
+  const offeringTypeInfo = props.info as {
+    monthlyPrice: string | undefined;
+    yearlyPrice: string | undefined;
+    monthlyPricePaymentLink: string;
+    yearlyPricePaymentLink: string;
+    actionButtonText: string;
+  };
+  return (
+    <>
+      <div className="flex items-center justify-center border-y-2 border-matteBlack bg-mint px-8 py-3 text-xl hover:bg-matteBlack hover:text-eggWhite">
+        <p>{offeringTypeInfo.actionButtonText}</p>
+      </div>
+      <div className="border-b0 flex items-center justify-center border-matteBlack text-xl">
+        {offeringTypeInfo.monthlyPrice && (
+          <a className="flex flex-1 flex-col items-center justify-center px-8 py-3">
+            <p className="text-xl">{"$" + offeringTypeInfo.monthlyPrice}</p>
+            <p className="text-sm">{`monthly payment of $${Math.round(parseInt(offeringTypeInfo.monthlyPrice) / 12)}`}</p>
+          </a>
+        )}
+        {!!offeringTypeInfo.monthlyPrice && !!offeringTypeInfo.yearlyPrice && (
+          <div className="h-full w-[2px] bg-matteBlack" />
+        )}
+
+        {offeringTypeInfo.yearlyPrice && (
+          <a className="flex flex-1 flex-col items-center justify-center px-8 py-3">
+            <p className="text-xl">{"$" + offeringTypeInfo.yearlyPrice}</p>
+            <p className="text-sm">paid in full</p>
+          </a>
+        )}
+      </div>
+    </>
   );
 };
 

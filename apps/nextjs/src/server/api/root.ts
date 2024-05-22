@@ -84,11 +84,18 @@ export const appRouter = createTRPCRouter({
           instructors: {
             fields: "*",
           },
+          offeringTypeInfo: {
+            populate: true,
+          },
+          offering_type: {
+            fields: "*",
+          },
         },
       });
       const res = await ctx.strapi.get<{ data: Offering }>(
         `offerings/${input}?` + query,
       );
+
       return res.data.data;
     }),
   getFooter: publicProcedure.query(

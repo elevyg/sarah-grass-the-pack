@@ -9,7 +9,7 @@ export default function AboutLayout({
   return (
     <>
       <main className="">{children}</main>
-      <Section color="beige">
+      <Section color="beige" lowerBorderOnly>
         <div className="w-full">
           <Footer />
         </div>
