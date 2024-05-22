@@ -6,6 +6,8 @@ export interface Class {
   monthlyPricePaymentLink?: string;
   yearlyPricePaymentLink?: string;
   actionButtonText?: string;
+  monthlyPriceSubtitle?: string;
+  yearlyPriceSubtitle?: string;
 }
 export interface Class_Plain {
   monthlyPrice?: string;
@@ -13,6 +15,8 @@ export interface Class_Plain {
   monthlyPricePaymentLink?: string;
   yearlyPricePaymentLink?: string;
   actionButtonText?: string;
+  monthlyPriceSubtitle?: string;
+  yearlyPriceSubtitle?: string;
 }
 
 export interface Class_NoRelations {
@@ -21,5 +25,7 @@ export interface Class_NoRelations {
   monthlyPricePaymentLink?: string;
   yearlyPricePaymentLink?: string;
   actionButtonText?: string;
+  monthlyPriceSubtitle?: string;
+  yearlyPriceSubtitle?: string;
 }
 

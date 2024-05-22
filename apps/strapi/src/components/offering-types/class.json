@@ -1,15 +1,18 @@
 {
   "collectionName": "components_offering_types_classes",
   "info": {
-    "displayName": "Class"
+    "displayName": "Class",
+    "description": ""
   },
   "options": {},
   "attributes": {
     "monthlyPrice": {
-      "type": "string"
+      "type": "string",
+      "regex": "^\\$"
     },
     "yearlyPrice": {
-      "type": "string"
+      "type": "string",
+      "regex": "^\\$"
     },
     "monthlyPricePaymentLink": {
       "type": "string"
@@ -20,6 +23,14 @@
     "actionButtonText": {
       "type": "string",
       "default": "Register Now"
+    },
+    "monthlyPriceSubtitle": {
+      "type": "string",
+      "default": "monthly payment of "
+    },
+    "yearlyPriceSubtitle": {
+      "type": "string",
+      "default": "pay in full"
     }
   }
 }

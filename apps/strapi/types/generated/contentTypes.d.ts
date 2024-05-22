@@ -1030,6 +1030,7 @@ export interface ApiOfferingOffering extends Schema.CollectionType {
       'manyToOne',
       'api::offering-type.offering-type'
     >;
+    subtitle: Attribute.RichText;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

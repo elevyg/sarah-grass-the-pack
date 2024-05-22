@@ -6,6 +6,8 @@ const markdownToHtml = async (
   text: string | undefined,
   customClass?: Record<string, string>,
 ) => {
+  if (text === undefined) return "";
+
   const transformedHtml = (await remark().use(html).process(text)).toString();
 
   const c = customClass ? new Map(Object.entries(customClass)) : undefined;

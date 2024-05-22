@@ -96,6 +96,9 @@
       "relation": "manyToOne",
       "target": "api::offering-type.offering-type",
       "inversedBy": "offerings"
+    },
+    "subtitle": {
+      "type": "richtext"
     }
   }
 }

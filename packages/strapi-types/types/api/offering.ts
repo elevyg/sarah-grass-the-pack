@@ -32,6 +32,7 @@ export interface Offering {
     event_info?: string;
     offeringTypeInfo?: any;
     offering_type?: { data: OfferingType };
+    subtitle?: string;
   };
 }
 export interface Offering_Plain {
@@ -52,6 +53,7 @@ export interface Offering_Plain {
   event_info?: string;
   offeringTypeInfo?: any;
   offering_type?: OfferingType_Plain;
+  subtitle?: string;
 }
 
 export interface Offering_NoRelations {
@@ -72,6 +74,7 @@ export interface Offering_NoRelations {
   event_info?: string;
   offeringTypeInfo?: any;
   offering_type?: number;
+  subtitle?: string;
 }
 
 export interface Offering_AdminPanelLifeCycle {
@@ -92,4 +95,5 @@ export interface Offering_AdminPanelLifeCycle {
   event_info?: string;
   offeringTypeInfo?: any;
   offering_type?: AdminPanelRelationPropertyModification<OfferingType_Plain>;
+  subtitle?: string;
 }

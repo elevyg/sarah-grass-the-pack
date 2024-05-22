@@ -4,6 +4,7 @@ export interface OfferingTypesClass extends Schema.Component {
   collectionName: 'components_offering_types_classes';
   info: {
     displayName: 'Class';
+    description: '';
   };
   attributes: {
     monthlyPrice: Attribute.String;
@@ -11,6 +12,9 @@ export interface OfferingTypesClass extends Schema.Component {
     monthlyPricePaymentLink: Attribute.String;
     yearlyPricePaymentLink: Attribute.String;
     actionButtonText: Attribute.String & Attribute.DefaultTo<'Register Now'>;
+    monthlyPriceSubtitle: Attribute.String &
+      Attribute.DefaultTo<'monthly payment of '>;
+    yearlyPriceSubtitle: Attribute.String & Attribute.DefaultTo<'pay in full'>;
   };
 }
 

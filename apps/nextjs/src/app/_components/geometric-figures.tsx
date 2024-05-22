@@ -555,8 +555,6 @@ export const DesktopGeometricFigures = () => {
   useEffect(() => {
     const lastAnimatedAtString = localStorage.getItem("lastAnimatedAt");
 
-    console.log(lastAnimatedAtString);
-
     const lastAnimatedAt = lastAnimatedAtString
       ? parseInt(lastAnimatedAtString)
       : null;

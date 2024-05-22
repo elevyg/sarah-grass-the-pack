@@ -5,6 +5,7 @@ import { api } from "~/trpc/server";
 import { stringTimeToDate } from "~/utils/indext";
 import markdownToHtml from "~/utils/markdownToHtml";
 import { type SearchParams } from "../../../middleware";
+import Markdown from "~/app/_components/markdown";
 
 type Request = { searchParams: SearchParams; params: { slug: string } };
 
@@ -18,6 +19,10 @@ const Page = async ({ params, searchParams }: Request) => {
 
   const eventInfoHtml = await markdownToHtml(offering.attributes.event_info);
 
+  const subtitle = await markdownToHtml(offering.attributes.subtitle, {
+    p: "font-arizona",
+  });
+
   const imageAspectRatio = !!offering.attributes.rectangle_image
     ? offering.attributes.rectangle_image.data.attributes.formats.medium.width /
       offering.attributes.rectangle_image.data.attributes.formats.medium.height
@@ -27,8 +32,6 @@ const Page = async ({ params, searchParams }: Request) => {
   const offeringTypeInfo = offering.attributes.offeringTypeInfo.at(
     0,
   ) as unknown;
-  console.log(offering.attributes.offering_type?.data.attributes.Name);
-  console.log(offeringTypeInfo);
 
   return (
     <div>
@@ -47,8 +50,7 @@ const Page = async ({ params, searchParams }: Request) => {
                 {offering.attributes.offering_type?.data.attributes.Name ===
                   "One-on-one" && (
                   <div className="mb-4 self-start text-2xl">
-                    <p>One-On-One Session</p>
-                    <p>Online</p>
+                    <Markdown content={subtitle} />
                   </div>
                 )}
                 {offering.attributes.days &&
@@ -181,7 +183,7 @@ const OneOneOneActionSection = (props: { info: unknown }) => {
       </div>
 
       <div className="border-b0 flex items-center justify-center border-matteBlack px-8 py-3 text-xl">
-        <p>{"$" + offeringTypeInfo.price}</p>
+        <p>{offeringTypeInfo.price}</p>
       </div>
     </>
   );
@@ -190,7 +192,9 @@ const OneOneOneActionSection = (props: { info: unknown }) => {
 const ClassActionSection = (props: { info: unknown }) => {
   const offeringTypeInfo = props.info as {
     monthlyPrice: string | undefined;
+    monthlyPriceSubtitle: string | undefined;
     yearlyPrice: string | undefined;
+    yearlyPriceSubtitle: string | undefined;
     monthlyPricePaymentLink: string;
     yearlyPricePaymentLink: string;
     actionButtonText: string;
@@ -203,8 +207,8 @@ const ClassActionSection = (props: { info: unknown }) => {
       <div className="border-b0 flex items-center justify-center border-matteBlack text-xl">
         {offeringTypeInfo.monthlyPrice && (
           <a className="flex flex-1 flex-col items-center justify-center px-8 py-3">
-            <p className="text-xl">{"$" + offeringTypeInfo.monthlyPrice}</p>
-            <p className="text-sm">{`monthly payment of $${Math.round(parseInt(offeringTypeInfo.monthlyPrice) / 12)}`}</p>
+            <p className="text-xl">{offeringTypeInfo.monthlyPrice}</p>
+            <p className="text-sm">{offeringTypeInfo.monthlyPriceSubtitle}</p>
           </a>
         )}
         {!!offeringTypeInfo.monthlyPrice && !!offeringTypeInfo.yearlyPrice && (
@@ -213,8 +217,8 @@ const ClassActionSection = (props: { info: unknown }) => {
 
         {offeringTypeInfo.yearlyPrice && (
           <a className="flex flex-1 flex-col items-center justify-center px-8 py-3">
-            <p className="text-xl">{"$" + offeringTypeInfo.yearlyPrice}</p>
-            <p className="text-sm">paid in full</p>
+            <p className="text-xl">{offeringTypeInfo.yearlyPrice}</p>
+            <p className="text-sm">{offeringTypeInfo.yearlyPriceSubtitle}</p>
           </a>
         )}
       </div>
