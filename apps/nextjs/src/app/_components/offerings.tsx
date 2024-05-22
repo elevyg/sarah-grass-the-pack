@@ -28,6 +28,8 @@ const imageMotion = {
 };
 
 const Offerings = ({ title, offerings }: Props) => {
+  const lastOfferingIndex = offerings.length - 1;
+
   return (
     <div id="offering-container" className="flex w-full flex-1 flex-col">
       <div
@@ -38,16 +40,16 @@ const Offerings = ({ title, offerings }: Props) => {
       </div>
       <div
         id="offering-content-container"
-        className="relative grid grid-cols-1 items-start justify-between pb-40 md:grid-cols-2"
+        className="relative grid grid-cols-1 items-start justify-between md:grid-cols-2"
       >
         <div className=" absolute bottom-0 left-1/2 top-0 hidden h-full w-0.5 bg-matteBlack md:block" />
-        {offerings.map((offering) => (
+        {offerings.map((offering, index) => (
           <motion.div
             key={offering.id}
             initial="rest"
             whileHover="hover"
             animate="rest"
-            className={`flex flex-col items-center border-b-2 border-matteBlack p-10`}
+            className={`flex flex-col items-center border-b-2 border-matteBlack p-10 ${index === lastOfferingIndex ? "border-b-0" : ""} ${index === lastOfferingIndex - 1 ? "border-b-0" : ""}`}
           >
             <motion.div
               className="z-100 relative mb-5 aspect-square w-full overflow-hidden"
