@@ -1,5 +1,4 @@
 import Footer from "~/app/_components/footer";
-import Navbar from "~/app/_components/navbar";
 import Section from "~/app/_components/section";
 
 export default function AboutLayout({
@@ -9,8 +8,7 @@ export default function AboutLayout({
 }) {
   return (
     <>
-      <Navbar />
-      <main className="pt-[4rem] md:pt-[6rem]">{children}</main>
+      <main className="">{children}</main>
       <Section color="beige">
         <div className="w-full">
           <Footer />

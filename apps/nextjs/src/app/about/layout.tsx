@@ -1,15 +1,12 @@
 import Footer from "~/app/_components/footer";
-import Navbar from "~/app/_components/navbar";
 
-export default function AboutLayout({
-  children,
-}: {
+export default function AboutLayout(props: {
   children: React.ReactNode;
+  params: unknown;
 }) {
   return (
     <>
-      <Navbar />
-      <main className="pt-[4rem] md:pt-[6rem]">{children}</main>
+      <main className="">{props.children}</main>
       <Footer />
     </>
   );

@@ -33,11 +33,13 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className="bg-eggWhite">
-      <Script
-        type="module"
-        src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
-      ></Script>
-      <Script src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></Script>
+      <head>
+        <Script
+          type="module"
+          src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+        ></Script>
+        <Script src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></Script>
+      </head>
       <body
         className={`font-sans ${inter.variable} ${arizona.variable} ${foundersGrotesk.variable}`}
       >

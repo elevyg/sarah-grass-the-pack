@@ -587,10 +587,10 @@ export const DesktopGeometricFigures = () => {
       />
       <div
         id="background"
-        className="pt-[4rem] md:pt-[6rem]"
+        className="pt-[6rem]"
         style={{ backgroundColor: colors.mint, color: colors.mint }}
       >
-        <div className="flex min-h-screen flex-1 items-center justify-center pb-10  md:py-0">
+        <div className="flex min-h-[calc(100vh-6rem)] flex-1 items-center justify-center">
           <div
             style={{ height: diagonal, width: containerWidth }}
             className="relative block origin-center "
@@ -1210,7 +1210,7 @@ export const MobileGeometricFigures = () => {
         className="pt-[4rem]"
         style={{ backgroundColor: colors.mint, color: colors.mint }}
       >
-        <div className="flex min-h-[calc(100vh-111px)] flex-1 items-center justify-center py-14">
+        <div className="flex min-h-[calc(100vh-4rem)] flex-1 items-center justify-center py-14">
           <div
             style={{
               height: `${containerHeight}vw`,

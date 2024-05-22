@@ -1,16 +1,12 @@
 "use client";
 
-import classNames from "classnames";
 import { AnimatePresence, motion } from "framer-motion";
 import Link from "next/link";
 import { useState, type ComponentProps } from "react";
-import { values } from "~/utils/values";
 
 type Props = ComponentProps<typeof motion.nav> & {
   mode?: "desktop" | "mobile";
 };
-
-const navbarHeight = classNames();
 
 const Navbar = (props: Props) => {
   const [isOpen, setIsOpen] = useState(false);
