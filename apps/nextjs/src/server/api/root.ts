@@ -12,11 +12,6 @@ import type { Footer } from "strapi-types/types/api/footer";
 import qs from "qs";
 import { z } from "zod";
 
-/**
- * This is the primary router for your server.
- *
- * All routers added in /api/routers should be manually added here.
- */
 export const appRouter = createTRPCRouter({
   getLandingTexts: publicProcedure.query(async ({ ctx }) => {
     const query = qs.stringify({
@@ -40,41 +35,43 @@ export const appRouter = createTRPCRouter({
     const res = await ctx.strapi.get<{ data: OfferingPage }>("offering-page");
     return res.data.data;
   }),
-  getOfferings: publicProcedure.query(async ({ ctx }) => {
-    const query = qs.stringify({
-      populate: {
-        square_image: {
-          fields: ["url", "formats"],
+  getOfferings: publicProcedure
+    .input(z.object({ status: z.string().default("active") }).optional())
+    .query(async ({ ctx, input }) => {
+      const query = qs.stringify({
+        populate: {
+          square_image: {
+            fields: ["url", "formats"],
+          },
+          instructors: {
+            fields: ["full_name"],
+          },
         },
-        instructors: {
-          fields: ["full_name"],
+        fields: [
+          "title",
+          "description",
+          "starting_date",
+          "ending_date",
+          "starting_time",
+          "ending_time",
+          "days",
+          "slug",
+        ],
+        pagination: {
+          pageSize: 10,
+          page: 1,
         },
-      },
-      fields: [
-        "title",
-        "description",
-        "starting_date",
-        "ending_date",
-        "starting_time",
-        "ending_time",
-        "days",
-        "slug",
-      ],
-      pagination: {
-        pageSize: 10,
-        page: 1,
-      },
-      filters: {
-        status: { $eq: "active" },
-      },
-      locale: ["en"],
-    });
+        filters: {
+          status: { $eq: input?.status },
+        },
+        locale: ["en"],
+      });
 
-    const res = await ctx.strapi.get<{ data: Offering[] }>(
-      "offerings?" + query,
-    );
-    return res.data.data;
-  }),
+      const res = await ctx.strapi.get<{ data: Offering[] }>(
+        "offerings?" + query,
+      );
+      return res.data.data;
+    }),
   getOffering: publicProcedure
     .input(z.string())
     .query(async ({ ctx, input }) => {
