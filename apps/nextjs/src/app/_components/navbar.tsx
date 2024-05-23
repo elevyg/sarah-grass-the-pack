@@ -18,8 +18,8 @@ const Navbar = (props: Props) => {
   return (
     <AnimatePresence>
       <motion.nav
-        className={`fixed z-20 flex h-[4rem] w-screen items-end justify-between border-b-2 border-b-matteBlack bg-eggWhite pb-2 pl-6 pr-6 md:h-[6rem] md:pr-8`}
         {...props}
+        className={`fixed z-20 flex h-[4rem] w-screen items-end justify-between border-b-2 border-b-matteBlack bg-eggWhite pb-2 pl-6 pr-6 md:h-[6rem] md:pr-8 ${props.className}`}
       >
         <div>
           <Link href="/">
@@ -29,7 +29,9 @@ const Navbar = (props: Props) => {
 
         {props.mode === "desktop" ? (
           <div className="flex gap-6">
-            <a>OFFERINGS</a>
+            <Link href="/offerings">
+              <p>OFFERINGS</p>
+            </Link>
             <Link href="/about">
               <p>ABOUT</p>
             </Link>
@@ -54,9 +56,12 @@ const Navbar = (props: Props) => {
           transition={{ type: "spring", ease: "easeIn", duration: 0.5 }}
           className="fixed left-0 top-0 z-10 flex w-screen flex-col border-b-2 border-b-matteBlack bg-eggWhite px-4 pt-[4rem] md:pt-[6rem]"
         >
-          <a className="border-b-[1px] border-b-matteBlack py-2">
+          <Link
+            href="/offerings"
+            className="border-b-[1px] border-b-matteBlack py-2"
+          >
             <p>OFFERINGS</p>
-          </a>
+          </Link>
           <Link
             href="/about"
             className="border-b-[1px] border-b-matteBlack py-2"

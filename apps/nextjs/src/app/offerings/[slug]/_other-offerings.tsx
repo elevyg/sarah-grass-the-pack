@@ -126,7 +126,7 @@ const Offering = async ({
         </div>
       </div>
       <div className="flex min-w-[30%] flex-1 flex-col items-center justify-center border-l-2 border-matteBlack md:w-[15%]">
-        <Link href={"/offering/" + offering.attributes.slug}>
+        <Link href={"/offerings/" + offering.attributes.slug}>
           <p className="paragraph">{actionButtonText}</p>
         </Link>
       </div>

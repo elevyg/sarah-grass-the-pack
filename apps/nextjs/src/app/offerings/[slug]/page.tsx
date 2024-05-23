@@ -6,7 +6,7 @@ import { stringTimeToDate } from "~/utils/indext";
 import markdownToHtml from "~/utils/markdownToHtml";
 import { type SearchParams } from "../../../middleware";
 import Markdown from "~/app/_components/markdown";
-import OtherOfferings from "~/app/offering/[slug]/_other-offerings";
+import OtherOfferings from "~/app/offerings/[slug]/_other-offerings";
 
 type Request = { searchParams: SearchParams; params: { slug: string } };
 

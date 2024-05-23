@@ -111,7 +111,7 @@ const Offerings = ({ title, offerings }: Props) => {
               </p>
             </div>
             <motion.div className="self-start text-2xl">
-              <Link href={`/offering/${offering.attributes.slug}`}>
+              <Link href={`/offerings/${offering.attributes.slug}`}>
                 LEARN MORE
               </Link>
             </motion.div>

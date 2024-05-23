@@ -27,6 +27,8 @@ export default {
         mint: "#B4DDCB",
         lavander: "#BBA0CA",
         beige: "#CCA887",
+        skyBlue: "#ACCEED",
+        yellow: "#EDDF94",
       },
       fontFamily: {
         sans: ["var(--founders-grotesk)", ...fontFamily.sans],
