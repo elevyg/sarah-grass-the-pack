@@ -8,6 +8,7 @@ type Request = { searchParams: SearchParams };
 export default async function OfferingPage({ searchParams }: Request) {
   const initialOfferings = await api.getOfferings();
   const offeringTypes = await api.getOfferingTypes();
+
   return (
     <div className="bg-yellow min-h-screen w-full">
       <Navbar mode={searchParams.viewport} className="bg-yellow" />

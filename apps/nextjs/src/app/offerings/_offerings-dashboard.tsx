@@ -10,12 +10,17 @@ interface Props {
   offeringTypes: OfferingType[];
 }
 const OfferingsDashboard = ({ initialOfferings, offeringTypes }: Props) => {
-  const offerings = api.getOfferings.useQuery(undefined, {
-    initialData: initialOfferings,
-  });
   const [selectedOfferingType, setSelectedOfferingType] = useState<
     number | undefined
   >();
+
+  const offerings = api.getOfferings.useQuery(
+    { offeringTypeId: selectedOfferingType },
+    {
+      initialData: initialOfferings,
+    },
+  );
+
   return (
     <div>
       <div className="m-4 flex gap-4">

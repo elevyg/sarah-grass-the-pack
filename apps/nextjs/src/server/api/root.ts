@@ -11,7 +11,7 @@ import type { AboutPage } from "strapi-types/types/api/about-page";
 import type { Footer } from "strapi-types/types/api/footer";
 import qs from "qs";
 import { z } from "zod";
-import { OfferingType } from "strapi-types/types/api/offering-type";
+import { type OfferingType } from "strapi-types/types/api/offering-type";
 
 export const appRouter = createTRPCRouter({
   getLandingTexts: publicProcedure.query(async ({ ctx }) => {
@@ -43,7 +43,14 @@ export const appRouter = createTRPCRouter({
     return res.data.data;
   }),
   getOfferings: publicProcedure
-    .input(z.object({ status: z.string().default("active") }).optional())
+    .input(
+      z
+        .object({
+          status: z.string().optional(),
+          offeringTypeId: z.number().optional(),
+        })
+        .optional(),
+    )
     .query(async ({ ctx, input }) => {
       const query = qs.stringify({
         populate: {
@@ -52,6 +59,9 @@ export const appRouter = createTRPCRouter({
           },
           instructors: {
             fields: ["full_name"],
+          },
+          offering_type: {
+            fields: ["Name"],
           },
         },
         fields: [
@@ -70,6 +80,9 @@ export const appRouter = createTRPCRouter({
         },
         filters: {
           status: { $eq: input?.status },
+          offering_type: {
+            id: { $eq: input?.offeringTypeId },
+          },
         },
         locale: ["en"],
       });
