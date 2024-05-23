@@ -11,6 +11,7 @@ import type { AboutPage } from "strapi-types/types/api/about-page";
 import type { Footer } from "strapi-types/types/api/footer";
 import qs from "qs";
 import { z } from "zod";
+import { OfferingType } from "strapi-types/types/api/offering-type";
 
 export const appRouter = createTRPCRouter({
   getLandingTexts: publicProcedure.query(async ({ ctx }) => {
@@ -33,6 +34,12 @@ export const appRouter = createTRPCRouter({
   }),
   getOfferingPageTexts: publicProcedure.query(async ({ ctx }) => {
     const res = await ctx.strapi.get<{ data: OfferingPage }>("offering-page");
+    return res.data.data;
+  }),
+  getOfferingTypes: publicProcedure.query(async ({ ctx }) => {
+    const res = await ctx.strapi.get<{ data: OfferingType[] }>(
+      "offering-types",
+    );
     return res.data.data;
   }),
   getOfferings: publicProcedure
