@@ -3,7 +3,12 @@ import Markdown from "~/app/_components/markdown";
 import { api } from "~/trpc/server";
 import markdownToHtml from "~/utils/markdownToHtml";
 
-const Footer = async () => {
+type Props = React.DetailedHTMLProps<
+  React.HTMLAttributes<HTMLElement>,
+  HTMLElement
+>;
+
+const Footer = async (props: Props) => {
   const texts = await api.getFooter();
 
   const address = await markdownToHtml(texts.attributes.address, {
@@ -14,7 +19,13 @@ const Footer = async () => {
   });
 
   return (
-    <footer className="flex w-full flex-col gap-3 p-4 md:flex-row md:justify-start md:gap-40 md:p-5 md:pb-16">
+    <footer
+      {...props}
+      className={
+        "flex w-full flex-col gap-3 p-4 md:flex-row md:justify-start md:gap-40 md:p-5 md:pb-16 " +
+        props.className
+      }
+    >
       <div>
         <h3 className="heading-2-az pb-2">{texts.attributes.title}</h3>
         <Markdown content={address} />

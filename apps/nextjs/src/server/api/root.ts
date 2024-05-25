@@ -48,6 +48,7 @@ export const appRouter = createTRPCRouter({
         .object({
           status: z.string().optional(),
           offeringTypeId: z.number().optional(),
+          offeringTypeInfo: z.boolean().optional(),
         })
         .optional(),
     )
@@ -63,6 +64,13 @@ export const appRouter = createTRPCRouter({
           offering_type: {
             fields: ["Name"],
           },
+          ...(input?.offeringTypeInfo
+            ? {
+                offeringTypeInfo: {
+                  populate: true,
+                },
+              }
+            : {}),
         },
         fields: [
           "title",
@@ -74,10 +82,6 @@ export const appRouter = createTRPCRouter({
           "days",
           "slug",
         ],
-        pagination: {
-          pageSize: 10,
-          page: 1,
-        },
         filters: {
           status: { $eq: input?.status },
           offering_type: {

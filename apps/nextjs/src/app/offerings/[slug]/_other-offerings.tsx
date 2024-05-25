@@ -38,19 +38,19 @@ const Offering = async ({
     ? await markdownToHtml(offering.attributes.subtitle)
     : undefined;
 
+  // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
+  const actionButtonText = (offering.attributes.offeringTypeInfo as [])?.at(
+    0,
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
+  )?.shortActionButtonText as string;
+
   const startingDate = offering.attributes.starting_date
     ? new Date(offering.attributes.starting_date).toLocaleDateString("en-US", {
         month: "2-digit",
         day: "2-digit",
       })
     : null;
-
-  // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
-  const actionButtonText = (offering.attributes.offeringTypeInfo as []).at(
-    0,
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-    // @ts-ignore
-  )?.shortActionButtonText as string;
 
   const endingDate = offering.attributes.ending_date
     ? new Date(offering.attributes.ending_date).toLocaleDateString("en-US", {

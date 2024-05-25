@@ -1,9 +1,12 @@
 "use client";
 
+import Image from "next/image";
+import Link from "next/link";
 import { useState } from "react";
 import { type Offering } from "strapi-types/types/api/offering";
 import { type OfferingType } from "strapi-types/types/api/offering-type";
 import { api } from "~/trpc/react";
+import { stringTimeToDate } from "~/utils/indext";
 
 interface Props {
   initialOfferings: Offering[];
@@ -15,21 +18,27 @@ const OfferingsDashboard = ({ initialOfferings, offeringTypes }: Props) => {
   >();
 
   const offerings = api.getOfferings.useQuery(
-    { offeringTypeId: selectedOfferingType },
+    { offeringTypeId: selectedOfferingType, offeringTypeInfo: true },
     {
       initialData: initialOfferings,
     },
   );
 
+  console.log(offerings.status);
+
+  const lastRow =
+    offerings.data.length % 3 === 0 ? 0 : Math.floor(offerings.data.length / 3);
+
   return (
     <div>
-      <div className="m-4 flex gap-4">
+      <div className="flex items-center gap-4 border-b-2 border-matteBlack p-4">
+        <p className="heading-5">Offering Type</p>
         {offeringTypes.map((type) => (
           <button
             className={
-              "rounded-md border-[1px] border-matteBlack p-2 " +
+              "rounded-md border-[1px] border-matteBlack px-2 py-1 " +
               (selectedOfferingType === type.id
-                ? "text-yellow bg-matteBlack"
+                ? "bg-matteBlack text-yellow"
                 : "")
             }
             onClick={() =>
@@ -44,11 +53,109 @@ const OfferingsDashboard = ({ initialOfferings, offeringTypes }: Props) => {
           </button>
         ))}
       </div>
-      {offerings.data.map((offering) => (
-        <div key={offering.id}>{offering.attributes.title}</div>
-      ))}
+      {offerings.isFetching && selectedOfferingType !== undefined ? (
+        <div className="flex h-full w-full items-center justify-center bg-purple-400">
+          <p>Loading...</p>
+        </div>
+      ) : (
+        <div className={`mb-16 grid grid-cols-3`}>
+          {offerings.data.map((offering, index) => {
+            const { startingDate, endingDate, startingTime, endingTime } =
+              formatDate(offering);
+
+            const actionButtonText = (
+              offering.attributes?.offeringTypeInfo as []
+            )?.at(
+              0,
+              // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+              // @ts-ignore
+            )?.shortActionButtonText as string;
+            return (
+              <div
+                key={offering.id}
+                className={`flex flex-col justify-between border-b-2 border-r-2 border-matteBlack ${
+                  index >= lastRow * 3 ? "border-b-0" : ""
+                }`}
+              >
+                <div className="p-8">
+                  <div className="relative aspect-square w-full overflow-hidden rounded-xl ">
+                    {offering.attributes.square_image && (
+                      <Image
+                        src={
+                          offering.attributes.square_image.data.attributes
+                            .formats.medium.url
+                        }
+                        alt={offering.attributes.title}
+                        fill
+                      />
+                    )}
+                  </div>
+                  <h2 className="heading-4 mb-4 mt-6">
+                    {offering.attributes.title}
+                  </h2>
+                  <h3 className="heading-2-az mb-6">
+                    {offering.attributes.instructors?.data
+                      .map((instructor) => instructor.attributes.full_name)
+                      .join(", ")}
+                  </h3>
+                  <div className="heading-2-az mb-8 flex flex-col items-start text-start">
+                    <p>{offering.attributes.days}</p>
+                    {startingDate && endingDate && (
+                      <p>{`${startingDate}-${endingDate}`}</p>
+                    )}
+                    {startingTime && endingTime && (
+                      <p>{`${startingTime}-${endingTime} EST`}</p>
+                    )}
+                  </div>
+                </div>
+                <div className="flex items-center justify-center border-t-2 border-matteBlack p-4">
+                  <Link href={`/offerings/${offering.attributes.slug}`}>
+                    <p>{actionButtonText}</p>
+                  </Link>
+                </div>
+              </div>
+            );
+          })}
+        </div>
+      )}
     </div>
   );
 };
 
 export default OfferingsDashboard;
+
+const formatDate = (offering: Offering) => {
+  const startingDate = offering.attributes.starting_date
+    ? new Date(offering.attributes.starting_date).toLocaleDateString("en-US", {
+        month: "2-digit",
+        day: "2-digit",
+      })
+    : null;
+
+  const endingDate = offering.attributes.ending_date
+    ? new Date(offering.attributes.ending_date).toLocaleDateString("en-US", {
+        month: "2-digit",
+        day: "2-digit",
+      })
+    : null;
+
+  const startingTime = offering.attributes.starting_time
+    ? stringTimeToDate(
+        offering.attributes.starting_time as unknown as string,
+      ).toLocaleString("en-US", {
+        hour: "numeric",
+        hour12: true,
+      })
+    : null;
+
+  const endingTime =
+    offering.attributes.ending_time &&
+    stringTimeToDate(
+      offering.attributes.ending_time as unknown as string,
+    ).toLocaleString("en-US", {
+      hour: "numeric",
+      hour12: true,
+    });
+
+  return { startingDate, endingDate, startingTime, endingTime };
+};
