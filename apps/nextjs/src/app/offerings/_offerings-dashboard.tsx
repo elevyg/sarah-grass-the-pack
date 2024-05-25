@@ -57,7 +57,7 @@ const OfferingsDashboard = ({ initialOfferings, offeringTypes }: Props) => {
         </div>
       ) : (
         <div className={`grid grid-cols-1 md:mb-16 md:grid-cols-3`}>
-          {offerings.data.map((offering, index) => {
+          {offerings.data.map((offering) => {
             const { startingDate, endingDate, startingTime, endingTime } =
               formatDate(offering);
 
@@ -71,9 +71,7 @@ const OfferingsDashboard = ({ initialOfferings, offeringTypes }: Props) => {
             return (
               <div
                 key={offering.id}
-                className={`flex flex-col justify-between border-b-2 border-matteBlack last:border-b-0 md:border-r-2 ${
-                  index >= lastRow * 3 ? "border-b-0" : ""
-                }`}
+                className={`flex flex-col justify-between border-b-2 border-matteBlack last:border-b-0 md:border-r-2 md:last:border-b-2`}
               >
                 <div className="p-8">
                   <div className="relative aspect-square w-full overflow-hidden rounded-xl ">
