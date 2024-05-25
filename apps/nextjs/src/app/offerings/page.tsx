@@ -11,7 +11,7 @@ export default async function OfferingPage({ searchParams }: Request) {
   const offeringTypes = await api.getOfferingTypes();
 
   return (
-    <div className="bg-yellow flex min-h-screen w-full flex-col justify-between">
+    <div className="flex min-h-screen flex-col justify-between bg-yellow">
       <div>
         <Navbar mode={searchParams.viewport} className="bg-yellow" />
         <div className="pt-[4rem] md:pt-[6rem]">
@@ -21,7 +21,7 @@ export default async function OfferingPage({ searchParams }: Request) {
           />
         </div>
       </div>
-      <Footer className="bg-yellow border-t-2 border-matteBlack " />
+      <Footer className="border-t-2 border-matteBlack bg-yellow " />
     </div>
   );
 }

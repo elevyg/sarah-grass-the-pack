@@ -24,15 +24,13 @@ const OfferingsDashboard = ({ initialOfferings, offeringTypes }: Props) => {
     },
   );
 
-  console.log(offerings.status);
-
   const lastRow =
     offerings.data.length % 3 === 0 ? 0 : Math.floor(offerings.data.length / 3);
 
   return (
-    <div>
-      <div className="flex items-center gap-4 border-b-2 border-matteBlack p-4">
-        <p className="heading-5">Offering Type</p>
+    <div className="h-full w-full">
+      <div className="flex flex-wrap items-center gap-4 border-b-2 border-matteBlack p-4">
+        <p className="heading-5 hidden md:block">Offering Type</p>
         {offeringTypes.map((type) => (
           <button
             className={
@@ -54,11 +52,11 @@ const OfferingsDashboard = ({ initialOfferings, offeringTypes }: Props) => {
         ))}
       </div>
       {offerings.isFetching && selectedOfferingType !== undefined ? (
-        <div className="flex h-full w-full items-center justify-center bg-purple-400">
-          <p>Loading...</p>
+        <div className="flex min-h-[50vh] w-full flex-1 items-center justify-center ">
+          <p className="heading-2-az">Looking for offerings...</p>
         </div>
       ) : (
-        <div className={`mb-16 grid grid-cols-3`}>
+        <div className={`grid grid-cols-1 md:mb-16 md:grid-cols-3`}>
           {offerings.data.map((offering, index) => {
             const { startingDate, endingDate, startingTime, endingTime } =
               formatDate(offering);
@@ -73,7 +71,7 @@ const OfferingsDashboard = ({ initialOfferings, offeringTypes }: Props) => {
             return (
               <div
                 key={offering.id}
-                className={`flex flex-col justify-between border-b-2 border-r-2 border-matteBlack ${
+                className={`flex flex-col justify-between border-b-2 border-matteBlack last:border-b-0 md:border-r-2 ${
                   index >= lastRow * 3 ? "border-b-0" : ""
                 }`}
               >

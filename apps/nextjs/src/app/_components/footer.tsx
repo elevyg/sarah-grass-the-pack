@@ -22,7 +22,7 @@ const Footer = async (props: Props) => {
     <footer
       {...props}
       className={
-        "flex w-full flex-col gap-3 p-4 md:flex-row md:justify-start md:gap-40 md:p-5 md:pb-16 " +
+        "flex flex-col gap-3 p-4 md:w-full md:flex-row md:justify-start md:gap-40 md:p-5 md:pb-16 " +
         props.className
       }
     >
