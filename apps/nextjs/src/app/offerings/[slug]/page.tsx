@@ -105,7 +105,7 @@ const Page = async ({ params, searchParams }: Request) => {
                   <p>{readableOfferingDate()}</p>
                 </div>
               </div>
-              <div className="flex flex-col border-b-2 border-matteBlack p-10">
+              <div className="hidden flex-col border-b-2 border-matteBlack p-10 md:flex">
                 <h2 className="pb-4 text-2xl">
                   {texts.attributes.about_offering_title}
                 </h2>
@@ -114,7 +114,7 @@ const Page = async ({ params, searchParams }: Request) => {
                   dangerouslySetInnerHTML={{ __html: extendedDescriptionHtml }}
                 />
               </div>
-              <div className="flex flex-col border-b-2 border-matteBlack p-10">
+              <div className="hidden flex-col border-b-2 border-matteBlack p-10 md:flex">
                 <h2 className="pb-4 text-2xl">
                   {texts.attributes.event_info_title}
                 </h2>
@@ -154,6 +154,24 @@ const Page = async ({ params, searchParams }: Request) => {
                 info={offeringTypeInfo}
               />
             </div>
+            <div className="flex flex-col border-b-2 border-matteBlack p-10 md:hidden">
+              <h2 className="pb-4 text-2xl">
+                {texts.attributes.about_offering_title}
+              </h2>
+              <div
+                className="flex flex-col gap-2"
+                dangerouslySetInnerHTML={{ __html: extendedDescriptionHtml }}
+              />
+            </div>
+            <div className="flex flex-col border-b-2 border-matteBlack p-10 md:hidden">
+              <h2 className="pb-4 text-2xl">
+                {texts.attributes.event_info_title}
+              </h2>
+              <div
+                className=""
+                dangerouslySetInnerHTML={{ __html: eventInfoHtml }}
+              />
+            </div>
           </div>
         </Section>
       </div>
@@ -188,7 +206,7 @@ const OneOneOneActionSection = (props: { info: unknown }) => {
         <p>{offeringTypeInfo.actionButtonText}</p>
       </div>
 
-      <div className="border-b0 flex items-center justify-center border-matteBlack px-8 py-3 text-xl">
+      <div className="flex items-center justify-center border-b-2 border-matteBlack px-8 py-3 text-xl md:border-b-0">
         <p>{offeringTypeInfo.price}</p>
       </div>
     </>
@@ -210,7 +228,7 @@ const ClassActionSection = (props: { info: unknown }) => {
       <div className="flex items-center justify-center border-y-2 border-matteBlack bg-mint px-8 py-3 text-xl hover:bg-matteBlack hover:text-eggWhite">
         <p>{offeringTypeInfo.actionButtonText}</p>
       </div>
-      <div className="border-b0 flex items-center justify-center border-matteBlack text-xl">
+      <div className="flex items-center justify-center border-b-2 border-matteBlack text-xl md:border-b-0">
         {offeringTypeInfo.monthlyPrice && (
           <a className="flex flex-1 flex-col items-center justify-center px-8 py-3">
             <p className="text-xl">{offeringTypeInfo.monthlyPrice}</p>
