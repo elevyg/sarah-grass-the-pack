@@ -32,19 +32,11 @@ export const DesktopGeometricFigures = () => {
 
   const [scope, animate] = useAnimate();
 
-  const keyFramesDuration = {
-    1: 1,
-    2: 1,
-    3: 1,
-    4: 1,
-    5: 1,
-  };
-
-  const firstKeyFrame = async () => {
+  const firstKeyFrame = async ({ duration } = { duration: 1 }) => {
     void animate(
       "#first-figure",
       { left: 0, top: 0, borderRadius: "0 0 0 0" },
-      { duration: keyFramesDuration[1] },
+      { duration },
     );
     void animate(
       "#second-figure",
@@ -53,7 +45,7 @@ export const DesktopGeometricFigures = () => {
         bottom: 0,
         borderRadius: "10% 10% 10% 10%",
       },
-      { duration: keyFramesDuration[1] },
+      { duration },
     );
     void animate(
       "#third-figure",
@@ -63,7 +55,7 @@ export const DesktopGeometricFigures = () => {
         top: `15%`,
         borderRadius: "100% 100% 100% 100%",
       },
-      { duration: keyFramesDuration[1] },
+      { duration },
     );
     await animate(
       "#fourth-figure",
@@ -72,38 +64,34 @@ export const DesktopGeometricFigures = () => {
         top: "0%",
         borderRadius: "0% 0% 0% 0%",
       },
-      { duration: keyFramesDuration[1] },
+      { duration },
     );
   };
 
-  const secondKeyFrame = async () => {
+  const secondKeyFrame = async ({ duration } = { duration: 1 }) => {
     await animate(
       "#an-text",
       { top: "30%", left: "13%", opacity: "100%" },
-      { duration: 0.5 },
+      { duration },
     );
   };
 
-  const thirdKeyFrame = async () => {
-    void animate(
-      "#navbar",
-      { backgroundColor: colors.lavander },
-      { duration: 1 },
-    );
+  const thirdKeyFrame = async ({ duration } = { duration: 1 }) => {
+    void animate("#navbar", { backgroundColor: colors.lavander }, { duration });
     void animate(
       "#background",
       { backgroundColor: colors.lavander, color: colors.lavander },
-      { duration: 1 },
+      { duration },
     );
     void animate(
       "#an-text",
       { top: "40%", left: "13%", opacity: "100%" },
-      { duration: keyFramesDuration[2] },
+      { duration },
     );
     void animate(
       "#first-figure",
       { left: 0, top: "10%", borderRadius: "0 0 0 0" },
-      { duration: keyFramesDuration[2] },
+      { duration },
     );
     void animate(
       "#art-text",
@@ -112,7 +100,7 @@ export const DesktopGeometricFigures = () => {
         top: "22%",
         left: "35%",
       },
-      { duration: 1 },
+      { duration },
     );
     void animate(
       "#second-figure",
@@ -121,7 +109,7 @@ export const DesktopGeometricFigures = () => {
         top: 0,
         borderRadius: "0% 0% 0% 0%",
       },
-      { duration: keyFramesDuration[2] },
+      { duration },
     );
     void animate(
       "#third-figure",
@@ -130,7 +118,7 @@ export const DesktopGeometricFigures = () => {
         top: `15%`,
         borderRadius: "0% 0% 0% 0%",
       },
-      { duration: keyFramesDuration[2] },
+      { duration },
     );
     await animate(
       "#fourth-figure",
@@ -140,32 +128,28 @@ export const DesktopGeometricFigures = () => {
         rotate: "45deg",
         borderRadius: "100% 100% 100% 100%",
       },
-      { duration: keyFramesDuration[2] },
+      { duration },
     );
   };
 
-  const fourthKeyFrame = async () => {
+  const fourthKeyFrame = async ({ duration } = { duration: 1 }) => {
     void animate("#navbar", { backgroundColor: colors.beige }, { duration: 1 });
     void animate(
       "#background",
       { backgroundColor: colors.beige, color: colors.beige },
-      { duration: 1 },
+      { duration },
     );
     void animate(
       "#an-text",
       { top: "60%", left: "14%", opacity: "100%" },
-      { duration: keyFramesDuration[3] },
+      { duration },
     );
 
-    void animate(
-      "#art-text",
-      { top: "40%", left: "35%" },
-      { duration: keyFramesDuration[3] },
-    );
+    void animate("#art-text", { top: "40%", left: "35%" }, { duration });
     void animate(
       "#school-text",
       { top: "58%", left: "50%", opacity: "100%" },
-      { duration: 1 },
+      { duration },
     );
     void animate(
       "#first-figure",
@@ -174,7 +158,7 @@ export const DesktopGeometricFigures = () => {
         top: "30%",
         borderRadius: "0% 0% 0% 50%",
       },
-      { duration: keyFramesDuration[3] },
+      { duration },
     );
     void animate(
       "#second-figure",
@@ -184,7 +168,7 @@ export const DesktopGeometricFigures = () => {
         borderRadius: "100% 100% 100% 100%",
         rotate: "-45deg",
       },
-      { duration: keyFramesDuration[3] },
+      { duration },
     );
 
     void animate(
@@ -194,7 +178,7 @@ export const DesktopGeometricFigures = () => {
         top: `29%`,
         borderRadius: "0% 0% 0% 0%",
       },
-      { duration: keyFramesDuration[3] },
+      { duration },
     );
     await animate(
       "#fourth-figure",
@@ -204,46 +188,38 @@ export const DesktopGeometricFigures = () => {
         rotate: "90deg",
         borderRadius: "10% 10% 10% 10%",
       },
-      { duration: keyFramesDuration[3] },
+      { duration },
     );
   };
 
-  const fifthKeyFrame = async () => {
-    void animate(
-      "#navbar",
-      { backgroundColor: colors.skyBlue },
-      { duration: 1 },
-    );
+  const fifthKeyFrame = async ({ duration } = { duration: 1 }) => {
+    void animate("#navbar", { backgroundColor: colors.skyBlue }, { duration });
     void animate(
       "#background",
       { backgroundColor: colors.skyBlue, color: colors.skyBlue },
-      { duration: 1 },
+      { duration },
     );
     void animate(
       "#an-text",
       { top: "26%", left: "10%", opacity: "100%" },
-      { duration: keyFramesDuration[3] },
+      { duration },
     );
 
-    void animate(
-      "#art-text",
-      { top: "34%", left: "20%" },
-      { duration: keyFramesDuration[3] },
-    );
+    void animate("#art-text", { top: "34%", left: "20%" }, { duration });
     void animate(
       "#school-text",
       { top: "44%", left: "30%", opacity: "100%" },
-      { duration: 1 },
+      { duration },
     );
     void animate(
       "#for-text",
       { top: "66%", left: "60%", opacity: "100%" },
-      { duration: 1 },
+      { duration },
     );
     void animate(
       "#the-text",
       { top: "43%", left: "74%", opacity: "100%" },
-      { duration: 1 },
+      { duration },
     );
     void animate(
       "#first-figure",
@@ -252,7 +228,7 @@ export const DesktopGeometricFigures = () => {
         top: 0,
         borderRadius: "50% 0% 0% 0%",
       },
-      { duration: keyFramesDuration[4] },
+      { duration },
     );
     void animate(
       "#second-figure",
@@ -262,7 +238,7 @@ export const DesktopGeometricFigures = () => {
         borderRadius: "10% 10% 10% 10%",
         rotate: "-45deg",
       },
-      { duration: keyFramesDuration[4] },
+      { duration },
     );
     void animate(
       "#third-figure",
@@ -272,7 +248,7 @@ export const DesktopGeometricFigures = () => {
         rotate: "45deg",
         borderRadius: "100% 100% 100% 100%",
       },
-      { duration: keyFramesDuration[4] },
+      { duration },
     );
     await animate(
       "#fourth-figure",
@@ -282,51 +258,43 @@ export const DesktopGeometricFigures = () => {
         rotate: "45deg",
         borderRadius: "0% 0% 0% 0%",
       },
-      { duration: keyFramesDuration[4] },
+      { duration },
     );
   };
 
-  const sixthKeyFrame = async () => {
-    void animate(
-      "#navbar",
-      { backgroundColor: colors.yellow },
-      { duration: 1 },
-    );
+  const sixthKeyFrame = async ({ duration } = { duration: 1 }) => {
+    void animate("#navbar", { backgroundColor: colors.yellow }, { duration });
     void animate(
       "#background",
       { backgroundColor: colors.yellow, color: colors.yellow },
-      { duration: 1 },
+      { duration },
     );
     void animate(
       "#an-text",
       { top: "22%", left: "10%", opacity: "100%" },
-      { duration: keyFramesDuration[3] },
+      { duration },
     );
 
-    void animate(
-      "#art-text",
-      { top: "36%", left: "22%" },
-      { duration: keyFramesDuration[3] },
-    );
+    void animate("#art-text", { top: "36%", left: "22%" }, { duration });
     void animate(
       "#school-text",
       { top: "48%", left: "34%", opacity: "100%" },
-      { duration: 1 },
+      { duration },
     );
     void animate(
       "#for-text",
       { top: "70%", left: "60%", opacity: "100%" },
-      { duration: 1 },
+      { duration },
     );
     void animate(
       "#the-text",
       { top: "45%", left: "76%", opacity: "100%" },
-      { duration: 1 },
+      { duration },
     );
     void animate(
       "#wild-text",
       { top: "20%", left: "85%", opacity: "100%" },
-      { duration: 1 },
+      { duration },
     );
     void animate(
       "#first-figure",
@@ -335,7 +303,7 @@ export const DesktopGeometricFigures = () => {
         top: 0,
         borderRadius: "100% 100% 100% 100%",
       },
-      { duration: keyFramesDuration[5] },
+      { duration },
     );
     void animate(
       "#second-figure",
@@ -345,7 +313,7 @@ export const DesktopGeometricFigures = () => {
         borderRadius: "0% 0% 0% 0%",
         rotate: "-45deg",
       },
-      { duration: keyFramesDuration[5] },
+      { duration },
     );
     void animate(
       "#third-figure",
@@ -355,7 +323,7 @@ export const DesktopGeometricFigures = () => {
         rotate: "45deg",
         borderRadius: "0% 0% 0% 0%",
       },
-      { duration: keyFramesDuration[5] },
+      { duration },
     );
     await animate(
       "#fourth-figure",
@@ -364,46 +332,46 @@ export const DesktopGeometricFigures = () => {
         top: "0%",
         borderRadius: "10% 10% 10% 10%",
       },
-      { duration: keyFramesDuration[5] },
+      { duration },
     );
   };
 
-  const seventhKeyFrame = async () => {
+  const seventhKeyFrame = async ({ duration } = { duration: 1 }) => {
     const lettersTop = DESKTOP_FINAL_LETTERS_HEIGHT;
     void animate(
       "#an-text",
       { top: lettersTop, left: "36.7%", opacity: "100%" },
-      { duration: keyFramesDuration[3] },
+      { duration },
     );
 
     void animate(
       "#art-text",
       { top: lettersTop, left: "40%", opacity: "100%" },
-      { duration: keyFramesDuration[3] },
+      { duration },
     );
     void animate(
       "#school-text",
       { top: lettersTop, left: "43.9%", opacity: "100%" },
-      { duration: 1 },
+      { duration },
     );
     void animate(
       "#for-text",
       { top: lettersTop, left: "51.2%", opacity: "100%" },
-      { duration: 1 },
+      { duration },
     );
     void animate(
       "#the-text",
       { top: lettersTop, left: "54.8%", opacity: "100%" },
-      { duration: 1 },
+      { duration },
     );
     await animate(
       "#wild-text",
       { top: lettersTop, left: "58.5%", opacity: "100%" },
-      { duration: 1 },
+      { duration },
     );
   };
 
-  const eightKeyFrame = async () => {
+  const eightKeyFrame = async ({ duration } = { duration: 1 }) => {
     void animate(
       "#navbar",
       {
@@ -411,44 +379,44 @@ export const DesktopGeometricFigures = () => {
         color: colors.matteBlack,
         borderBottomColor: colors.matteBlack,
       },
-      { duration: 1 },
+      { duration },
     );
     void animate(
       "#background",
       { backgroundColor: colors.eggWhite, color: colors.eggWhite },
-      { duration: 1 },
+      { duration },
     );
     void animate(
       "#first-figure",
       {
         backgroundColor: colors.matteBlack,
       },
-      { duration: keyFramesDuration[5] },
+      { duration },
     );
     void animate(
       "#second-figure",
       {
         backgroundColor: colors.matteBlack,
       },
-      { duration: keyFramesDuration[5] },
+      { duration },
     );
     void animate(
       "#third-figure",
       {
         backgroundColor: colors.matteBlack,
       },
-      { duration: keyFramesDuration[5] },
+      { duration },
     );
     await animate(
       "#fourth-figure",
       {
         backgroundColor: colors.matteBlack,
       },
-      { duration: keyFramesDuration[5] },
+      { duration },
     );
   };
 
-  const finalFrame = () => {
+  const finalFrame = ({ duration } = { duration: 1 }) => {
     const lettersTop = DESKTOP_FINAL_LETTERS_HEIGHT;
     void animate(
       "#navbar",
@@ -457,43 +425,43 @@ export const DesktopGeometricFigures = () => {
         color: colors.matteBlack,
         borderBottomColor: colors.matteBlack,
       },
-      { duration: 1 },
+      { duration },
     );
     void animate(
       "#background",
       { backgroundColor: colors.eggWhite, color: colors.eggWhite },
-      { duration: 1 },
+      { duration },
     );
     void animate(
       "#an-text",
       { top: lettersTop, left: "36.7%", opacity: "100%" },
-      { duration: keyFramesDuration[3] },
+      { duration },
     );
 
     void animate(
       "#art-text",
       { top: lettersTop, left: "40%", opacity: "100%" },
-      { duration: keyFramesDuration[3] },
+      { duration },
     );
     void animate(
       "#school-text",
       { top: lettersTop, left: "43.9%", opacity: "100%" },
-      { duration: 1 },
+      { duration },
     );
     void animate(
       "#for-text",
       { top: lettersTop, left: "51.2%", opacity: "100%" },
-      { duration: 1 },
+      { duration },
     );
     void animate(
       "#the-text",
       { top: lettersTop, left: "54.8%", opacity: "100%" },
-      { duration: 1 },
+      { duration },
     );
     void animate(
       "#wild-text",
       { top: lettersTop, left: "58.5%", opacity: "100%" },
-      { duration: 1 },
+      { duration },
     );
     void animate(
       "#first-figure",
@@ -503,7 +471,7 @@ export const DesktopGeometricFigures = () => {
         borderRadius: "100% 100% 100% 100%",
         backgroundColor: colors.matteBlack,
       },
-      { duration: keyFramesDuration[5] },
+      { duration },
     );
     void animate(
       "#second-figure",
@@ -514,7 +482,7 @@ export const DesktopGeometricFigures = () => {
         rotate: "-45deg",
         backgroundColor: colors.matteBlack,
       },
-      { duration: keyFramesDuration[5] },
+      { duration },
     );
     void animate(
       "#third-figure",
@@ -525,7 +493,7 @@ export const DesktopGeometricFigures = () => {
         borderRadius: "0% 0% 0% 0%",
         backgroundColor: colors.matteBlack,
       },
-      { duration: keyFramesDuration[5] },
+      { duration },
     );
     void animate(
       "#fourth-figure",
@@ -536,19 +504,19 @@ export const DesktopGeometricFigures = () => {
         rotate: "45deg",
         backgroundColor: colors.matteBlack,
       },
-      { duration: keyFramesDuration[5] },
+      { duration },
     );
   };
 
   const handleAnimation = async () => {
-    await firstKeyFrame();
-    await secondKeyFrame();
-    await thirdKeyFrame();
-    await fourthKeyFrame();
-    await fifthKeyFrame();
-    await sixthKeyFrame();
-    await seventhKeyFrame();
-    await eightKeyFrame();
+    await firstKeyFrame({ duration: 1.2 });
+    await secondKeyFrame({ duration: 0.2 });
+    await thirdKeyFrame({ duration: 1.2 });
+    await fourthKeyFrame({ duration: 1.2 });
+    await fifthKeyFrame({ duration: 1.2 });
+    await sixthKeyFrame({ duration: 1.2 });
+    await seventhKeyFrame({ duration: 1.2 });
+    await eightKeyFrame({ duration: 1.2 });
     localStorage.setItem("lastAnimatedAt", Date.now().toString());
   };
 
