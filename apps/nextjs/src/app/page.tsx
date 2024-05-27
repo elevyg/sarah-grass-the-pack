@@ -11,7 +11,7 @@ type Request = { searchParams: SearchParams };
 
 export default async function Home(request: Request) {
   const texts = await api.getLandingTexts();
-  const offerings = await api.getOfferings({ status: "active" });
+  const offerings = await api.getOfferings({ status: "upcoming" });
 
   const journalImageAspectRatio = texts.attributes.journal_section_image
     ? texts.attributes.journal_section_image?.data.attributes.width /

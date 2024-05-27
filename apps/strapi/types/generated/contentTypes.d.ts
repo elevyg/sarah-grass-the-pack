@@ -1010,7 +1010,9 @@ export interface ApiOfferingOffering extends Schema.CollectionType {
       }>;
     starting_date: Attribute.Date;
     slug: Attribute.UID<'api::offering.offering', 'title'> & Attribute.Required;
-    status: Attribute.Enumeration<['active', 'suspended', 'finished']>;
+    status: Attribute.Enumeration<['active', 'upcoming', 'inactive']> &
+      Attribute.Required &
+      Attribute.DefaultTo<'inactive'>;
     square_image: Attribute.Media & Attribute.Required;
     ending_date: Attribute.Date;
     starting_time: Attribute.Time;

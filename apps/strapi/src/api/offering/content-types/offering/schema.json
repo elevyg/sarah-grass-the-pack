@@ -33,9 +33,11 @@
       "type": "enumeration",
       "enum": [
         "active",
-        "suspended",
-        "finished"
-      ]
+        "upcoming",
+        "inactive"
+      ],
+      "default": "inactive",
+      "required": true
     },
     "square_image": {
       "type": "media",

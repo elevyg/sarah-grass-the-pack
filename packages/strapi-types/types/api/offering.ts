@@ -10,8 +10,8 @@ import { AdminPanelRelationPropertyModification } from '../common/AdminPanelRela
 
 export enum Status {
   Active = 'active',
-  Suspended = 'suspended',
-  Finished = 'finished',}
+  Upcoming = 'upcoming',
+  Inactive = 'inactive',}
 
 export interface Offering {
   id: number;
@@ -20,7 +20,7 @@ export interface Offering {
     description: string;
     starting_date?: Date;
     slug: string;
-    status?: Status;
+    status: Status;
     square_image: { data: Media };
     ending_date?: Date;
     starting_time?: Date;
@@ -41,7 +41,7 @@ export interface Offering_Plain {
   description: string;
   starting_date?: Date;
   slug: string;
-  status?: Status;
+  status: Status;
   square_image: Media_Plain;
   ending_date?: Date;
   starting_time?: Date;
@@ -62,7 +62,7 @@ export interface Offering_NoRelations {
   description: string;
   starting_date?: Date;
   slug: string;
-  status?: Status;
+  status: Status;
   square_image: number;
   ending_date?: Date;
   starting_time?: Date;
@@ -83,7 +83,7 @@ export interface Offering_AdminPanelLifeCycle {
   description: string;
   starting_date?: Date;
   slug: string;
-  status?: Status;
+  status: Status;
   square_image: AdminPanelRelationPropertyModification<Media_Plain>;
   ending_date?: Date;
   starting_time?: Date;
