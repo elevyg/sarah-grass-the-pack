@@ -3,7 +3,7 @@ import Image from "next/image";
 import { type Offering } from "strapi-types/types/api/offering";
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { stringTimeToDate } from "~/utils/indext";
+import { stringTimeToDate } from "~/utils/stringTimeToDate";
 
 interface Props {
   title?: string;

@@ -6,7 +6,7 @@ import { useState } from "react";
 import { type Offering } from "strapi-types/types/api/offering";
 import { type OfferingType } from "strapi-types/types/api/offering-type";
 import { api } from "~/trpc/react";
-import { stringTimeToDate } from "~/utils/indext";
+import { stringTimeToDate } from "~/utils/stringTimeToDate";
 
 interface Props {
   initialOfferings: Offering[];
@@ -23,9 +23,6 @@ const OfferingsDashboard = ({ initialOfferings, offeringTypes }: Props) => {
       initialData: initialOfferings,
     },
   );
-
-  const lastRow =
-    offerings.data.length % 3 === 0 ? 0 : Math.floor(offerings.data.length / 3);
 
   return (
     <div className="h-full w-full">
@@ -104,11 +101,11 @@ const OfferingsDashboard = ({ initialOfferings, offeringTypes }: Props) => {
                     )}
                   </div>
                 </div>
-                <div className="flex items-center justify-center border-t-2 border-matteBlack p-4">
-                  <Link href={`/offerings/${offering.attributes.slug}`}>
-                    <p>{actionButtonText}</p>
-                  </Link>
-                </div>
+                <Link href={`/offerings/${offering.attributes.slug}`}>
+                  <div className="flex items-center justify-center border-t-2 border-matteBlack p-4">
+                    <p className="heading-5">{actionButtonText}</p>
+                  </div>
+                </Link>
               </div>
             );
           })}

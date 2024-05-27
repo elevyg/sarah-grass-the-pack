@@ -3,7 +3,7 @@ import Link from "next/link";
 import { type Offering } from "strapi-types/types/api/offering";
 import Markdown from "~/app/_components/markdown";
 import Section from "~/app/_components/section";
-import { stringTimeToDate } from "~/utils/indext";
+import { stringTimeToDate } from "~/utils/stringTimeToDate";
 import markdownToHtml from "~/utils/markdownToHtml";
 
 const OtherOfferings = async ({

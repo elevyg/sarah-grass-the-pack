@@ -2,7 +2,7 @@ import Image from "next/image";
 import Navbar from "~/app/_components/navbar";
 import Section from "~/app/_components/section";
 import { api } from "~/trpc/server";
-import { stringTimeToDate } from "~/utils/indext";
+import { stringTimeToDate } from "~/utils/stringTimeToDate";
 import markdownToHtml from "~/utils/markdownToHtml";
 import { type SearchParams } from "../../../middleware";
 import Markdown from "~/app/_components/markdown";
