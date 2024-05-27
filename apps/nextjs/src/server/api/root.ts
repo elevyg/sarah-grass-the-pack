@@ -129,7 +129,7 @@ export const appRouter = createTRPCRouter({
           slug: {
             $ne: input,
           },
-          status: { $eq: "active" },
+          status: { $eq: "upcoming" },
         },
         populate: {
           offeringTypeInfo: {
