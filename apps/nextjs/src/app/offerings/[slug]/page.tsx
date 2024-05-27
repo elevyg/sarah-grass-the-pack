@@ -86,8 +86,8 @@ const Page = async ({ params, searchParams }: Request) => {
       <div className="min-h-screen bg-eggWhite pt-[4rem] md:pt-[6rem]">
         <Section lowerBorderOnly color="mint">
           <div className="grid w-full grid-cols-1 md:grid-cols-2">
-            <div className="flex flex-1 flex-col  border-r-2 border-matteBlack">
-              <div className="flex flex-col border-b-2 border-matteBlack p-10">
+            <div className="flex flex-1 flex-col  border-matteBlack md:border-r-2">
+              <div className="flex flex-col border-matteBlack px-8 pb-4 pt-8 md:border-b-2 md:p-10">
                 <h1 className="pb-3 text-5xl">{offering.attributes.title}</h1>
                 {offering.attributes.instructors?.data.map((i) => (
                   <p className="mb-4 text-2xl" key={i.id}>
@@ -102,10 +102,13 @@ const Page = async ({ params, searchParams }: Request) => {
                 )}
 
                 <div className="mb-4 self-start text-2xl">
-                  <p>{readableOfferingDate()}</p>
+                  {readableOfferingDate() && <p>{readableOfferingDate()}</p>}
                 </div>
               </div>
-              <div className="hidden flex-col border-b-2 border-matteBlack p-10 md:flex">
+              <div
+                id="about_offering_desktop"
+                className="hidden flex-col border-b-2 border-matteBlack p-10 md:flex"
+              >
                 <h2 className="pb-4 text-2xl">
                   {texts.attributes.about_offering_title}
                 </h2>
@@ -114,7 +117,10 @@ const Page = async ({ params, searchParams }: Request) => {
                   dangerouslySetInnerHTML={{ __html: extendedDescriptionHtml }}
                 />
               </div>
-              <div className="hidden flex-col border-b-2 border-matteBlack p-10 md:flex">
+              <div
+                id="event_info_desktop"
+                className="hidden flex-col border-b-2 border-matteBlack p-10"
+              >
                 <h2 className="pb-4 text-2xl">
                   {texts.attributes.event_info_title}
                 </h2>
@@ -125,7 +131,10 @@ const Page = async ({ params, searchParams }: Request) => {
               </div>
             </div>
             <div className="flex flex-1 flex-col">
-              <div id="image" className="flex items-start justify-center p-8">
+              <div
+                id="image"
+                className="flex items-start justify-center px-8 pb-8 pt-0 md:pt-8"
+              >
                 {offering.attributes.rectangle_image && (
                   <div
                     className="relative w-full overflow-hidden rounded-2xl"
@@ -154,7 +163,10 @@ const Page = async ({ params, searchParams }: Request) => {
                 info={offeringTypeInfo}
               />
             </div>
-            <div className="flex flex-col border-b-2 border-matteBlack p-10 md:hidden">
+            <div
+              id="about_offering_mobile"
+              className="flex flex-col border-b-2 border-matteBlack p-10 md:hidden"
+            >
               <h2 className="pb-4 text-2xl">
                 {texts.attributes.about_offering_title}
               </h2>
@@ -163,7 +175,10 @@ const Page = async ({ params, searchParams }: Request) => {
                 dangerouslySetInnerHTML={{ __html: extendedDescriptionHtml }}
               />
             </div>
-            <div className="flex flex-col border-b-2 border-matteBlack p-10 md:hidden">
+            <div
+              id="event_info_mobile"
+              className="flex flex-col p-10 md:hidden"
+            >
               <h2 className="pb-4 text-2xl">
                 {texts.attributes.event_info_title}
               </h2>
@@ -184,17 +199,20 @@ const ActionSection = (props: {
   offeringType: string | undefined;
   info: unknown;
 }) => {
-  if (props.offeringType === "One-on-one") {
-    return <OneOneOneActionSection info={props.info} />;
+  console.log(props.offeringType);
+  if (!props.offeringType) return null;
+
+  if (["One-one-one", "Open session"].includes(props.offeringType)) {
+    return <OnePriceOneButton info={props.info} />;
   }
   if (props.offeringType === "Class") {
-    return <ClassActionSection info={props.info} />;
+    return <TwoPricesOneButton info={props.info} />;
   }
 
   return null;
 };
 
-const OneOneOneActionSection = (props: { info: unknown }) => {
+const OnePriceOneButton = (props: { info: unknown }) => {
   const offeringTypeInfo = props.info as {
     actionButtonText: string;
     price: number;
@@ -213,7 +231,7 @@ const OneOneOneActionSection = (props: { info: unknown }) => {
   );
 };
 
-const ClassActionSection = (props: { info: unknown }) => {
+const TwoPricesOneButton = (props: { info: unknown }) => {
   const offeringTypeInfo = props.info as {
     monthlyPrice: string | undefined;
     monthlyPriceSubtitle: string | undefined;

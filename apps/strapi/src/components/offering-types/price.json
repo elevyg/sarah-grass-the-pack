@@ -7,7 +7,7 @@
   },
   "options": {},
   "attributes": {
-    "suggestedPrice": {
+    "price": {
       "type": "string"
     },
     "actionButtonText": {
@@ -17,6 +17,9 @@
     "shortActionButtonText": {
       "type": "string",
       "default": "Learn More"
+    },
+    "contactEmail": {
+      "type": "email"
     }
   }
 }

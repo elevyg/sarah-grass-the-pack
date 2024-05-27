@@ -29,6 +29,7 @@ export interface OfferingTypesOneOnOne extends Schema.Component {
     actionButtonText: Attribute.String & Attribute.DefaultTo<'Book Now'>;
     price: Attribute.String;
     shortActionButtonText: Attribute.String & Attribute.DefaultTo<'Book'>;
+    contactEmail: Attribute.Email;
   };
 }
 
@@ -40,10 +41,11 @@ export interface OfferingTypesPrice extends Schema.Component {
     description: '';
   };
   attributes: {
-    suggestedPrice: Attribute.String;
+    price: Attribute.String;
     actionButtonText: Attribute.String &
       Attribute.DefaultTo<'Add me to the mailing list'>;
     shortActionButtonText: Attribute.String & Attribute.DefaultTo<'Learn More'>;
+    contactEmail: Attribute.Email;
   };
 }
 

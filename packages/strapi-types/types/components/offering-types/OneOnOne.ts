@@ -4,16 +4,19 @@ export interface OneOnOne {
   actionButtonText?: string;
   price?: string;
   shortActionButtonText?: string;
+  contactEmail?: string;
 }
 export interface OneOnOne_Plain {
   actionButtonText?: string;
   price?: string;
   shortActionButtonText?: string;
+  contactEmail?: string;
 }
 
 export interface OneOnOne_NoRelations {
   actionButtonText?: string;
   price?: string;
   shortActionButtonText?: string;
+  contactEmail?: string;
 }
 

@@ -16,6 +16,9 @@
     "shortActionButtonText": {
       "type": "string",
       "default": "Book"
+    },
+    "contactEmail": {
+      "type": "email"
     }
   }
 }
