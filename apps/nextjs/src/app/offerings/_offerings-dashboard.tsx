@@ -6,6 +6,7 @@ import { useState } from "react";
 import { type Offering } from "strapi-types/types/api/offering";
 import { type OfferingType } from "strapi-types/types/api/offering-type";
 import { api } from "~/trpc/react";
+import { formatDate } from "~/utils/formatDate";
 import { stringTimeToDate } from "~/utils/stringTimeToDate";
 
 interface Props {
@@ -116,39 +117,3 @@ const OfferingsDashboard = ({ initialOfferings, offeringTypes }: Props) => {
 };
 
 export default OfferingsDashboard;
-
-const formatDate = (offering: Offering) => {
-  const startingDate = offering.attributes.starting_date
-    ? new Date(offering.attributes.starting_date).toLocaleDateString("en-US", {
-        month: "2-digit",
-        day: "2-digit",
-      })
-    : null;
-
-  const endingDate = offering.attributes.ending_date
-    ? new Date(offering.attributes.ending_date).toLocaleDateString("en-US", {
-        month: "2-digit",
-        day: "2-digit",
-      })
-    : null;
-
-  const startingTime = offering.attributes.starting_time
-    ? stringTimeToDate(
-        offering.attributes.starting_time as unknown as string,
-      ).toLocaleString("en-US", {
-        hour: "numeric",
-        hour12: true,
-      })
-    : null;
-
-  const endingTime =
-    offering.attributes.ending_time &&
-    stringTimeToDate(
-      offering.attributes.ending_time as unknown as string,
-    ).toLocaleString("en-US", {
-      hour: "numeric",
-      hour12: true,
-    });
-
-  return { startingDate, endingDate, startingTime, endingTime };
-};
