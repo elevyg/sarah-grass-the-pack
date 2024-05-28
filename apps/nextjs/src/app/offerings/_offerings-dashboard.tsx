@@ -7,7 +7,6 @@ import { type Offering } from "strapi-types/types/api/offering";
 import { type OfferingType } from "strapi-types/types/api/offering-type";
 import { api } from "~/trpc/react";
 import { formatDate } from "~/utils/formatDate";
-import { stringTimeToDate } from "~/utils/stringTimeToDate";
 
 interface Props {
   initialOfferings: Offering[];
