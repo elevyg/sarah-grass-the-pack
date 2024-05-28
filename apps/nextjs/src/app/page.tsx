@@ -6,12 +6,12 @@ import { api } from "~/trpc/server";
 import markdownToHtml from "~/utils/markdownToHtml";
 import { type SearchParams } from "../middleware";
 import Hero from "~/app/_components/hero";
+import { Suspense } from "react";
 
 type Request = { searchParams: SearchParams };
 
 export default async function Home(request: Request) {
   const texts = await api.getLandingTexts();
-  const offerings = await api.getOfferings({ status: "upcoming" });
 
   const journalImageAspectRatio = texts.attributes.journal_section_image
     ? texts.attributes.journal_section_image?.data.attributes.width /
@@ -26,10 +26,9 @@ export default async function Home(request: Request) {
     <main className="flex min-h-screen flex-col bg-eggWhite text-matteBlack">
       <Hero viewport={request.searchParams.viewport} />
       <Section color="mint">
-        <Offerings
-          title={texts.attributes.offering_header}
-          offerings={offerings}
-        />
+        <Suspense fallback={null}>
+          <Offerings title={texts.attributes.offering_header} />
+        </Suspense>
       </Section>
       <Section color="lavander" lowerBorderOnly>
         <div className="flex w-full flex-1 flex-col">
