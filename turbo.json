@@ -7,6 +7,9 @@
     "dev": {
       "cache": false
     },
+    "dev-local": {
+      "cache": false
+    },
     "type-check": {}
   }
 }
