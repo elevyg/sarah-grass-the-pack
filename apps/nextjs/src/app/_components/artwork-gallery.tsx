@@ -1,11 +1,16 @@
-import Image from "next/image";
-import React from "react";
+import Gallery from "~/app/_components/gallery";
 import { api } from "~/trpc/server";
 
 type Props = { title?: string };
 
 const ArtworkGallery = async ({ title }: Props) => {
   const artWorks = await api.getArtWorks();
+
+  const galleryImages = artWorks.map((aw) => {
+    const { url, height, width } =
+      aw.attributes.image.data.attributes.formats.medium;
+    return { url, height, width, caption: aw.attributes.caption, id: aw.id };
+  });
 
   return (
     <div className="flex w-full flex-col">
@@ -29,30 +34,7 @@ const ArtworkGallery = async ({ title }: Props) => {
           </button>
         </div>
       </div>
-      <div className="max-w-screen no-scrollbar flex snap-x overflow-x-scroll">
-        {artWorks.map((aw) => (
-          <div key={aw.id} className="p-4">
-            <Image
-              src={aw.attributes.image.data.attributes.formats.medium.url}
-              height={aw.attributes.image.data.attributes.height}
-              width={aw.attributes.image.data.attributes.width}
-              alt={aw.attributes.caption ?? "art work image"}
-              className="object-fill"
-            />
-          </div>
-        ))}
-        {artWorks.map((aw) => (
-          <div key={aw.id} className="flex-shrink-0 p-4">
-            <Image
-              src={aw.attributes.image.data.attributes.formats.medium.url}
-              height={aw.attributes.image.data.attributes.formats.medium.height}
-              width={aw.attributes.image.data.attributes.formats.medium.width}
-              alt={aw.attributes.caption ?? "art work image"}
-              className="object-cover"
-            />
-          </div>
-        ))}
-      </div>
+      <Gallery images={galleryImages} />
     </div>
   );
 };
