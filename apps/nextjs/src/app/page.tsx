@@ -7,6 +7,7 @@ import markdownToHtml from "~/utils/markdownToHtml";
 import { type SearchParams } from "../middleware";
 import Hero from "~/app/_components/hero";
 import { Suspense } from "react";
+import ArtworkGallery from "~/app/_components/artwork-gallery";
 
 type Request = { searchParams: SearchParams };
 
@@ -81,19 +82,7 @@ export default async function Home(request: Request) {
           </div>
         </div>
       </Section>
-      <div className="flex w-full flex-col">
-        <div
-          id="artist-work-header"
-          className="flex w-full justify-between border-b-2 border-matteBlack py-2 pl-2"
-        >
-          <h2 className="heading-1">{texts.attributes.artist_work_header}</h2>
-          <div>
-            <ion-icon name="chevron-back-outline"></ion-icon>
-            <ion-icon name="chevron-forward-outline"></ion-icon>
-          </div>
-        </div>
-        <div className="min-h-[50vh] w-full"></div>
-      </div>
+      <ArtworkGallery title={texts.attributes.artist_work_header} />
       <Section color="beige">
         <div className="w-full">
           <div

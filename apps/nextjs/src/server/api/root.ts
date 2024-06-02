@@ -8,6 +8,7 @@ import type { LandingPage } from "strapi-types/types/api/landing-page";
 import type { OfferingPage } from "strapi-types/types/api/offering-page";
 import type { Offering } from "strapi-types/types/api/offering";
 import type { AboutPage } from "strapi-types/types/api/about-page";
+import type { ArtWork } from "strapi-types/types/api/art-work";
 import type { Footer } from "strapi-types/types/api/footer";
 import qs from "qs";
 import { z } from "zod";
@@ -171,6 +172,12 @@ export const appRouter = createTRPCRouter({
     async ({ ctx }) =>
       (await ctx.strapi.get<{ data: Footer }>("footer")).data.data,
   ),
+  getArtWorks: publicProcedure.query(async ({ ctx }) => {
+    const query = qs.stringify({ populate: ["image"] });
+    const res = await ctx.strapi.get<{ data: ArtWork[] }>("art-works?" + query);
+
+    return res.data.data;
+  }),
 });
 
 // export type definition of API

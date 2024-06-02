@@ -5,7 +5,7 @@ interface Props {
   title?: string;
 }
 
-const Offerings = async ({ title }: Props) => {
+const  Offerings = async ({ title }: Props) => {
   const offerings = await api.getOfferings({ status: "upcoming" });
   const lastOfferingIndex = offerings.length - 1;
 
