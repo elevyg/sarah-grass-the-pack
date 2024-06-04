@@ -1,6 +1,5 @@
 import "~/styles/globals.css";
 
-import { Inter } from "next/font/google";
 import localFont from "next/font/local";
 
 import { TRPCReactProvider } from "~/trpc/react";
@@ -11,14 +10,9 @@ const arizona = localFont({
   variable: "--arizona",
 });
 const foundersGrotesk = localFont({
-  src: "../../public/fonts/test-founders-grotesk-light.woff2",
-  // src: "../../public/fonts/founders-grotesk-regular.woff2",
+  // src: "../../public/fonts/test-founders-grotesk-light.woff2",
+  src: "../../public/fonts/founders-grotesk-regular.woff2",
   variable: "--founders-grotesk",
-});
-
-const inter = Inter({
-  subsets: ["latin"],
-  variable: "--font-sans",
 });
 
 export const metadata = {
@@ -41,9 +35,7 @@ export default function RootLayout({
         ></Script>
         <Script src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></Script>
       </head>
-      <body
-        className={`font-sans ${inter.variable} ${arizona.variable} ${foundersGrotesk.variable}`}
-      >
+      <body className={`${arizona.variable} ${foundersGrotesk.variable}`}>
         <TRPCReactProvider>
           <div>{children}</div>
         </TRPCReactProvider>

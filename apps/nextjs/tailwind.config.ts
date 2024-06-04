@@ -32,9 +32,8 @@ export default {
         yellow: "#EDDF94",
       },
       fontFamily: {
-        sans: ["var(--founders-grotesk)", ...fontFamily.sans],
         arizona: ["var(--arizona)"],
-        foundersGrotesk: ["var(--founders-grotesk)"],
+        foundersGrotesk: ["var(--founders-grotesk)", ...fontFamily.sans],
       },
     },
   },
