@@ -553,7 +553,7 @@ export const DesktopGeometricFigures = () => {
       />
       <div
         id="background"
-        className="pt-[6rem]"
+        className="overflow-hidden pt-[6rem]"
         style={{ backgroundColor: colors.mint, color: colors.mint }}
       >
         <div className="flex min-h-[calc(100vh-6rem)] flex-1 items-center justify-center">

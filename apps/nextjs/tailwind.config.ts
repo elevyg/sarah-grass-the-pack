@@ -1,5 +1,6 @@
-import { type Config } from "tailwindcss";
+import type { Config } from "tailwindcss";
 import { fontFamily } from "tailwindcss/defaultTheme";
+import type { PluginCreator } from "tailwindcss/types/config";
 
 export default {
   content: ["./src/**/*.tsx"],
@@ -37,5 +38,16 @@ export default {
       },
     },
   },
-  plugins: [],
+  plugins: [
+    function ({ addUtilities }) {
+      const newUtilities = {
+        ".no-scrollbar::-webkit-scrollbar": { display: "none" },
+        ".no-scrollbar": {
+          "-ms-overflow-style": "none",
+          "scrollbar-width": "none",
+        },
+      };
+      addUtilities(newUtilities);
+    } as PluginCreator,
+  ],
 } satisfies Config;

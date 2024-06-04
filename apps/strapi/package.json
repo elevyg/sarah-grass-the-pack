@@ -5,9 +5,11 @@
   "description": "A Strapi application",
   "scripts": {
     "dev": "railway run strapi develop",
+    "dev-local": "strapi develop",
     "start": "strapi start",
     "build": "strapi build",
-    "strapi": "strapi"
+    "strapi": "strapi",
+    "generate": "sh generate_types.sh"
   },
   "dependencies": {
     "@ckeditor/strapi-plugin-ckeditor": "^0.0.11",
