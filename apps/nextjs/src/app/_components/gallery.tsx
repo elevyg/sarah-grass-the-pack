@@ -80,14 +80,14 @@ const Gallery = forwardRef(
           {images.map((image) => (
             <div
               key={image.id}
-              className="max-h-[90vh] w-screen flex-shrink-0 snap-start snap-always p-3 md:w-auto md:p-0"
+              className="w-screen flex-shrink-0 snap-start snap-always p-3 md:w-auto md:p-0"
             >
               <Image
                 src={image.url}
                 height={image.height}
                 width={image.width}
                 alt={image.caption ?? "art work image"}
-                className="object-contain md:object-fill"
+                className="max-h-[75vh] object-contain"
                 sizes="(max-width: 768px) 100vw"
               />
             </div>
