@@ -83,7 +83,10 @@ export default async function Home(request: Request) {
         </div>
       </Section>
       <Suspense>
-        <ArtworkGallery title={texts.attributes.artist_work_header} />
+        <ArtworkGallery
+          title={texts.attributes.artist_work_header}
+          mode={request.searchParams.viewport}
+        />
       </Suspense>
       <Section color="beige">
         <div className="w-full">

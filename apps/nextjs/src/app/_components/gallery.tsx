@@ -73,21 +73,22 @@ const Gallery = forwardRef(
 
     return (
       <div
-        className="flex w-full snap-x snap-mandatory scroll-pl-96 overflow-x-scroll scroll-smooth no-scrollbar"
+        className="flex w-full snap-x snap-mandatory overflow-x-scroll scroll-smooth no-scrollbar md:scroll-pl-96"
         ref={containerRef}
       >
         <div className="flex gap-5 px-[300vw] py-5">
           {images.map((image) => (
             <div
               key={image.id}
-              className="flex-shrink-0 snap-start snap-always bg-red-300"
+              className="w-screen flex-shrink-0 snap-start snap-always p-3 md:w-auto md:p-0"
             >
               <Image
                 src={image.url}
                 height={image.height}
                 width={image.width}
                 alt={image.caption ?? "art work image"}
-                className="object-fill"
+                className="object-contain md:object-fill"
+                sizes="(max-width: 768px) 100vw"
               />
             </div>
           ))}
