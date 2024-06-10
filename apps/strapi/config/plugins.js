@@ -1,4 +1,7 @@
 module.exports = ({ env }) => ({
+  "drag-drop-content-types": {
+    enabled: true,
+  },
   "schemas-to-ts": {
     enabled: false,
     destinationFolder: "packages/strapi-types",

@@ -832,6 +832,7 @@ export interface ApiArtWorkArtWork extends Schema.CollectionType {
     singularName: 'art-work';
     pluralName: 'art-works';
     displayName: 'Art Work';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -839,6 +840,7 @@ export interface ApiArtWorkArtWork extends Schema.CollectionType {
   attributes: {
     image: Attribute.Media & Attribute.Required;
     caption: Attribute.String;
+    rank: Attribute.Integer;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

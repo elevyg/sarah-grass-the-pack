@@ -4,7 +4,8 @@
   "info": {
     "singularName": "art-work",
     "pluralName": "art-works",
-    "displayName": "Art Work"
+    "displayName": "Art Work",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -12,18 +13,21 @@
   "pluginOptions": {},
   "attributes": {
     "image": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
       "allowedTypes": [
         "images",
         "files",
         "videos",
         "audios"
-      ],
-      "type": "media",
-      "multiple": false,
-      "required": true
+      ]
     },
     "caption": {
       "type": "string"
+    },
+    "rank": {
+      "type": "integer"
     }
   }
 }

@@ -126,6 +126,7 @@ export const appRouter = createTRPCRouter({
     .input(z.string())
     .query(async ({ ctx, input }) => {
       const query = qs.stringify({
+        sort: ["rank:asc"],
         filters: {
           slug: {
             $ne: input,
