@@ -8,6 +8,7 @@ import {
   useImperativeHandle,
   useState,
   useRef,
+  useEffect,
 } from "react";
 
 export type Image = {
@@ -55,6 +56,27 @@ const Gallery = forwardRef(
       },
       [images],
     );
+
+    const keyboardEventHandler = useCallback(
+      (e: KeyboardEvent) => {
+        e.preventDefault();
+        if (e.key === "ArrowLeft") {
+          onLeftArrowClick(moveTo + 1);
+        }
+        if (e.key === "ArrowRight") {
+          onRightArrowClick(moveTo + 1);
+        }
+      },
+      [moveTo, onLeftArrowClick, onRightArrowClick],
+    );
+
+    useEffect(() => {
+      window.addEventListener("keydown", keyboardEventHandler);
+
+      return () => {
+        window.removeEventListener("keydown", keyboardEventHandler);
+      };
+    }, [keyboardEventHandler]);
 
     useImperativeHandle(
       outerRef,
