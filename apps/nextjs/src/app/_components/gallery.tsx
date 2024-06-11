@@ -23,6 +23,8 @@ type Props = {
   images: Image[];
 };
 
+const GAP = 64; // gap-16
+
 export type GalleryActions = { moveRight: () => void; moveLeft: () => void };
 
 const Gallery = forwardRef(
@@ -39,7 +41,7 @@ const Gallery = forwardRef(
         const nextImage = images.at(updatePosition);
         if (!containerRef.current || !nextImage) return;
         window.scrollTo({ behavior: "smooth" });
-        containerRef.current.scrollLeft += nextImage.width;
+        containerRef.current.scrollLeft += nextImage.width + GAP / 2;
       },
       [images],
     );
@@ -50,9 +52,11 @@ const Gallery = forwardRef(
         setMoveTo(updatePosition);
 
         const nextImage = images.at(updatePosition);
-        if (!containerRef.current || !nextImage) return;
         window.scrollTo({ behavior: "smooth" });
-        containerRef.current.scrollLeft += -nextImage.width;
+
+        if (!containerRef.current || !nextImage) return;
+
+        containerRef.current.scrollLeft += -nextImage.width - GAP / 2;
       },
       [images],
     );
@@ -64,7 +68,7 @@ const Gallery = forwardRef(
           onLeftArrowClick(moveTo + 1);
         }
         if (e.key === "ArrowRight") {
-          onRightArrowClick(moveTo + 1);
+          onRightArrowClick(moveTo - 1);
         }
       },
       [moveTo, onLeftArrowClick, onRightArrowClick],
@@ -98,7 +102,7 @@ const Gallery = forwardRef(
         className="flex w-full snap-x snap-mandatory overflow-x-scroll scroll-smooth no-scrollbar md:scroll-pl-96"
         ref={containerRef}
       >
-        <div className="flex items-center gap-5 px-[300vw] py-5">
+        <div className="flex items-center gap-16 px-[300vw] py-5">
           {images.map((image) => (
             <div
               key={image.id}
@@ -112,6 +116,7 @@ const Gallery = forwardRef(
                 className="max-h-[75vh] object-contain"
                 sizes="(max-width: 768px) 100vw"
               />
+              <p className="caption pt-3">{image.caption}</p>
             </div>
           ))}
         </div>
