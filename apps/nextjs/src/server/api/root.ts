@@ -126,7 +126,6 @@ export const appRouter = createTRPCRouter({
     .input(z.string())
     .query(async ({ ctx, input }) => {
       const query = qs.stringify({
-        sort: ["rank:asc"],
         filters: {
           slug: {
             $ne: input,
@@ -174,7 +173,7 @@ export const appRouter = createTRPCRouter({
       (await ctx.strapi.get<{ data: Footer }>("footer")).data.data,
   ),
   getArtWorks: publicProcedure.query(async ({ ctx }) => {
-    const query = qs.stringify({ populate: ["image"] });
+    const query = qs.stringify({ populate: ["image"], sort: ["rank:asc"] });
     const res = await ctx.strapi.get<{ data: ArtWork[] }>("art-works?" + query);
 
     return res.data.data;
