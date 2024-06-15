@@ -728,12 +728,12 @@ export const MobileGeometricFigures = () => {
 
   const [scope, animate] = useAnimate();
 
-  const firstKeyFrame = async ({ duration } = { duration: 1 }) => {
-    void animate("#first-figure", { top: 0, left: "21%" }, { duration });
+  const firstKeyFrame = async (options?: DynamicAnimationOptions) => {
+    void animate("#first-figure", { top: 0, left: "21%" }, options);
     void animate(
       "#second-figure",
       { top: `calc(${bottom.second})`, left: 0 },
-      { duration },
+      options,
     );
     void animate(
       "#third-figure",
@@ -741,7 +741,7 @@ export const MobileGeometricFigures = () => {
         left: `calc(${size}*0.21)`,
         top: `calc(${size} - ${bottom.second} + ${bottom.third})`,
       },
-      { duration },
+      options,
     );
     await animate(
       "#fourth-figure",
@@ -749,22 +749,30 @@ export const MobileGeometricFigures = () => {
         top: `calc(${size} - ${bottom.second} + ${bottom.third} + ${bottom.forth})`,
         left: 0,
       },
-      { duration },
+      options,
     );
   };
 
-  const secondKeyFrame = async ({ duration } = { duration: 1 }) => {
-    await animate("#an-text", { opacity: "100%" }, { duration });
+  const secondKeyFrame = async (options?: DynamicAnimationOptions) => {
+    await animate("#an-text", { opacity: "100%" }, options);
   };
 
-  const thirdKeyFrame = async ({ duration } = { duration: 1 }) => {
-    void animate("#navbar", {
-      backgroundColor: colors.lavander,
-    });
-    void animate("#background", {
-      backgroundColor: colors.lavander,
-      color: colors.lavander,
-    });
+  const thirdKeyFrame = async (options?: DynamicAnimationOptions) => {
+    void animate(
+      "#navbar",
+      {
+        backgroundColor: colors.lavander,
+      },
+      options,
+    );
+    void animate(
+      "#background",
+      {
+        backgroundColor: colors.lavander,
+        color: colors.lavander,
+      },
+      options,
+    );
     void animate(
       "#an-text",
       {
@@ -772,40 +780,48 @@ export const MobileGeometricFigures = () => {
         right: `calc(${size}*0.25)`,
         opacity: "100%",
       },
-      { duration },
+      options,
     );
-    void animate("#art-text", { opacity: "100%" }, { duration });
+    void animate("#art-text", { opacity: "100%" }, options);
     void animate(
       "#second-figure",
       {
         borderRadius: "0% 0% 0% 0%",
       },
-      { duration },
+      options,
     );
     void animate(
       "#third-figure",
       {
         borderRadius: "0% 0% 0% 0%",
       },
-      { duration },
+      options,
     );
     await animate(
       "#fourth-figure",
       {
         borderRadius: "100% 100% 100% 100%",
       },
-      { duration },
+      options,
     );
   };
 
-  const fourthKeyFrame = async ({ duration } = { duration: 1 }) => {
-    void animate("#navbar", {
-      backgroundColor: colors.beige,
-    });
-    void animate("#background", {
-      backgroundColor: colors.beige,
-      color: colors.beige,
-    });
+  const fourthKeyFrame = async (options?: DynamicAnimationOptions) => {
+    void animate(
+      "#navbar",
+      {
+        backgroundColor: colors.beige,
+      },
+      options,
+    );
+    void animate(
+      "#background",
+      {
+        backgroundColor: colors.beige,
+        color: colors.beige,
+      },
+      options,
+    );
     void animate(
       "#an-text",
       {
@@ -813,7 +829,7 @@ export const MobileGeometricFigures = () => {
         right: `calc(${size}*0.25)`,
         opacity: "100%",
       },
-      { duration },
+      options,
     );
     void animate(
       "#art-text",
@@ -822,40 +838,48 @@ export const MobileGeometricFigures = () => {
         right: `calc(${size}*0.55)`,
         opacity: "100%",
       },
-      { duration },
+      options,
     );
-    void animate("#school-text", { opacity: "100%" }, { duration });
+    void animate("#school-text", { opacity: "100%" }, options);
     void animate(
       "#first-figure",
       {
         borderRadius: "10% 0% 0% 0%",
       },
-      { duration },
+      options,
     );
     void animate(
       "#second-figure",
       {
         borderRadius: "100% 100% 100% 100%",
       },
-      { duration },
+      options,
     );
     await animate(
       "#fourth-figure",
       {
         borderRadius: "10% 10% 10% 10%",
       },
-      { duration },
+      options,
     );
   };
 
-  const fifthKeyFrame = async ({ duration } = { duration: 1 }) => {
-    void animate("#navbar", {
-      backgroundColor: colors.skyBlue,
-    });
-    void animate("#background", {
-      backgroundColor: colors.skyBlue,
-      color: colors.skyBlue,
-    });
+  const fifthKeyFrame = async (options?: DynamicAnimationOptions) => {
+    void animate(
+      "#navbar",
+      {
+        backgroundColor: colors.skyBlue,
+      },
+      options,
+    );
+    void animate(
+      "#background",
+      {
+        backgroundColor: colors.skyBlue,
+        color: colors.skyBlue,
+      },
+      options,
+    );
     void animate(
       "#an-text",
       {
@@ -863,7 +887,7 @@ export const MobileGeometricFigures = () => {
         right: `calc(${size}*0.25)`,
         opacity: "100%",
       },
-      { duration },
+      options,
     );
     void animate(
       "#art-text",
@@ -872,17 +896,17 @@ export const MobileGeometricFigures = () => {
         right: `calc(${size}*0.55)`,
         opacity: "100%",
       },
-      { duration },
+      options,
     );
-    void animate("#school-text", { opacity: "100%" }, { duration });
-    void animate("#for-text", { opacity: "100%" }, { duration });
-    void animate("#the-text", { opacity: "100%" }, { duration });
+    void animate("#school-text", { opacity: "100%" }, options);
+    void animate("#for-text", { opacity: "100%" }, options);
+    void animate("#the-text", { opacity: "100%" }, options);
     void animate(
       "#first-figure",
       {
         borderRadius: "0% 10% 0% 0%",
       },
-      { duration },
+      options,
     );
     void animate(
       "#second-figure",
@@ -890,7 +914,7 @@ export const MobileGeometricFigures = () => {
         borderRadius: "10% 10% 10% 10%",
         rotate: "45deg",
       },
-      { duration },
+      options,
     );
     void animate(
       "#third-figure",
@@ -898,7 +922,7 @@ export const MobileGeometricFigures = () => {
         borderRadius: "100% 100% 100% 100%",
         rotate: "45deg",
       },
-      { duration },
+      options,
     );
     await animate(
       "#fourth-figure",
@@ -906,18 +930,26 @@ export const MobileGeometricFigures = () => {
         borderRadius: "0% 0% 0% 0%",
         rotate: "90deg",
       },
-      { duration },
+      options,
     );
   };
 
-  const sixthKeyFrame = async ({ duration } = { duration: 1 }) => {
-    void animate("#navbar", {
-      backgroundColor: colors.yellow,
-    });
-    void animate("#background", {
-      backgroundColor: colors.yellow,
-      color: colors.yellow,
-    });
+  const sixthKeyFrame = async (options?: DynamicAnimationOptions) => {
+    void animate(
+      "#navbar",
+      {
+        backgroundColor: colors.yellow,
+      },
+      options,
+    );
+    void animate(
+      "#background",
+      {
+        backgroundColor: colors.yellow,
+        color: colors.yellow,
+      },
+      options,
+    );
     void animate(
       "#an-text",
       {
@@ -925,7 +957,7 @@ export const MobileGeometricFigures = () => {
         right: `calc(${size}*0.25)`,
         opacity: "100%",
       },
-      { duration },
+      options,
     );
     void animate(
       "#art-text",
@@ -934,13 +966,13 @@ export const MobileGeometricFigures = () => {
         right: `calc(${size}*0.55)`,
         opacity: "100%",
       },
-      { duration },
+      options,
     );
-    void animate("#school-text", { opacity: "100%" }, { duration });
+    void animate("#school-text", { opacity: "100%" }, options);
     void animate(
       "#for-text",
       { opacity: "100%", right: `calc(${size}*0.5)` },
-      { duration },
+      options,
     );
     void animate(
       "#the-text",
@@ -949,24 +981,24 @@ export const MobileGeometricFigures = () => {
         right: `calc(${size}*0.25)`,
         top: `calc(${size}*1.8)`,
       },
-      { duration },
+      options,
     );
     void animate(
       "#wild-text",
       { opacity: "100%", right: `calc(${size}*0.6)` },
-      { duration },
+      options,
     );
     void animate(
       "#wild-text",
       { opacity: "100%", right: `calc(${size}*0.6)` },
-      { duration },
+      options,
     );
     void animate(
       "#first-figure",
       {
         borderRadius: "0% 0% 0% 0%",
       },
-      { duration },
+      options,
     );
     void animate(
       "#second-figure",
@@ -974,7 +1006,7 @@ export const MobileGeometricFigures = () => {
         borderRadius: "10% 10% 10% 10%",
         rotate: "90deg",
       },
-      { duration },
+      options,
     );
     void animate(
       "#third-figure",
@@ -982,26 +1014,34 @@ export const MobileGeometricFigures = () => {
         borderRadius: "10% 10% 10% 10%",
         rotate: "90deg",
       },
-      { duration },
+      options,
     );
     await animate(
       "#fourth-figure",
       {
         borderRadius: "100% 100% 100% 100%",
       },
-      { duration },
+      options,
     );
   };
-  const seventhKeyFrame = async ({ duration } = { duration: 1 }) => {
-    void animate("#navbar", {
-      backgroundColor: colors.eggWhite,
-      color: colors.matteBlack,
-      borderBottomColor: colors.matteBlack,
-    });
-    void animate("#background", {
-      backgroundColor: colors.eggWhite,
-      color: colors.eggWhite,
-    });
+  const seventhKeyFrame = async (options?: DynamicAnimationOptions) => {
+    void animate(
+      "#navbar",
+      {
+        backgroundColor: colors.eggWhite,
+        color: colors.matteBlack,
+        borderBottomColor: colors.matteBlack,
+      },
+      options,
+    );
+    void animate(
+      "#background",
+      {
+        backgroundColor: colors.eggWhite,
+        color: colors.eggWhite,
+      },
+      options,
+    );
     void animate(
       "#an-text",
       {
@@ -1009,7 +1049,7 @@ export const MobileGeometricFigures = () => {
         right: `calc(${size}*0.25)`,
         opacity: "100%",
       },
-      { duration },
+      options,
     );
     void animate(
       "#art-text",
@@ -1018,27 +1058,27 @@ export const MobileGeometricFigures = () => {
         right: `calc(${size}*0.55)`,
         opacity: "100%",
       },
-      { duration },
+      options,
     );
-    void animate("#school-text", { opacity: "100%" }, { duration });
+    void animate("#school-text", { opacity: "100%" }, options);
     void animate(
       "#wild-text",
       { opacity: "100%", right: `calc(${size}*0.6)` },
-      { duration },
+      options,
     );
     void animate(
       "#wild-text",
       { opacity: "100%", right: `calc(${size}*0.6)` },
-      { duration },
+      options,
     );
-    void animate("#wild-text", { opacity: "100%" }, { duration });
+    void animate("#wild-text", { opacity: "100%" }, options);
     void animate(
       "#first-figure",
       {
         borderRadius: "0% 0% 0% 0%",
         backgroundColor: colors.matteBlack,
       },
-      { duration },
+      options,
     );
     void animate(
       "#second-figure",
@@ -1046,7 +1086,7 @@ export const MobileGeometricFigures = () => {
         borderRadius: "10% 10% 10% 10%",
         backgroundColor: colors.matteBlack,
       },
-      { duration },
+      options,
     );
     void animate(
       "#third-figure",
@@ -1054,7 +1094,7 @@ export const MobileGeometricFigures = () => {
         borderRadius: "10% 10% 10% 10%",
         backgroundColor: colors.matteBlack,
       },
-      { duration },
+      options,
     );
     await animate(
       "#fourth-figure",
@@ -1062,19 +1102,27 @@ export const MobileGeometricFigures = () => {
         borderRadius: "100% 100% 100% 100%",
         backgroundColor: colors.matteBlack,
       },
-      { duration },
+      options,
     );
   };
-  const finalFrame = async ({ duration } = { duration: 1 }) => {
-    void animate("#navbar", {
-      backgroundColor: colors.eggWhite,
-      color: colors.matteBlack,
-      borderBottomColor: colors.matteBlack,
-    });
-    void animate("#background", {
-      backgroundColor: colors.eggWhite,
-      color: colors.eggWhite,
-    });
+  const finalFrame = async (options?: DynamicAnimationOptions) => {
+    void animate(
+      "#navbar",
+      {
+        backgroundColor: colors.eggWhite,
+        color: colors.matteBlack,
+        borderBottomColor: colors.matteBlack,
+      },
+      options,
+    );
+    void animate(
+      "#background",
+      {
+        backgroundColor: colors.eggWhite,
+        color: colors.eggWhite,
+      },
+      options,
+    );
     void animate(
       "#an-text",
       {
@@ -1082,7 +1130,7 @@ export const MobileGeometricFigures = () => {
         right: `calc(${size}*0.25)`,
         opacity: "100%",
       },
-      { duration },
+      options,
     );
     void animate(
       "#art-text",
@@ -1091,13 +1139,13 @@ export const MobileGeometricFigures = () => {
         right: `calc(${size}*0.55)`,
         opacity: "100%",
       },
-      { duration },
+      options,
     );
-    void animate("#school-text", { opacity: "100%" }, { duration });
+    void animate("#school-text", { opacity: "100%" }, options);
     void animate(
       "#for-text",
       { opacity: "100%", right: `calc(${size}*0.5)` },
-      { duration },
+      options,
     );
     void animate(
       "#the-text",
@@ -1106,14 +1154,14 @@ export const MobileGeometricFigures = () => {
         right: `calc(${size}*0.25)`,
         top: `calc(${size}*1.8)`,
       },
-      { duration },
+      options,
     );
     void animate(
       "#wild-text",
       { opacity: "100%", right: `calc(${size}*0.6)` },
-      { duration },
+      options,
     );
-    void animate("#wild-text", { opacity: "100%" }, { duration });
+    void animate("#wild-text", { opacity: "100%" }, options);
     void animate(
       "#first-figure",
       {
@@ -1122,7 +1170,7 @@ export const MobileGeometricFigures = () => {
         borderRadius: "0% 0% 0% 0%",
         backgroundColor: colors.matteBlack,
       },
-      { duration },
+      options,
     );
     void animate(
       "#second-figure",
@@ -1132,7 +1180,7 @@ export const MobileGeometricFigures = () => {
         borderRadius: "10% 10% 10% 10%",
         backgroundColor: colors.matteBlack,
       },
-      { duration },
+      options,
     );
     void animate(
       "#third-figure",
@@ -1143,7 +1191,7 @@ export const MobileGeometricFigures = () => {
         rotate: "90deg",
         backgroundColor: colors.matteBlack,
       },
-      { duration },
+      options,
     );
     await animate(
       "#fourth-figure",
@@ -1153,18 +1201,18 @@ export const MobileGeometricFigures = () => {
         borderRadius: "100% 100% 100% 100%",
         backgroundColor: colors.matteBlack,
       },
-      { duration },
+      options,
     );
   };
 
   const handleAnimation = async () => {
-    await firstKeyFrame();
-    await secondKeyFrame();
-    await thirdKeyFrame();
-    await fourthKeyFrame();
-    await fifthKeyFrame();
-    await sixthKeyFrame();
-    await seventhKeyFrame();
+    await firstKeyFrame({ duration: 1.2 });
+    await secondKeyFrame({ duration: 0.2, delay: 0.5 });
+    await thirdKeyFrame({ duration: 1.2, delay: 0.5 });
+    await fourthKeyFrame({ duration: 1.2, delay: 0.5 });
+    await fifthKeyFrame({ duration: 1.2, delay: 0.5 });
+    await sixthKeyFrame({ duration: 1.2, delay: 0.5 });
+    await seventhKeyFrame({ duration: 1.2, delay: 0.5 });
     localStorage.setItem("lastAnimatedAt", Date.now().toString());
   };
 
@@ -1181,7 +1229,7 @@ export const MobileGeometricFigures = () => {
       ? Date.now() - lastAnimatedAt.getTime() < aMinute * 15
       : false;
 
-    if (hasAnimatedInTheLast) {
+    if (!hasAnimatedInTheLast) {
       void finalFrame();
     } else {
       void handleAnimation();
