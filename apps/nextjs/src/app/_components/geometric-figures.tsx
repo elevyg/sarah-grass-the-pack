@@ -1229,7 +1229,7 @@ export const MobileGeometricFigures = () => {
       ? Date.now() - lastAnimatedAt.getTime() < aMinute * 15
       : false;
 
-    if (!hasAnimatedInTheLast) {
+    if (hasAnimatedInTheLast) {
       void finalFrame();
     } else {
       void handleAnimation();
