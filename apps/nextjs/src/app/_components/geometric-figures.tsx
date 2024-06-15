@@ -17,7 +17,7 @@ const colors = {
   yellow: "#EDDF94",
 };
 
-const DESKTOP_FINAL_LETTERS_HEIGHT = "55%";
+const DESKTOP_FINAL_LETTERS_HEIGHT = "50%";
 
 export const DesktopGeometricFigures = () => {
   const dimension = 70;
@@ -340,37 +340,50 @@ export const DesktopGeometricFigures = () => {
     );
   };
 
+  const lettersAligning = {
+    "#an-text": "33.8%",
+    "#art-text": "37.9%",
+    "#school-text": "42.6%",
+    "#for-text": "51.6%",
+    "#the-text": "55.8%",
+    "#wild-text": "60.4%",
+  };
+
   const seventhKeyFrame = async (options: DynamicAnimationOptions) => {
     const lettersTop = DESKTOP_FINAL_LETTERS_HEIGHT;
     void animate(
       "#an-text",
-      { top: lettersTop, left: "36%", opacity: "100%" },
+      { top: lettersTop, left: lettersAligning["#an-text"], opacity: "100%" },
       options,
     );
 
     void animate(
       "#art-text",
-      { top: lettersTop, left: "40%", opacity: "100%" },
+      { top: lettersTop, left: lettersAligning["#art-text"], opacity: "100%" },
       options,
     );
     void animate(
       "#school-text",
-      { top: lettersTop, left: "43.9%", opacity: "100%" },
+      {
+        top: lettersTop,
+        left: lettersAligning["#school-text"],
+        opacity: "100%",
+      },
       options,
     );
     void animate(
       "#for-text",
-      { top: lettersTop, left: "51.2%", opacity: "100%" },
+      { top: lettersTop, left: lettersAligning["#for-text"], opacity: "100%" },
       options,
     );
     void animate(
       "#the-text",
-      { top: lettersTop, left: "54.8%", opacity: "100%" },
+      { top: lettersTop, left: lettersAligning["#the-text"], opacity: "100%" },
       options,
     );
     await animate(
       "#wild-text",
-      { top: lettersTop, left: "58.5%", opacity: "100%" },
+      { top: lettersTop, left: lettersAligning["#wild-text"], opacity: "100%" },
       options,
     );
   };
@@ -438,33 +451,37 @@ export const DesktopGeometricFigures = () => {
     );
     void animate(
       "#an-text",
-      { top: lettersTop, left: "36.7%", opacity: "100%" },
+      { top: lettersTop, left: lettersAligning["#an-text"], opacity: "100%" },
       options,
     );
 
     void animate(
       "#art-text",
-      { top: lettersTop, left: "40%", opacity: "100%" },
+      { top: lettersTop, left: lettersAligning["#art-text"], opacity: "100%" },
       options,
     );
     void animate(
       "#school-text",
-      { top: lettersTop, left: "43.9%", opacity: "100%" },
+      {
+        top: lettersTop,
+        left: lettersAligning["#school-text"],
+        opacity: "100%",
+      },
       options,
     );
     void animate(
       "#for-text",
-      { top: lettersTop, left: "51.2%", opacity: "100%" },
+      { top: lettersTop, left: lettersAligning["#for-text"], opacity: "100%" },
       options,
     );
     void animate(
       "#the-text",
-      { top: lettersTop, left: "54.8%", opacity: "100%" },
+      { top: lettersTop, left: lettersAligning["#the-text"], opacity: "100%" },
       options,
     );
     void animate(
       "#wild-text",
-      { top: lettersTop, left: "58.5%", opacity: "100%" },
+      { top: lettersTop, left: lettersAligning["#wild-text"], opacity: "100%" },
       options,
     );
     void animate(
@@ -681,6 +698,13 @@ export const DesktopGeometricFigures = () => {
               className="absolute inline-block flex-shrink-0"
             />
           </div>
+          {/* This is to align correctly the letters keep it hidden but do not delete */}
+          {/* <div
+            style={{ top: "55.8%" }}
+            className="absolute text-center font-arizona text-[2vw] text-[#e36868]"
+          >
+            An Art School for the Wild
+          </div> */}
         </div>
       </div>
     </div>
