@@ -20,9 +20,9 @@ const colors = {
 const DESKTOP_FINAL_LETTERS_HEIGHT = "55%";
 
 export const DesktopGeometricFigures = () => {
-  const dimension = 85;
+  const dimension = 70;
   const containerWidth = `${dimension}vw`;
-  const insets = { second: -0.5, third: 0.65, fourth: 0.6 };
+  const insets = { second: -0.4, third: 0.65, fourth: 0.7 };
   const proportion = 2 + insets.second + insets.third + insets.fourth;
 
   const size = `${dimension / proportion}vw`;
@@ -47,7 +47,7 @@ export const DesktopGeometricFigures = () => {
       {
         left: `calc(${size} + ${left.second})`,
         bottom: 0,
-        borderRadius: "10% 10% 10% 10%",
+        borderRadius: "20% 20% 20% 20%",
       },
       options,
     );
@@ -190,7 +190,7 @@ export const DesktopGeometricFigures = () => {
         left: `calc(${size} + ${left.second} + ${left.third} + ${left.forth})`,
         top: "0%",
         rotate: "-90deg",
-        borderRadius: "10% 10% 10% 10%",
+        borderRadius: "20% 20% 20% 20%",
       },
       options,
     );
@@ -239,7 +239,7 @@ export const DesktopGeometricFigures = () => {
       {
         left: `calc(${size} + ${left.second})`,
         top: `calc((${diagonal}/2 - ${size}/2))`,
-        borderRadius: "10% 10% 10% 10%",
+        borderRadius: "20% 20% 20% 20%",
         rotate: "-45deg",
       },
       options,
@@ -334,7 +334,7 @@ export const DesktopGeometricFigures = () => {
       {
         left: `calc(${size} + ${left.second} + ${left.third} + ${left.forth})`,
         top: "0%",
-        borderRadius: "10% 10% 10% 10%",
+        borderRadius: "20% 20% 20% 20%",
       },
       options,
     );
@@ -344,7 +344,7 @@ export const DesktopGeometricFigures = () => {
     const lettersTop = DESKTOP_FINAL_LETTERS_HEIGHT;
     void animate(
       "#an-text",
-      { top: lettersTop, left: "36.7%", opacity: "100%" },
+      { top: lettersTop, left: "36%", opacity: "100%" },
       options,
     );
 
