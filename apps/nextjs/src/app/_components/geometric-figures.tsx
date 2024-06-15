@@ -555,7 +555,7 @@ export const DesktopGeometricFigures = () => {
       : false;
 
     if (hasAnimatedInTheLast) {
-      void finalFrame();
+      void finalFrame({ duration: 1.2 });
     } else {
       void handleAnimation();
     }
@@ -1230,7 +1230,7 @@ export const MobileGeometricFigures = () => {
       : false;
 
     if (hasAnimatedInTheLast) {
-      void finalFrame();
+      void finalFrame({ duration: 1.2 });
     } else {
       void handleAnimation();
     }
