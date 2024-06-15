@@ -14,7 +14,7 @@ export default async function OfferingPage({ searchParams }: Request) {
     <div className="flex min-h-screen flex-col justify-between bg-yellow">
       <div>
         <Navbar mode={searchParams.viewport} className="bg-yellow" />
-        <div className="pt-[4rem] md:pt-[6rem]">
+        <div className="pt-[4rem] md:pt-[4rem]">
           <OfferingsDashboard
             initialOfferings={initialOfferings}
             offeringTypes={offeringTypes}

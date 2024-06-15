@@ -83,7 +83,7 @@ const Page = async ({ params, searchParams }: Request) => {
   return (
     <div>
       <Navbar mode={searchParams.viewport} />
-      <div className="min-h-screen bg-eggWhite pt-[4rem] md:pt-[6rem]">
+      <div className="min-h-screen bg-eggWhite pt-[4rem] md:pt-[4rem]">
         <Section lowerBorderOnly color="mint">
           <div className="grid w-full grid-cols-1 md:grid-cols-2">
             <div className="flex flex-1 flex-col  border-matteBlack md:border-r-2">
