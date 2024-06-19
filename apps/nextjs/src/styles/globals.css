@@ -2,11 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-@font-face { 
-  font-family: "founders-grotesk"; 
-  src: url("../../public/fonts/founders-grotesk-regular.woff2"); 
-} 
-
 @layer components {
   .display-1 {
     @apply font-foundersGrotesk  antialiased font-normal leading-[0.8] text-[3.125rem] md:text-[5rem];

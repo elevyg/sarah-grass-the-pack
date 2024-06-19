@@ -33,11 +33,7 @@ export default {
       },
       fontFamily: {
         arizona: ["var(--arizona)"],
-        foundersGrotesk: [
-          "founders-grotesk",
-          "var(--founders-grotesk)",
-          ...fontFamily.sans,
-        ],
+        foundersGrotesk: ["var(--founders-grotesk)", ...fontFamily.sans],
       },
     },
   },

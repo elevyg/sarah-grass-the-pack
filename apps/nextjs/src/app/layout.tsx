@@ -9,6 +9,11 @@ const arizona = localFont({
   src: "../../public/fonts/EduArizonaFlare-Light.woff",
   variable: "--arizona",
 });
+const foundersGrotesk = localFont({
+  // src: "../../public/fonts/test-founders-grotesk-light.woff2",
+  src: "../../public/fonts/founders-grotesk-regular.woff2",
+  variable: "--founders-grotesk",
+});
 
 export const metadata = {
   title: "The Pack",
@@ -30,7 +35,7 @@ export default function RootLayout({
         ></Script>
         <Script src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></Script>
       </head>
-      <body className={`${arizona.variable}`}>
+      <body className={`${arizona.variable} ${foundersGrotesk.variable}`}>
         <TRPCReactProvider>
           <div>{children}</div>
         </TRPCReactProvider>
