@@ -34,19 +34,19 @@ export default async function About(request: Request) {
       <div className="grid grid-cols-1 border-b-2 border-matteBlack pt-[4rem] md:grid-cols-2 md:pt-[4rem]">
         <div className="border-r-2 border-matteBlack">
           <div className="border-b-2 border-matteBlack p-10">
-            <h2 className="heading-2-az mb-5">
+            <h2 className="heading-1-az mb-5">
               {texts.attributes.first_block_title}
             </h2>
             <Markdown content={firstBlockHtml} />
           </div>
           <div className="border-b-2 border-matteBlack p-10">
-            <h2 className="heading-2-az mb-5">
+            <h2 className="heading-1-az mb-5">
               {texts.attributes.second_block_title}
             </h2>
             <Markdown content={secondBlockHtml} />
           </div>
           <div className="border-b-2 border-matteBlack p-10 md:mb-10">
-            <h2 className="heading-2-az mb-5">
+            <h2 className="heading-1-az mb-5">
               {texts.attributes.third_block_title}
             </h2>
             <Markdown content={thirdBlockHtml} />
@@ -72,7 +72,7 @@ export default async function About(request: Request) {
             </div>
           </div>
           <div className="border-b-2 border-matteBlack p-10 ">
-            <h2 className="heading-2-az mb-5">
+            <h2 className="heading-1-az mb-5">
               {texts.attributes.directions_title}
             </h2>
             <Markdown content={directionsHtml} />
