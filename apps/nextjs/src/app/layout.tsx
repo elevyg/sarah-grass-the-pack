@@ -10,7 +10,6 @@ const arizona = localFont({
   variable: "--arizona",
 });
 const foundersGrotesk = localFont({
-  // src: "../../public/fonts/test-founders-grotesk-light.woff2",
   src: "../../public/fonts/founders-grotesk-regular.woff2",
   variable: "--founders-grotesk",
 });
