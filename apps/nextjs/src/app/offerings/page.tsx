@@ -11,17 +11,17 @@ export default async function OfferingPage({ searchParams }: Request) {
   const offeringTypes = await api.getOfferingTypes();
 
   return (
-    <div className="flex min-h-screen flex-col justify-between bg-yellow">
+    <div className="flex flex-col justify-between bg-eggWhite">
       <div>
-        <Navbar mode={searchParams.viewport} className="bg-yellow" />
-        <div className="pt-[4rem] md:pt-[4rem]">
+        <Navbar mode={searchParams.viewport} className="bg-eggWhite" />
+        <div className="pt-[4rem] md:pt-[5rem]">
           <OfferingsDashboard
             initialOfferings={initialOfferings}
             offeringTypes={offeringTypes}
           />
         </div>
       </div>
-      <Footer className="border-t-2 border-matteBlack bg-yellow " />
+      <Footer className="border-t-2 border-matteBlack bg-eggWhite " />
     </div>
   );
 }

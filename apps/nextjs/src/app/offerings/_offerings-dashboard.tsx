@@ -33,7 +33,7 @@ const OfferingsDashboard = ({ initialOfferings, offeringTypes }: Props) => {
             className={
               "rounded-md border-[1px] border-matteBlack px-2 py-1 " +
               (selectedOfferingType === type.id
-                ? "bg-matteBlack text-yellow"
+                ? "bg-matteBlack text-eggWhite"
                 : "")
             }
             onClick={() =>
