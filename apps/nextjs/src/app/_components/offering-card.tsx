@@ -7,9 +7,9 @@ import { formatDate } from "~/utils/formatDate";
 
 const imageMotion = {
   rest: {
-    borderRadius: `1rem`,
+    borderRadius: `2rem`,
     transition: {
-      duration: 0.4,
+      duration: 0.2,
       ease: "easeIn",
     },
   },
@@ -39,7 +39,7 @@ const OfferingCard = ({
       initial="rest"
       whileHover="hover"
       animate="rest"
-      className={`flex flex-col items-center border-b-2 border-matteBlack p-10 ${index === lastOfferingIndex ? "border-b-0 md:border-b-0" : ""} ${index === lastOfferingIndex - 1 ? "border-b-0 md:border-b-0" : ""} last:border-b-0 `}
+      className={`flex flex-col items-center border-b-2 border-matteBlack p-[5rem] ${index === lastOfferingIndex ? "border-b-0 md:border-b-0" : ""} ${index === lastOfferingIndex - 1 ? "border-b-0 md:border-b-0" : ""} last:border-b-0 `}
     >
       <motion.div
         className="z-100 relative mb-5 aspect-square w-full overflow-hidden"
