@@ -61,13 +61,13 @@ const OfferingCard = ({
       <div className="mb-4 flex flex-1 flex-col">
         <h3 className="heading-2 mb-4">{offering.attributes.title}</h3>
         {offering.attributes.instructors?.data.map((i) => (
-          <p className="heading-2-az mb-6" key={i.id}>
+          <p className="heading-1-az mb-6" key={i.id}>
             {i.attributes.full_name}
           </p>
         ))}
         <p className="paragraph mb-4">{offering.attributes.description}</p>
       </div>
-      <div className="heading-2-az mb-4 self-start leading-none">
+      <div className="heading-1-az mb-4 self-start leading-none">
         {offering.attributes.days ?? <p>{offering.attributes.days}</p>}
         {startingDate && endingDate && (
           <p>{`${startingDate} - ${endingDate}`}</p>
