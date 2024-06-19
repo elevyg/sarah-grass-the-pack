@@ -35,7 +35,7 @@ export default async function Home(request: Request) {
         <div className="flex w-full flex-1 flex-col">
           <div
             id="journal-header"
-            className="w-full border-b-2 border-matteBlack bg-lavander py-2 pl-2 md:bg-eggWhite"
+            className="w-full border-b-2 border-matteBlack bg-lavander p-6 md:bg-eggWhite"
           >
             <h2 className="heading-1">{texts.attributes.journal_header}</h2>
           </div>
@@ -92,7 +92,7 @@ export default async function Home(request: Request) {
         <div className="w-full">
           <div
             id="connect-header"
-            className="w-full border-b-2 border-matteBlack bg-beige py-2 pl-2 md:bg-eggWhite"
+            className="w-full border-b-2 border-matteBlack bg-beige p-6 md:bg-eggWhite"
           >
             <h2 className="heading-1">{texts.attributes.connect_header}</h2>
           </div>

@@ -5,7 +5,7 @@ interface Props {
   title?: string;
 }
 
-const  Offerings = async ({ title }: Props) => {
+const Offerings = async ({ title }: Props) => {
   const offerings = await api.getOfferings({ status: "upcoming" });
   const lastOfferingIndex = offerings.length - 1;
 
@@ -13,7 +13,7 @@ const  Offerings = async ({ title }: Props) => {
     <div id="offering-container" className="flex w-full flex-1 flex-col">
       <div
         id="offering-header"
-        className="w-full border-b-2 border-matteBlack bg-mint py-3 pl-2 md:bg-eggWhite"
+        className="w-full border-b-2 border-matteBlack bg-mint p-6 md:bg-eggWhite"
       >
         <h2 className="heading-1">{title}</h2>
       </div>

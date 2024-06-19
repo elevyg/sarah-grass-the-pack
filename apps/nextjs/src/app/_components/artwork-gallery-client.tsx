@@ -13,7 +13,7 @@ const ArtworkGalleryClient = ({ title, galleryImages }: Props) => {
     <div className="flex w-full flex-col">
       <div
         id="artist-work-header"
-        className="flex w-full items-center justify-between border-b-2 border-matteBlack py-2 pl-2 md:items-end"
+        className="flex w-full items-center justify-between border-b-2 border-matteBlack p-6 md:items-end"
       >
         <h2 className="heading-1">{title}</h2>
         <div className="flex items-center justify-center">
