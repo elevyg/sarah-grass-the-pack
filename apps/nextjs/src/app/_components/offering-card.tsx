@@ -37,11 +37,11 @@ const OfferingCard = ({
     <motion.div
       key={offering.id}
       initial="rest"
-      whileHover="hover"
-      animate="rest"
       className={`flex flex-col items-center border-b-2 border-matteBlack p-[5rem] ${index === lastOfferingIndex ? "border-b-0 md:border-b-0" : ""} ${index === lastOfferingIndex - 1 ? "border-b-0 md:border-b-0" : ""} last:border-b-0 `}
     >
       <motion.div
+        whileHover="hover"
+        animate="rest"
         className="z-100 relative mb-5 aspect-square w-full overflow-hidden"
         variants={imageMotion}
       >
