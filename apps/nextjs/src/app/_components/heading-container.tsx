@@ -6,7 +6,10 @@ const HeadingContainer = ({ children, className, ...props }: Props) => {
   return (
     <div
       {...props}
-      className={"p-30px w-full border-b-2 border-matteBlack " + className}
+      className={
+        "p-30px w-full border-b-2 border-matteBlack text-center md:text-start " +
+        className
+      }
     >
       {children}
     </div>
