@@ -1166,12 +1166,18 @@ export interface ApiOfferingsGalleryPageOfferingsGalleryPage
     singularName: 'offerings-gallery-page';
     pluralName: 'offerings-gallery-pages';
     displayName: 'Offerings Gallery Page';
+    description: '';
   };
   options: {
     draftAndPublish: true;
   };
   attributes: {
-    actionButtonCard: Attribute.String & Attribute.DefaultTo<'LEARN MORE'>;
+    actionButtonCard: Attribute.String &
+      Attribute.Required &
+      Attribute.DefaultTo<'LEARN MORE'>;
+    allOfferingsButtonLabel: Attribute.String &
+      Attribute.Required &
+      Attribute.DefaultTo<'All'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

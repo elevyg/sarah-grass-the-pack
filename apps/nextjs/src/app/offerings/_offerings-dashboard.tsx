@@ -17,11 +17,13 @@ interface Props {
   initialOfferings: Offering[];
   offeringTypes: OfferingType[];
   actionButtonTitle: string;
+  allOfferingsLabel: string;
 }
 const OfferingsDashboard = ({
   initialOfferings,
   offeringTypes,
   actionButtonTitle,
+  allOfferingsLabel,
 }: Props) => {
   const [selectedOfferingType, setSelectedOfferingType] = useState<
     number | undefined
@@ -40,6 +42,17 @@ const OfferingsDashboard = ({
     <div className="h-full w-full">
       <div className="flex flex-wrap items-center gap-4 border-b-2 border-matteBlack p-4">
         <p className="heading-5 hidden md:block">Offering Type</p>
+        <button
+          className={
+            "rounded-md border-[1px] border-matteBlack px-2 py-1 " +
+            (selectedOfferingType === undefined
+              ? "bg-matteBlack text-eggWhite"
+              : "")
+          }
+          onClick={() => setSelectedOfferingType(undefined)}
+        >
+          {allOfferingsLabel}
+        </button>
         {offeringTypes.map((type) => (
           <button
             className={

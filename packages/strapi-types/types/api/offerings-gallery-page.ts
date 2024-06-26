@@ -3,20 +3,24 @@
 export interface OfferingsGalleryPage {
   id: number;
   attributes: {
-    createdAt: Date;    updatedAt: Date;    publishedAt?: Date;    actionButtonCard?: string;
+    createdAt: Date;    updatedAt: Date;    publishedAt?: Date;    actionButtonCard: string;
+    allOfferingsButtonLabel: string;
   };
 }
 export interface OfferingsGalleryPage_Plain {
   id: number;
-  createdAt: Date;  updatedAt: Date;  publishedAt?: Date;  actionButtonCard?: string;
+  createdAt: Date;  updatedAt: Date;  publishedAt?: Date;  actionButtonCard: string;
+  allOfferingsButtonLabel: string;
 }
 
 export interface OfferingsGalleryPage_NoRelations {
   id: number;
-  createdAt: Date;  updatedAt: Date;  publishedAt?: Date;  actionButtonCard?: string;
+  createdAt: Date;  updatedAt: Date;  publishedAt?: Date;  actionButtonCard: string;
+  allOfferingsButtonLabel: string;
 }
 
 export interface OfferingsGalleryPage_AdminPanelLifeCycle {
   id: number;
-  createdAt: Date;  updatedAt: Date;  publishedAt?: Date;  actionButtonCard?: string;
+  createdAt: Date;  updatedAt: Date;  publishedAt?: Date;  actionButtonCard: string;
+  allOfferingsButtonLabel: string;
 }

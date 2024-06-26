@@ -19,9 +19,8 @@ export default async function OfferingPage({ searchParams }: Request) {
           <OfferingsDashboard
             initialOfferings={initialOfferings}
             offeringTypes={offeringTypes}
-            actionButtonTitle={
-              texts.attributes.actionButtonCard ?? "LEARN MORE"
-            }
+            actionButtonTitle={texts.attributes.actionButtonCard}
+            allOfferingsLabel={texts.attributes.allOfferingsButtonLabel}
           />
         </div>
       </div>

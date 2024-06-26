@@ -4,7 +4,8 @@
   "info": {
     "singularName": "offerings-gallery-page",
     "pluralName": "offerings-gallery-pages",
-    "displayName": "Offerings Gallery Page"
+    "displayName": "Offerings Gallery Page",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -13,7 +14,13 @@
   "attributes": {
     "actionButtonCard": {
       "type": "string",
-      "default": "LEARN MORE"
+      "default": "LEARN MORE",
+      "required": true
+    },
+    "allOfferingsButtonLabel": {
+      "type": "string",
+      "required": true,
+      "default": "All"
     }
   }
 }
