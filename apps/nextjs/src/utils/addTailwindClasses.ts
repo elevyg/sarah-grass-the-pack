@@ -7,7 +7,7 @@ const classMap = new Map(
     h1: "heading-1",
     h2: "heading-2",
     ol: "list-decimal list-inside paragraph",
-    ul: "list-disc paragraph pl-10",
+    ul: "list-disc paragraph pl-10 list-inside",
   }),
 );
 

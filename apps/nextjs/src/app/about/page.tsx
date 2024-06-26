@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { DetailedHTMLProps, HTMLAttributes } from "react";
 import Markdown from "~/app/_components/markdown";
 import Navbar from "~/app/_components/navbar";
 import { type SearchParams } from "~/middleware";
@@ -32,28 +33,28 @@ export default async function About(request: Request) {
     <div className="">
       <Navbar mode={request.searchParams.viewport} />
       <div className="grid grid-cols-1 border-b-2 border-matteBlack pt-[4rem] md:grid-cols-2 md:pt-[4rem]">
-        <div className="border-r-2 border-matteBlack">
-          <div className="border-b-2 border-matteBlack p-10">
+        <div id="first-block" className="border-r-2 border-matteBlack">
+          <BlockContainer>
             <h2 className="heading-1-az mb-5">
               {texts.attributes.first_block_title}
             </h2>
             <Markdown content={firstBlockHtml} />
-          </div>
-          <div className="border-b-2 border-matteBlack p-10">
+          </BlockContainer>
+          <BlockContainer>
             <h2 className="heading-1-az mb-5">
               {texts.attributes.second_block_title}
             </h2>
             <Markdown content={secondBlockHtml} />
-          </div>
-          <div className="border-b-2 border-matteBlack p-10 md:mb-10">
+          </BlockContainer>
+          <BlockContainer className="md:mb-10">
             <h2 className="heading-1-az mb-5">
               {texts.attributes.third_block_title}
             </h2>
             <Markdown content={thirdBlockHtml} />
-          </div>
+          </BlockContainer>
         </div>
         <div>
-          <div className="border-b-2 border-matteBlack p-10 ">
+          <BlockContainer>
             <div
               className="relative"
               style={{ aspectRatio: mainImageAspectRatio }}
@@ -70,15 +71,24 @@ export default async function About(request: Request) {
                 />
               )}
             </div>
-          </div>
-          <div className="border-b-2 border-matteBlack p-10 ">
+          </BlockContainer>
+          <BlockContainer>
             <h2 className="heading-1-az mb-5">
               {texts.attributes.directions_title}
             </h2>
             <Markdown content={directionsHtml} />
-          </div>
+          </BlockContainer>
         </div>
       </div>
     </div>
   );
 }
+
+const BlockContainer = ({
+  className,
+  children,
+}: DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>) => (
+  <div className={"p-50px border-b-2 border-matteBlack " + className}>
+    {children}
+  </div>
+);
