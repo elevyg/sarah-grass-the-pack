@@ -1159,6 +1159,37 @@ export interface ApiOfferingTypeOfferingType extends Schema.CollectionType {
   };
 }
 
+export interface ApiOfferingsGalleryPageOfferingsGalleryPage
+  extends Schema.SingleType {
+  collectionName: 'offerings_gallery_pages';
+  info: {
+    singularName: 'offerings-gallery-page';
+    pluralName: 'offerings-gallery-pages';
+    displayName: 'Offerings Gallery Page';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    actionButtonCard: Attribute.String & Attribute.DefaultTo<'LEARN MORE'>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::offerings-gallery-page.offerings-gallery-page',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::offerings-gallery-page.offerings-gallery-page',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 declare module '@strapi/types' {
   export module Shared {
     export interface ContentTypes {
@@ -1185,6 +1216,7 @@ declare module '@strapi/types' {
       'api::offering.offering': ApiOfferingOffering;
       'api::offering-page.offering-page': ApiOfferingPageOfferingPage;
       'api::offering-type.offering-type': ApiOfferingTypeOfferingType;
+      'api::offerings-gallery-page.offerings-gallery-page': ApiOfferingsGalleryPageOfferingsGalleryPage;
     }
   }
 }

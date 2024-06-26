@@ -1,0 +1,19 @@
+{
+  "kind": "singleType",
+  "collectionName": "offerings_gallery_pages",
+  "info": {
+    "singularName": "offerings-gallery-page",
+    "pluralName": "offerings-gallery-pages",
+    "displayName": "Offerings Gallery Page"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "actionButtonCard": {
+      "type": "string",
+      "default": "LEARN MORE"
+    }
+  }
+}
