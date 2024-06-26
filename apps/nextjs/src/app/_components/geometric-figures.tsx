@@ -554,7 +554,7 @@ export const DesktopGeometricFigures = () => {
       ? Date.now() - lastAnimatedAt < aMinute * 15
       : false;
 
-    if (false) {
+    if (hasAnimatedInTheLast) {
       void finalFrame({ duration: 1.2 });
     } else {
       void handleAnimation();
