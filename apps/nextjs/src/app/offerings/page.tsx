@@ -8,6 +8,7 @@ type Request = { searchParams: SearchParams };
 
 export default async function OfferingPage({ searchParams }: Request) {
   const initialOfferings = await api.getOfferings({ offeringTypeInfo: true });
+  const texts = await api.getOfferingsGalleryTexts();
   const offeringTypes = await api.getOfferingTypes();
 
   return (
@@ -18,6 +19,9 @@ export default async function OfferingPage({ searchParams }: Request) {
           <OfferingsDashboard
             initialOfferings={initialOfferings}
             offeringTypes={offeringTypes}
+            actionButtonTitle={
+              texts.attributes.actionButtonCard ?? "LEARN MORE"
+            }
           />
         </div>
       </div>

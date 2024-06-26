@@ -16,8 +16,13 @@ const NUMBER_OF_COLUMNS = 3;
 interface Props {
   initialOfferings: Offering[];
   offeringTypes: OfferingType[];
+  actionButtonTitle: string;
 }
-const OfferingsDashboard = ({ initialOfferings, offeringTypes }: Props) => {
+const OfferingsDashboard = ({
+  initialOfferings,
+  offeringTypes,
+  actionButtonTitle,
+}: Props) => {
   const [selectedOfferingType, setSelectedOfferingType] = useState<
     number | undefined
   >();
@@ -65,14 +70,6 @@ const OfferingsDashboard = ({ initialOfferings, offeringTypes }: Props) => {
             const { startingDate, endingDate, startingTime, endingTime } =
               formatDate(offering);
 
-            const actionButtonText = (
-              offering.attributes?.offeringTypeInfo as []
-            )?.at(
-              0,
-              // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-              // @ts-ignore
-            )?.shortActionButtonText as string;
-
             const isLastRow = index + 1 > maxLastRow - NUMBER_OF_COLUMNS;
 
             return (
@@ -113,7 +110,7 @@ const OfferingsDashboard = ({ initialOfferings, offeringTypes }: Props) => {
                 </div>
                 <Link href={`/offerings/${offering.attributes.slug}`}>
                   <div className="flex items-center justify-center border-t-2 border-matteBlack p-4">
-                    <p className="heading-5">{actionButtonText}</p>
+                    <p className="heading-5">{actionButtonTitle}</p>
                   </div>
                 </Link>
               </div>
