@@ -7,7 +7,7 @@
     @apply font-foundersGrotesk  antialiased font-normal leading-[0.8] text-[3.125rem] md:text-[5rem];
   }
   .heading-1 {
-    @apply font-foundersGrotesk antialiased font-normal  leading-[1] uppercase text-[1.875rem] md:text-[3.125rem];
+    @apply font-foundersGrotesk antialiased font-normal  leading-[1] md:uppercase text-[1.875rem] md:text-[3.125rem];
   }
   .heading-2 {
     @apply font-foundersGrotesk antialiased font-normal leading-[1] text-[1.25rem]  md:text-[3.125rem];

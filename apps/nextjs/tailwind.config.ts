@@ -35,7 +35,10 @@ export default {
         foundersGrotesk: ["var(--founders-grotesk)", ...fontFamily.sans],
       },
       spacing: {
+        "24px": "1.5rem",
         "30px": "1.875rem",
+        "44px": "2.75rem",
+        "60px": "3.75rem",
       },
     },
   },

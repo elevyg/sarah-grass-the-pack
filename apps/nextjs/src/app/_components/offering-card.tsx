@@ -37,7 +37,7 @@ const OfferingCard = ({
     <motion.div
       key={offering.id}
       initial="rest"
-      className={`flex flex-col items-center border-b-2 border-matteBlack p-[5rem] ${index === lastOfferingIndex ? "border-b-0 md:border-b-0" : ""} ${index === lastOfferingIndex - 1 ? "border-b-0 md:border-b-0" : ""} last:border-b-0 `}
+      className={`flex flex-col items-center border-b-2 border-matteBlack p-44px md:p-60px ${index === lastOfferingIndex ? "border-b-0 md:border-b-0" : ""} ${index === lastOfferingIndex - 1 ? "border-b-0 md:border-b-0" : ""} last:border-b-0 `}
     >
       <motion.div
         whileHover="hover"
@@ -58,27 +58,33 @@ const OfferingCard = ({
           }}
         />
       </motion.div>
-      <div className="mb-4 flex flex-1 flex-col">
-        <h3 className="heading-2 mb-4">{offering.attributes.title}</h3>
-        {offering.attributes.instructors?.data.map((i) => (
-          <p className="heading-1-az mb-6" key={i.id}>
-            {i.attributes.full_name}
-          </p>
-        ))}
-        <p className="paragraph mb-4">{offering.attributes.description}</p>
+      <div className="gap-24px flex flex-col md:gap-44px">
+        <div className="flex flex-1 flex-col">
+          <h3 className="heading-1 md:heading-2 mb-4">
+            {offering.attributes.title}
+          </h3>
+          {offering.attributes.instructors?.data.map((i) => (
+            <p className="heading-2-az md:heading-1-az mb-6" key={i.id}>
+              {i.attributes.full_name}
+            </p>
+          ))}
+          <p className="paragraph">{offering.attributes.description}</p>
+        </div>
+        <div className="heading-2-az md:heading-1-az self-start leading-none">
+          {offering.attributes.days ?? <p>{offering.attributes.days}</p>}
+          {startingDate && endingDate && (
+            <p>{`${startingDate} - ${endingDate}`}</p>
+          )}
+          {startingTime && endingTime && (
+            <p>{`${startingTime} - ${endingTime}`}</p>
+          )}
+        </div>
+        <motion.div className="heading-2 self-start text-2xl md:text-[1.875rem]">
+          <Link href={`/offerings/${offering.attributes.slug}`}>
+            LEARN MORE
+          </Link>
+        </motion.div>
       </div>
-      <div className="heading-1-az mb-4 self-start leading-none">
-        {offering.attributes.days ?? <p>{offering.attributes.days}</p>}
-        {startingDate && endingDate && (
-          <p>{`${startingDate} - ${endingDate}`}</p>
-        )}
-        {startingTime && endingTime && (
-          <p>{`${startingTime} - ${endingTime}`}</p>
-        )}
-      </div>
-      <motion.div className="self-start text-2xl">
-        <Link href={`/offerings/${offering.attributes.slug}`}>LEARN MORE</Link>
-      </motion.div>
     </motion.div>
   );
 };
