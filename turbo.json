@@ -1,8 +1,7 @@
 {
   "$schema": "https://turbo.build/schema.json",
-  "tasks": {
+  "pipeline": {
     "build": {
-      "env": ["STRAPI_URL", "STRAPI_TOKEN"],
       "outputs": [".next/**", "!.next/cache/**"]
     },
     "dev": {
