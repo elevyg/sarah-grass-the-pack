@@ -9,22 +9,26 @@ export interface ArtWork {
   attributes: {
     createdAt: Date;    updatedAt: Date;    publishedAt?: Date;    image: { data: Media };
     caption?: string;
+    rank?: number;
   };
 }
 export interface ArtWork_Plain {
   id: number;
   createdAt: Date;  updatedAt: Date;  publishedAt?: Date;  image: Media_Plain;
   caption?: string;
+  rank?: number;
 }
 
 export interface ArtWork_NoRelations {
   id: number;
   createdAt: Date;  updatedAt: Date;  publishedAt?: Date;  image: number;
   caption?: string;
+  rank?: number;
 }
 
 export interface ArtWork_AdminPanelLifeCycle {
   id: number;
   createdAt: Date;  updatedAt: Date;  publishedAt?: Date;  image: AdminPanelRelationPropertyModification<Media_Plain>;
   caption?: string;
+  rank?: number;
 }

@@ -13,6 +13,7 @@ import type { Footer } from "strapi-types/types/api/footer";
 import qs from "qs";
 import { z } from "zod";
 import { type OfferingType } from "strapi-types/types/api/offering-type";
+import { type OfferingsGalleryPage } from "strapi-types/types/api/offerings-gallery-page";
 
 export const appRouter = createTRPCRouter({
   getLandingTexts: publicProcedure.query(async ({ ctx }) => {
@@ -40,6 +41,12 @@ export const appRouter = createTRPCRouter({
   getOfferingTypes: publicProcedure.query(async ({ ctx }) => {
     const res = await ctx.strapi.get<{ data: OfferingType[] }>(
       "offering-types",
+    );
+    return res.data.data;
+  }),
+  getOfferingsGalleryTexts: publicProcedure.query(async ({ ctx }) => {
+    const res = await ctx.strapi.get<{ data: OfferingsGalleryPage }>(
+      "offerings-gallery-page",
     );
     return res.data.data;
   }),
