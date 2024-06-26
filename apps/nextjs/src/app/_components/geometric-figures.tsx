@@ -530,14 +530,14 @@ export const DesktopGeometricFigures = () => {
   };
 
   const handleAnimation = async () => {
-    await firstKeyFrame({ duration: 1.2 });
-    await secondKeyFrame({ duration: 0.2, delay: 0.5 });
-    await thirdKeyFrame({ duration: 1.2, delay: 0.5 });
-    await fourthKeyFrame({ duration: 1.2, delay: 0.5 });
-    await fifthKeyFrame({ duration: 1.2, delay: 0.5 });
-    await sixthKeyFrame({ duration: 1.2, delay: 0.5 });
-    await seventhKeyFrame({ duration: 1.2, delay: 0.5 });
-    await eightKeyFrame({ duration: 1.2 });
+    await firstKeyFrame({ duration: 1.2, ease: "easeInOut" });
+    await secondKeyFrame({ duration: 0.2, delay: 0.5, ease: "easeInOut" });
+    await thirdKeyFrame({ duration: 0.8, delay: 0.5, ease: "easeInOut" });
+    await fourthKeyFrame({ duration: 0.8, delay: 0.5, ease: "easeInOut" });
+    await fifthKeyFrame({ duration: 0.8, delay: 0.5, ease: "easeInOut" });
+    await sixthKeyFrame({ duration: 0.8, delay: 0.5, ease: "easeInOut" });
+    await seventhKeyFrame({ duration: 1.2, delay: 0.5, ease: "easeInOut" });
+    await eightKeyFrame({ duration: 0.8, ease: "easeInOut" });
     localStorage.setItem("lastAnimatedAt", Date.now().toString());
   };
 
@@ -554,7 +554,7 @@ export const DesktopGeometricFigures = () => {
       ? Date.now() - lastAnimatedAt < aMinute * 15
       : false;
 
-    if (hasAnimatedInTheLast) {
+    if (false) {
       void finalFrame({ duration: 1.2 });
     } else {
       void handleAnimation();
