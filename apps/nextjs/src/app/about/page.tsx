@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { DetailedHTMLProps, HTMLAttributes } from "react";
+import { type DetailedHTMLProps, type HTMLAttributes } from "react";
 import Markdown from "~/app/_components/markdown";
 import Navbar from "~/app/_components/navbar";
 import { type SearchParams } from "~/middleware";
