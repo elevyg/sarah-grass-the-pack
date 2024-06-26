@@ -8,6 +8,11 @@ import { type OfferingType } from "strapi-types/types/api/offering-type";
 import { api } from "~/trpc/react";
 import { formatDate } from "~/utils/formatDate";
 
+const getMaxLastRow = (numero: number, divisor: number): number =>
+  numero % divisor === 0 ? numero : getMaxLastRow(numero + 1, divisor);
+
+const NUMBER_OF_COLUMNS = 3;
+
 interface Props {
   initialOfferings: Offering[];
   offeringTypes: OfferingType[];
@@ -23,6 +28,8 @@ const OfferingsDashboard = ({ initialOfferings, offeringTypes }: Props) => {
       initialData: initialOfferings,
     },
   );
+
+  const maxLastRow = getMaxLastRow(offerings.data.length, NUMBER_OF_COLUMNS);
 
   return (
     <div className="h-full w-full">
@@ -53,8 +60,8 @@ const OfferingsDashboard = ({ initialOfferings, offeringTypes }: Props) => {
           <p className="heading-2-az">Looking for offerings...</p>
         </div>
       ) : (
-        <div className={`grid grid-cols-1 md:mb-16 md:grid-cols-3`}>
-          {offerings.data.map((offering) => {
+        <div className={`grid grid-cols-1 md:grid-cols-3`}>
+          {offerings.data.map((offering, index) => {
             const { startingDate, endingDate, startingTime, endingTime } =
               formatDate(offering);
 
@@ -65,10 +72,13 @@ const OfferingsDashboard = ({ initialOfferings, offeringTypes }: Props) => {
               // eslint-disable-next-line @typescript-eslint/ban-ts-comment
               // @ts-ignore
             )?.shortActionButtonText as string;
+
+            const isLastRow = index + 1 > maxLastRow - NUMBER_OF_COLUMNS;
+
             return (
               <div
                 key={offering.id}
-                className={`flex flex-col justify-between border-b-2 border-matteBlack last:border-b-0 md:border-r-2 md:last:border-b-2`}
+                className={`flex flex-col justify-between border-b-2 border-matteBlack last:border-b-0 md:border-r-2 ${isLastRow ? "md:border-b-0" : ""} `}
               >
                 <div className="p-8">
                   <div className="relative aspect-square w-full overflow-hidden rounded-xl ">
