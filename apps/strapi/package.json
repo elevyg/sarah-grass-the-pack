@@ -3,6 +3,7 @@
   "private": true,
   "version": "0.1.0",
   "description": "A Strapi application",
+  "packageManager": "yarn@1.22.19",
   "scripts": {
     "dev": "railway run strapi develop",
     "dev-local": "strapi develop",
