@@ -13,7 +13,6 @@ export default {
     "h-[4rem]",
     "pt-[6rem]",
     "pt-[4rem]",
-    "text-red-400",
   ],
   theme: {
     listStyleType: {
@@ -34,6 +33,9 @@ export default {
       fontFamily: {
         arizona: ["var(--arizona)"],
         foundersGrotesk: ["var(--founders-grotesk)", ...fontFamily.sans],
+      },
+      spacing: {
+        "30px": "1.875rem",
       },
     },
   },

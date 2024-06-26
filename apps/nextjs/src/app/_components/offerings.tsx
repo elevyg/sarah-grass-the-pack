@@ -1,3 +1,4 @@
+import HeadingContainer from "~/app/_components/heading-container";
 import OfferingCard from "~/app/_components/offering-card";
 import { api } from "~/trpc/server";
 
@@ -11,12 +12,9 @@ const Offerings = async ({ title }: Props) => {
 
   return (
     <div id="offering-container" className="flex w-full flex-1 flex-col">
-      <div
-        id="offering-header"
-        className="w-full border-b-2 border-matteBlack bg-mint p-6 md:bg-eggWhite"
-      >
+      <HeadingContainer id="offering-header" className="bg-mint md:bg-eggWhite">
         <h2 className="heading-1">{title}</h2>
-      </div>
+      </HeadingContainer>
       <div
         id="offering-content-container"
         className="relative grid grid-cols-1 items-start justify-between md:grid-cols-2"

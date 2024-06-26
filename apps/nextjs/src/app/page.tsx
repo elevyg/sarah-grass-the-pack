@@ -8,6 +8,7 @@ import { type SearchParams } from "../middleware";
 import Hero from "~/app/_components/hero";
 import { Suspense } from "react";
 import ArtworkGallery from "~/app/_components/artwork-gallery";
+import HeadingContainer from "~/app/_components/heading-container";
 
 type Request = { searchParams: SearchParams };
 
@@ -33,12 +34,12 @@ export default async function Home(request: Request) {
       </Section>
       <Section color="lavander" lowerBorderOnly>
         <div className="flex w-full flex-1 flex-col">
-          <div
+          <HeadingContainer
             id="journal-header"
-            className="w-full border-b-2 border-matteBlack bg-lavander p-6 md:bg-eggWhite"
+            className="bg-lavander md:bg-eggWhite"
           >
             <h2 className="heading-1">{texts.attributes.journal_header}</h2>
-          </div>
+          </HeadingContainer>
           <div className="flex w-full flex-col p-8 md:flex-row">
             <div className="flex flex-1 items-center justify-center">
               <div
@@ -61,7 +62,7 @@ export default async function Home(request: Request) {
                 )}
               </div>
             </div>
-            <div className="flex-1 md:pl-10 ">
+            <div className="flex-1 md:pl-10">
               <div className="flex w-full flex-col">
                 <h3 className="heading-2 mb-5">
                   {texts.attributes.journal_section_title}
@@ -90,13 +91,12 @@ export default async function Home(request: Request) {
       </Suspense>
       <Section color="beige">
         <div className="w-full">
-          <div
+          <HeadingContainer
             id="connect-header"
-            className="w-full border-b-2 border-matteBlack bg-beige p-6 md:bg-eggWhite"
+            className="bg-beige md:bg-eggWhite"
           >
             <h2 className="heading-1">{texts.attributes.connect_header}</h2>
-          </div>
-
+          </HeadingContainer>
           <Footer />
         </div>
       </Section>
