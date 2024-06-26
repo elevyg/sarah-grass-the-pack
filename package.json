@@ -1,6 +1,7 @@
 {
   "private": true,
   "name": "sarah-grass-the-pack",
+  "packageManager": "yarn@1.22.19",
   "version": "1.0.0",
   "license": "MIT",
   "workspaces": [
