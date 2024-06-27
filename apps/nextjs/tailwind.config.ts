@@ -40,6 +40,8 @@ export default {
         "44px": "2.75rem",
         "50px": "3.125rem",
         "60px": "3.75rem",
+        "navbar-desktop": "5.787rem",
+        "navbar-mobile": "4.688rem",
       },
     },
   },

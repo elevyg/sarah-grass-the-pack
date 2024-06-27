@@ -574,7 +574,7 @@ export const DesktopGeometricFigures = () => {
       />
       <div
         id="background"
-        className="overflow-hidden pt-[6rem]"
+        className="pt-navbar-desktop overflow-hidden"
         style={{ backgroundColor: colors.mint, color: colors.mint }}
       >
         <div className="flex min-h-[calc(100vh-6rem)] flex-1 items-center justify-center">
@@ -1249,7 +1249,7 @@ export const MobileGeometricFigures = () => {
       />
       <motion.div
         id="background"
-        className="pt-[4rem]"
+        className="pt-navbar-mobile"
         style={{ backgroundColor: colors.mint, color: colors.mint }}
       >
         <div className="flex min-h-[calc(100vh-4rem)] flex-1 items-center justify-center py-14">

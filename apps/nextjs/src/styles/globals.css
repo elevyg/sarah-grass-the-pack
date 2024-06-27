@@ -33,4 +33,7 @@
   .heading-2-az {
     @apply font-arizona antialiased leading-[1.05] text-[1.25rem]  md:text-[1.25rem];
   }
+  .navbar-padding {
+    @apply pt-navbar-mobile md:pt-navbar-desktop
+  }
 }

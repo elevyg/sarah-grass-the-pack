@@ -32,7 +32,7 @@ export default async function About(request: Request) {
   return (
     <div className="">
       <Navbar mode={request.searchParams.viewport} />
-      <div className="grid grid-cols-1 border-b-2 border-matteBlack pt-[4rem] md:grid-cols-2 md:pt-[4rem]">
+      <div className="navbar-padding grid grid-cols-1 border-b-2 border-matteBlack md:grid-cols-2">
         <div id="first-block" className="border-r-2 border-matteBlack">
           <BlockContainer>
             <h2 className="heading-1-az mb-5">
@@ -88,7 +88,7 @@ const BlockContainer = ({
   className,
   children,
 }: DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>) => (
-  <div className={"p-50px border-b-2 border-matteBlack " + className}>
+  <div className={"border-b-2 border-matteBlack p-50px " + className}>
     {children}
   </div>
 );
