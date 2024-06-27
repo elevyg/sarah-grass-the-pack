@@ -19,7 +19,7 @@ const Navbar = (props: Props) => {
     <AnimatePresence>
       <motion.nav
         {...props}
-        className={`md:h-navbar-desktop h-navbar-mobile fixed z-20 flex w-screen items-end justify-between border-b-2 border-b-matteBlack bg-eggWhite pb-2 pl-6 pr-6 md:pr-8 ${props.className}`}
+        className={`md:h-navbar-desktop h-navbar-mobile fixed z-20 flex w-screen items-end justify-between border-b-2 border-b-matteBlack bg-eggWhite pb-2 pl-6 pr-6 md:items-center md:pr-8 ${props.className}`}
       >
         <div>
           <Link href="/">
