@@ -98,27 +98,40 @@ const Gallery = forwardRef(
     );
 
     return (
-      <div
-        className="flex w-full snap-x snap-mandatory overflow-x-scroll scroll-smooth no-scrollbar md:scroll-pl-96"
-        ref={containerRef}
-      >
-        <div className="flex items-center gap-16 px-[300vw] py-5">
-          {images.map((image) => (
-            <div
-              key={image.id}
-              className="flex w-screen flex-shrink-0 snap-start snap-always flex-col items-start  p-3 md:w-auto md:p-0"
-            >
-              <Image
-                src={image.url}
-                height={image.height}
-                width={image.width}
-                alt={image.caption ?? "art work image"}
-                className="h-[60vh] w-max  object-contain"
-                sizes="(max-width: 768px) 100vw"
-              />
-              <p className="caption flex-1  pt-3">{image.caption}</p>
-            </div>
-          ))}
+      <div className="relative">
+        <div className="absolute bottom-0 left-0 right-0 top-0 z-50 hidden w-screen items-center justify-between md:flex ">
+          <button
+            onClick={() => onLeftArrowClick(moveTo - 1)}
+            className="cursor-left h-full w-[40%]"
+          ></button>
+          <button
+            onClick={() => onRightArrowClick(moveTo + 1)}
+            className="cursor-right h-full w-[40%]"
+          ></button>
+        </div>
+
+        <div
+          className="flex w-full snap-x snap-mandatory overflow-x-hidden scroll-smooth no-scrollbar md:scroll-pl-96"
+          ref={containerRef}
+        >
+          <div className="flex h-full items-center gap-16 px-[300vw] py-5">
+            {images.map((image) => (
+              <div
+                key={image.id}
+                className="flex w-screen flex-shrink-0 snap-start snap-always flex-col items-start  p-3 md:w-auto md:p-0"
+              >
+                <Image
+                  src={image.url}
+                  height={image.height}
+                  width={image.width}
+                  alt={image.caption ?? "art work image"}
+                  className="h-[60vh] w-max  object-contain"
+                  sizes="(max-width: 768px) 100vw"
+                />
+                <p className="caption flex-1  pt-3">{image.caption}</p>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     );
