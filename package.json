@@ -4,6 +4,9 @@
   "packageManager": "yarn@1.22.19",
   "version": "1.0.0",
   "license": "MIT",
+  "scripts": {
+    "dev:local": "npx turbo dev-local"
+  },
   "workspaces": [
     "apps/*",
     "packages/*"

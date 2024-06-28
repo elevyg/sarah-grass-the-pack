@@ -3,7 +3,6 @@ import "~/styles/globals.css";
 import localFont from "next/font/local";
 
 import { TRPCReactProvider } from "~/trpc/react";
-import Script from "next/script";
 
 const arizona = localFont({
   src: "../../public/fonts/EduArizonaFlare-Light.woff",
@@ -27,13 +26,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className="bg-eggWhite">
-      <head>
-        <Script
-          type="module"
-          src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
-        ></Script>
-        <Script src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></Script>
-      </head>
+      <head></head>
       <body className={`${arizona.variable} ${foundersGrotesk.variable}`}>
         <TRPCReactProvider>
           <div>{children}</div>

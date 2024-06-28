@@ -5,6 +5,9 @@ import Gallery, {
   type Image,
 } from "~/app/_components/gallery";
 
+import ChevronLeft from "~/../public/svg/chevron-left.svg";
+import ChevronRight from "~/../public/svg/chevron-right.svg";
+
 type Props = { title?: string; galleryImages: Image[] };
 
 const ArtworkGalleryClient = ({ title, galleryImages }: Props) => {
@@ -13,27 +16,21 @@ const ArtworkGalleryClient = ({ title, galleryImages }: Props) => {
     <div className="flex w-full flex-col">
       <div
         id="artist-work-header"
-        className="p-30px flex w-full items-center justify-between border-b-2 border-matteBlack md:items-end"
+        className="flex w-full items-center justify-between border-b-2 border-matteBlack p-30px md:items-end"
       >
         <h2 className="heading-1">{title}</h2>
-        <div className="flex items-center justify-center">
+        <div className="flex items-center justify-center gap-10">
           <button
             onClick={() => galleryAction.current?.moveLeft()}
             className="flex items-center justify-center md:block"
           >
-            <ion-icon
-              style={{ fontSize: "2.5rem" }}
-              name="chevron-back-outline"
-            ></ion-icon>
+            <ChevronLeft />
           </button>
           <button
             onClick={() => galleryAction.current?.moveRight()}
             className="flex items-center justify-center md:block"
           >
-            <ion-icon
-              style={{ fontSize: "2.5rem" }}
-              name="chevron-forward-outline"
-            ></ion-icon>
+            <ChevronRight />
           </button>
         </div>
       </div>
