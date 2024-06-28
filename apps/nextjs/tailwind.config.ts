@@ -21,6 +21,10 @@ export default {
       decimal: "decimal",
     },
     extend: {
+      cursor: {
+        left: "url(/svg/chevron-left.svg),auto",
+        right: "url(/svg/chevron-right.svg),auto",
+      },
       colors: {
         eggWhite: "#FFFCF4",
         matteBlack: "#232323",
